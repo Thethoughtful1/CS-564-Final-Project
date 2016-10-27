@@ -1,0 +1,5 @@
+cs564ProjectV1 connection string
+
+CS564LocationsConnectionString
+
+Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Genie\Documents\CS564Locations.mdf;Integrated Security=True;Connect Timeout=30

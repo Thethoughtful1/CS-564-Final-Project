@@ -1,0 +1,14 @@
+C:\Users\Genie\Desktop\VisualStudio\CS564ProjectV1\CS564ProjectV1\bin\Debug\CS564ProjectV1.exe.config
+C:\Users\Genie\Desktop\VisualStudio\CS564ProjectV1\CS564ProjectV1\bin\Debug\CS564Locations.mdf
+C:\Users\Genie\Desktop\VisualStudio\CS564ProjectV1\CS564ProjectV1\bin\Debug\CS564Locations_log.ldf
+C:\Users\Genie\Desktop\VisualStudio\CS564ProjectV1\CS564ProjectV1\bin\Debug\CS564ProjectV1.exe
+C:\Users\Genie\Desktop\VisualStudio\CS564ProjectV1\CS564ProjectV1\bin\Debug\CS564ProjectV1.pdb
+C:\Users\Genie\Desktop\VisualStudio\CS564ProjectV1\CS564ProjectV1\obj\Debug\CS564ProjectV1.csprojResolveAssemblyReference.cache
+C:\Users\Genie\Desktop\VisualStudio\CS564ProjectV1\CS564ProjectV1\obj\Debug\CS564ProjectV1.FrmLogin.resources
+C:\Users\Genie\Desktop\VisualStudio\CS564ProjectV1\CS564ProjectV1\obj\Debug\CS564ProjectV1.Properties.Resources.resources
+C:\Users\Genie\Desktop\VisualStudio\CS564ProjectV1\CS564ProjectV1\obj\Debug\CS564ProjectV1.csproj.GenerateResource.Cache
+C:\Users\Genie\Desktop\VisualStudio\CS564ProjectV1\CS564ProjectV1\obj\Debug\CS564ProjectV1.exe
+C:\Users\Genie\Desktop\VisualStudio\CS564ProjectV1\CS564ProjectV1\obj\Debug\CS564ProjectV1.pdb
+C:\Users\Genie\Desktop\VisualStudio\CS564ProjectV1\CS564ProjectV1\obj\Debug\CS564ProjectV1.frmNewUser.resources
+C:\Users\Genie\Desktop\VisualStudio\CS564ProjectV1\CS564ProjectV1\obj\Debug\CS564ProjectV1.Main.resources
+C:\Users\Genie\Desktop\VisualStudio\CS564ProjectV1\CS564ProjectV1\obj\Debug\CS564ProjectV1.frmUserProfile.resources
