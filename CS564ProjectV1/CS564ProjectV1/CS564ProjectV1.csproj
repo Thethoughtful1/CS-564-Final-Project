@@ -64,16 +64,40 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ComparePlaces.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ComparePlaces.Designer.cs">
+      <DependentUpon>ComparePlaces.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CompareResults.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CompareResults.Designer.cs">
+      <DependentUpon>CompareResults.cs</DependentUpon>
+    </Compile>
     <Compile Include="CS564LocationsDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CS564LocationsDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="UserProfile.cs">
+    <Compile Include="FindPlace.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UserProfile.Designer.cs">
-      <DependentUpon>UserProfile.cs</DependentUpon>
+    <Compile Include="FindPlace.Designer.cs">
+      <DependentUpon>FindPlace.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PlaceInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PlaceInfo.Designer.cs">
+      <DependentUpon>PlaceInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReviewNotes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReviewNotes.Designer.cs">
+      <DependentUpon>ReviewNotes.cs</DependentUpon>
     </Compile>
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
@@ -95,8 +119,26 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="UserProfile.resx">
+    <Compile Include="UserProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserProfile.Designer.cs">
       <DependentUpon>UserProfile.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="ComparePlaces.resx">
+      <DependentUpon>ComparePlaces.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CompareResults.resx">
+      <DependentUpon>CompareResults.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FindPlace.resx">
+      <DependentUpon>FindPlace.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PlaceInfo.resx">
+      <DependentUpon>PlaceInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReviewNotes.resx">
+      <DependentUpon>ReviewNotes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
@@ -116,6 +158,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UserProfile.resx">
+      <DependentUpon>UserProfile.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="CS564LocationsDataSet.xsc">
       <DependentUpon>CS564LocationsDataSet.xsd</DependentUpon>
     </None>

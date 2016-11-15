@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace CS564ProjectV1
 {
-    public partial class frmUserProfile : Form
+    public partial class UserProfile : Form
     {
-        public frmUserProfile()
+        public UserProfile()
         {
             InitializeComponent();
         }

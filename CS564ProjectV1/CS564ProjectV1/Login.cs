@@ -60,7 +60,7 @@ namespace CS564ProjectV1
             {
                 MessageBox.Show("Login Successful!");
                 this.Hide();
-                frmUserProfile userProfile = new frmUserProfile();
+                UserProfile userProfile = new UserProfile();
                 userProfile.Show();
             }
             else
