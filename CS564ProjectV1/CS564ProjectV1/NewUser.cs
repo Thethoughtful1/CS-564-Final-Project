@@ -53,33 +53,18 @@ namespace CS564ProjectV1
             }
             else
             {
-                SqlCommand cmd = new SqlCommand("CheckPassword", Main.connection);
+                SqlCommand cmd = new SqlCommand("CreateUser", Main.connection);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@login",txtUserName.Text);
-                cmd.Parameters.AddWithValue("@password", txtPassword.Text);
-
-            }
-            
-            SqlCommand verifyLogin = new SqlCommand("CheckPassword", Main.connection);
-            verifyLogin.CommandType = CommandType.StoredProcedure;
-            verifyLogin.Parameters.AddWithValue("@login",txtUserName.Text);
-            verifyLogin.Parameters.AddWithValue("@password", txtPassword.Text);
-
-            bool loginVerified = ((int)verifyLogin.ExecuteScalar() == 0 ? false : true);
-
-            if (loginVerified)
-            {
-                MessageBox.Show("Login Successful!");
+                cmd.Parameters.AddWithValue("@login", login);
+                cmd.Parameters.AddWithValue("@password", password);
+                cmd.Parameters.AddWithValue("@firstName", firstName);
+                cmd.Parameters.AddWithValue("@lastName", lastName);
                 this.Hide();
-                Main.login = txtUserName.Text;
+                Main.login = login;
                 UserProfile userProfile = new UserProfile();
                 userProfile.Show();
+
             }
-            else
-            {
-                MessageBox.Show("User Name or Password is incorrect");
-            }
-        }
         }
     }
 }
