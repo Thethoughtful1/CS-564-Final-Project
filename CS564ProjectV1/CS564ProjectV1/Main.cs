@@ -14,6 +14,7 @@ namespace CS564ProjectV1
     public partial class Main : Form
     {
         public static string login;
+        public static string name;
         static string dbConnectionString = @"Server=Leap;Database=Locations;Integrated Security=true";
         public static SqlConnection connection = new SqlConnection(dbConnectionString);
         public Main()
