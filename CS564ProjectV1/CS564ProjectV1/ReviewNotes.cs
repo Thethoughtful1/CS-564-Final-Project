@@ -16,5 +16,29 @@ namespace CS564ProjectV1
         {
             InitializeComponent();
         }
+
+        private void lblEditProfile_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            // *EAS jump to the Edit Profile screen
+            this.Close();
+            FrmLogin loginForm = new FrmLogin();
+            loginForm.Show();
+        }
+
+        private void lblFindPlaceCrit_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            // *EAS jump to the Find Place by Criteria form
+            this.Close();
+            FrmLogin loginForm = new FrmLogin();
+            loginForm.Show();
+        }
+
+        private void lblFindPlaceCity_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            // *GWL hop from the new user screen to the login screen
+            this.Close();
+            FrmLogin loginForm = new FrmLogin();
+            loginForm.Show();
+        }
     }
 }

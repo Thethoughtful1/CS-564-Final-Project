@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.lblEditProfile = new System.Windows.Forms.LinkLabel();
-            this.lblComparePlaces = new System.Windows.Forms.LinkLabel();
-            this.lblFindPlace = new System.Windows.Forms.LinkLabel();
+            this.lblFindPlaceCity = new System.Windows.Forms.LinkLabel();
+            this.lblFindPlaceCrit = new System.Windows.Forms.LinkLabel();
             this.lblUserExclamation = new System.Windows.Forms.Label();
             this.lblUserName = new System.Windows.Forms.Label();
             this.lblWelcomeUser = new System.Windows.Forms.Label();
@@ -53,25 +53,25 @@
             this.lblEditProfile.TabStop = true;
             this.lblEditProfile.Text = "Edit Profile";
             // 
-            // lblComparePlaces
+            // lblFindPlaceCity
             // 
-            this.lblComparePlaces.AutoSize = true;
-            this.lblComparePlaces.Location = new System.Drawing.Point(801, 58);
-            this.lblComparePlaces.Name = "lblComparePlaces";
-            this.lblComparePlaces.Size = new System.Drawing.Size(84, 13);
-            this.lblComparePlaces.TabIndex = 11;
-            this.lblComparePlaces.TabStop = true;
-            this.lblComparePlaces.Text = "Compare Places";
+            this.lblFindPlaceCity.AutoSize = true;
+            this.lblFindPlaceCity.Location = new System.Drawing.Point(801, 58);
+            this.lblFindPlaceCity.Name = "lblFindPlaceCity";
+            this.lblFindPlaceCity.Size = new System.Drawing.Size(100, 13);
+            this.lblFindPlaceCity.TabIndex = 11;
+            this.lblFindPlaceCity.TabStop = true;
+            this.lblFindPlaceCity.Text = "Find a Place by City";
             // 
-            // lblFindPlace
+            // lblFindPlaceCrit
             // 
-            this.lblFindPlace.AutoSize = true;
-            this.lblFindPlace.Location = new System.Drawing.Point(630, 58);
-            this.lblFindPlace.Name = "lblFindPlace";
-            this.lblFindPlace.Size = new System.Drawing.Size(66, 13);
-            this.lblFindPlace.TabIndex = 10;
-            this.lblFindPlace.TabStop = true;
-            this.lblFindPlace.Text = "Find a Place";
+            this.lblFindPlaceCrit.AutoSize = true;
+            this.lblFindPlaceCrit.Location = new System.Drawing.Point(630, 58);
+            this.lblFindPlaceCrit.Name = "lblFindPlaceCrit";
+            this.lblFindPlaceCrit.Size = new System.Drawing.Size(115, 13);
+            this.lblFindPlaceCrit.TabIndex = 10;
+            this.lblFindPlaceCrit.TabStop = true;
+            this.lblFindPlaceCrit.Text = "Find a Place by Criteria";
             // 
             // lblUserExclamation
             // 
@@ -178,8 +178,8 @@
             this.Controls.Add(this.lblPlaceLink);
             this.Controls.Add(this.lblYourNotes);
             this.Controls.Add(this.lblEditProfile);
-            this.Controls.Add(this.lblComparePlaces);
-            this.Controls.Add(this.lblFindPlace);
+            this.Controls.Add(this.lblFindPlaceCity);
+            this.Controls.Add(this.lblFindPlaceCrit);
             this.Controls.Add(this.lblUserExclamation);
             this.Controls.Add(this.lblUserName);
             this.Controls.Add(this.lblWelcomeUser);
@@ -193,8 +193,8 @@
         #endregion
 
         private System.Windows.Forms.LinkLabel lblEditProfile;
-        private System.Windows.Forms.LinkLabel lblComparePlaces;
-        private System.Windows.Forms.LinkLabel lblFindPlace;
+        private System.Windows.Forms.LinkLabel lblFindPlaceCity;
+        private System.Windows.Forms.LinkLabel lblFindPlaceCrit;
         private System.Windows.Forms.Label lblUserExclamation;
         private System.Windows.Forms.Label lblUserName;
         private System.Windows.Forms.Label lblWelcomeUser;
