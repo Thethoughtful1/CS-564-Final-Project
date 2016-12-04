@@ -16,6 +16,8 @@ namespace CS564ProjectV1
         public UserProfile()
         {
             InitializeComponent();
+            lblLogin.Text = Main.login;
+            lblWelcomeUser.Text = "Welcome " + Main.name + "!";
         }
 
         private void lblReviewNotes_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -45,28 +47,22 @@ namespace CS564ProjectV1
         private void cmdUpdate_Click(object sender, EventArgs e)
         {
 
-            string login = txtUserName.Text;
+            string login = Main.login;
             string password = txtPassword.Text;
             string firstName = txtFnam.Text;
             string lastName = textBox2.Text;
 
 
-            if (password == "" || password.Length > 500)
-            {
-                MessageBox.Show("Please enter a password of up to 500 characters.");
-            }
-            else
-            {
                 SqlCommand cmd = new SqlCommand("UpdateUser", Main.connection);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@login", login);
                 cmd.Parameters.AddWithValue("@password", password);
                 cmd.Parameters.AddWithValue("@firstName", firstName);
                 cmd.Parameters.AddWithValue("@lastName", lastName);
+                cmd.ExecuteScalar();
                 Main.name = (firstName == "" ? "Dude" : firstName);
-                lblUserName.Text = Main.name;
+                lblWelcomeUser.Text = "Welcome " + Main.name + "!";
                 this.Refresh();
-            }
         }
     }
 }
