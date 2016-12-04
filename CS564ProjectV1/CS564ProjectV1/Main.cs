@@ -29,5 +29,11 @@ namespace CS564ProjectV1
             FrmLogin loginScreen = new FrmLogin();
             loginScreen.Show();
         }
+
+        private void lblGoToPlacePg_Click(object sender, EventArgs e)
+        {
+            PlaceInfo newPlaceInfo = new PlaceInfo();
+            newPlaceInfo.Show();
+        }
     }
 }

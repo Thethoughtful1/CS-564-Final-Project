@@ -50,6 +50,10 @@
             this.lblYourNotes = new System.Windows.Forms.Label();
             this.cmdSaveNotes = new System.Windows.Forms.Button();
             this.lblDeleteNote = new System.Windows.Forms.LinkLabel();
+            this.grpStateInfo = new System.Windows.Forms.GroupBox();
+            this.lblAvgIncomeInfo = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.grpStateInfo.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblFindPlaceCity
@@ -218,10 +222,10 @@
             // lblPlaceName
             // 
             this.lblPlaceName.AutoSize = true;
-            this.lblPlaceName.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPlaceName.Location = new System.Drawing.Point(567, 84);
+            this.lblPlaceName.Font = new System.Drawing.Font("Microsoft Sans Serif", 28F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPlaceName.Location = new System.Drawing.Point(541, 84);
             this.lblPlaceName.Name = "lblPlaceName";
-            this.lblPlaceName.Size = new System.Drawing.Size(220, 36);
+            this.lblPlaceName.Size = new System.Drawing.Size(283, 44);
             this.lblPlaceName.TabIndex = 57;
             this.lblPlaceName.Text = "<Place Name>";
             // 
@@ -261,11 +265,46 @@
             this.lblDeleteNote.TabStop = true;
             this.lblDeleteNote.Text = "Delete Note";
             // 
+            // grpStateInfo
+            // 
+            this.grpStateInfo.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.grpStateInfo.Controls.Add(this.label6);
+            this.grpStateInfo.Controls.Add(this.lblAvgIncomeInfo);
+            this.grpStateInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpStateInfo.Location = new System.Drawing.Point(56, 84);
+            this.grpStateInfo.Name = "grpStateInfo";
+            this.grpStateInfo.Size = new System.Drawing.Size(318, 539);
+            this.grpStateInfo.TabIndex = 72;
+            this.grpStateInfo.TabStop = false;
+            this.grpStateInfo.Text = "State Information";
+            // 
+            // lblAvgIncomeInfo
+            // 
+            this.lblAvgIncomeInfo.AutoSize = true;
+            this.lblAvgIncomeInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAvgIncomeInfo.Location = new System.Drawing.Point(16, 127);
+            this.lblAvgIncomeInfo.Name = "lblAvgIncomeInfo";
+            this.lblAvgIncomeInfo.Size = new System.Drawing.Size(222, 20);
+            this.lblAvgIncomeInfo.TabIndex = 0;
+            this.lblAvgIncomeInfo.Text = "Average Income Tax Revenue";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.label6.Location = new System.Drawing.Point(7, 56);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(210, 73);
+            this.label6.TabIndex = 1;
+            this.label6.Text = "label6";
+            // 
             // PlaceInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1276, 693);
+            this.Controls.Add(this.grpStateInfo);
             this.Controls.Add(this.lblDeleteNote);
             this.Controls.Add(this.cmdSaveNotes);
             this.Controls.Add(this.lblYourNotes);
@@ -291,6 +330,8 @@
             this.MinimumSize = new System.Drawing.Size(1278, 678);
             this.Name = "PlaceInfo";
             this.Text = "PlaceInfo";
+            this.grpStateInfo.ResumeLayout(false);
+            this.grpStateInfo.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -320,5 +361,8 @@
         private System.Windows.Forms.Label lblYourNotes;
         private System.Windows.Forms.Button cmdSaveNotes;
         private System.Windows.Forms.LinkLabel lblDeleteNote;
+        private System.Windows.Forms.GroupBox grpStateInfo;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblAvgIncomeInfo;
     }
 }
