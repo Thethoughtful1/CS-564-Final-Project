@@ -21,24 +21,24 @@ namespace CS564ProjectV1
         {
             // *EAS jump to the Edit Profile screen
             this.Close();
-            FrmLogin loginForm = new FrmLogin();
-            loginForm.Show();
+            UserProfile userProfile = new UserProfile();
+            userProfile.Show();
         }
 
         private void lblFindPlaceCrit_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             // *EAS jump to the Find Place by Criteria form
             this.Close();
-            FrmLogin loginForm = new FrmLogin();
-            loginForm.Show();
+            FindPlaceCrit findPlaceCrit = new FindPlaceCrit();
+            findPlaceCrit.Show();
         }
 
         private void lblFindPlaceCity_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            // *GWL hop from the new user screen to the login screen
+            // *EAS jump to the Find Place by City form
             this.Close();
-            FrmLogin loginForm = new FrmLogin();
-            loginForm.Show();
+            FindPlaceCity findPlaceCity = new FindPlaceCity();
+            findPlaceCity.Show();
         }
     }
 }
