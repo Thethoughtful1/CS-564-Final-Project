@@ -51,3 +51,7 @@ C:\Users\glee\Desktop\CS-564-Final-Project\CS564ProjectV1\CS564ProjectV1\obj\Deb
 C:\Users\glee\Desktop\CS-564-Final-Project\CS564ProjectV1\CS564ProjectV1\obj\Debug\CS564ProjectV1.Properties.Resources.resources
 C:\Users\glee\Desktop\CS-564-Final-Project\CS564ProjectV1\CS564ProjectV1\obj\Debug\CS564ProjectV1.UserProfile.resources
 C:\Users\glee\Desktop\CS-564-Final-Project\CS564ProjectV1\CS564ProjectV1\obj\Debug\CS564ProjectV1.csproj.GenerateResource.Cache
+C:\Users\glee\Desktop\CS-564-Final-Project\CS564ProjectV1\CS564ProjectV1\bin\Debug\CS564Locations.mdf
+C:\Users\glee\Desktop\CS-564-Final-Project\CS564ProjectV1\CS564ProjectV1\bin\Debug\CS564Locations_log.ldf
+C:\Users\glee\Desktop\CS-564-Final-Project\CS564ProjectV1\CS564ProjectV1\bin\Debug\CS564ProjectV1.exe
+C:\Users\glee\Desktop\CS-564-Final-Project\CS564ProjectV1\CS564ProjectV1\bin\Debug\CS564ProjectV1.pdb
