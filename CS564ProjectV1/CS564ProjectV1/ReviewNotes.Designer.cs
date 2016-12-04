@@ -35,12 +35,7 @@
             this.lblUserName = new System.Windows.Forms.Label();
             this.lblWelcomeUser = new System.Windows.Forms.Label();
             this.lblYourNotes = new System.Windows.Forms.Label();
-            this.lblPlaceLink = new System.Windows.Forms.LinkLabel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
+            this.notePanel = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // lblEditProfile
@@ -111,71 +106,19 @@
             this.lblYourNotes.TabIndex = 13;
             this.lblYourNotes.Text = "Your Notes";
             // 
-            // lblPlaceLink
+            // notePanel
             // 
-            this.lblPlaceLink.AutoSize = true;
-            this.lblPlaceLink.Location = new System.Drawing.Point(474, 130);
-            this.lblPlaceLink.Name = "lblPlaceLink";
-            this.lblPlaceLink.Size = new System.Drawing.Size(57, 13);
-            this.lblPlaceLink.TabIndex = 14;
-            this.lblPlaceLink.TabStop = true;
-            this.lblPlaceLink.Text = "Place Link";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(477, 157);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(408, 97);
-            this.textBox1.TabIndex = 15;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(477, 301);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(408, 97);
-            this.textBox2.TabIndex = 17;
-            // 
-            // linkLabel1
-            // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(474, 274);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(57, 13);
-            this.linkLabel1.TabIndex = 16;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Place Link";
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(477, 455);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(408, 97);
-            this.textBox3.TabIndex = 19;
-            // 
-            // linkLabel2
-            // 
-            this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Location = new System.Drawing.Point(474, 428);
-            this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(57, 13);
-            this.linkLabel2.TabIndex = 18;
-            this.linkLabel2.TabStop = true;
-            this.linkLabel2.Text = "Place Link";
+            this.notePanel.Location = new System.Drawing.Point(471, 123);
+            this.notePanel.Name = "notePanel";
+            this.notePanel.Size = new System.Drawing.Size(430, 400);
+            this.notePanel.TabIndex = 14;
             // 
             // ReviewNotes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1344, 729);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.linkLabel2);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.linkLabel1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.lblPlaceLink);
+            this.Controls.Add(this.notePanel);
             this.Controls.Add(this.lblYourNotes);
             this.Controls.Add(this.lblEditProfile);
             this.Controls.Add(this.lblFindPlaceCity);
@@ -199,11 +142,6 @@
         private System.Windows.Forms.Label lblUserName;
         private System.Windows.Forms.Label lblWelcomeUser;
         private System.Windows.Forms.Label lblYourNotes;
-        private System.Windows.Forms.LinkLabel lblPlaceLink;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.LinkLabel linkLabel1;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.LinkLabel linkLabel2;
+        private System.Windows.Forms.Panel notePanel;
     }
 }
