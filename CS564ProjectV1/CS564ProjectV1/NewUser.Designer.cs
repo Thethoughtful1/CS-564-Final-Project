@@ -34,9 +34,9 @@
             this.lblPassword = new System.Windows.Forms.Label();
             this.txtUserName = new System.Windows.Forms.TextBox();
             this.lblUserName = new System.Windows.Forms.Label();
-            this.txtFnam = new System.Windows.Forms.TextBox();
+            this.txtFName = new System.Windows.Forms.TextBox();
             this.lblFname = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtLName = new System.Windows.Forms.TextBox();
             this.lblLname = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -59,6 +59,7 @@
             this.cmdRegister.TabIndex = 10;
             this.cmdRegister.Text = "Register";
             this.cmdRegister.UseVisualStyleBackColor = true;
+            this.cmdRegister.Click += new System.EventHandler(this.cmdRegister_Click);
             // 
             // txtPassword
             // 
@@ -92,12 +93,12 @@
             this.lblUserName.TabIndex = 6;
             this.lblUserName.Text = "User Name";
             // 
-            // txtFnam
+            // txtFName
             // 
-            this.txtFnam.Location = new System.Drawing.Point(638, 166);
-            this.txtFnam.Name = "txtFnam";
-            this.txtFnam.Size = new System.Drawing.Size(100, 20);
-            this.txtFnam.TabIndex = 13;
+            this.txtFName.Location = new System.Drawing.Point(638, 166);
+            this.txtFName.Name = "txtFName";
+            this.txtFName.Size = new System.Drawing.Size(100, 20);
+            this.txtFName.TabIndex = 13;
             // 
             // lblFname
             // 
@@ -108,12 +109,12 @@
             this.lblFname.TabIndex = 12;
             this.lblFname.Text = "First Name";
             // 
-            // textBox2
+            // txtLName
             // 
-            this.textBox2.Location = new System.Drawing.Point(638, 196);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 15;
+            this.txtLName.Location = new System.Drawing.Point(638, 196);
+            this.txtLName.Name = "txtLName";
+            this.txtLName.Size = new System.Drawing.Size(100, 20);
+            this.txtLName.TabIndex = 15;
             // 
             // lblLname
             // 
@@ -129,9 +130,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1344, 729);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtLName);
             this.Controls.Add(this.lblLname);
-            this.Controls.Add(this.txtFnam);
+            this.Controls.Add(this.txtFName);
             this.Controls.Add(this.lblFname);
             this.Controls.Add(this.lblRegisterLink);
             this.Controls.Add(this.cmdRegister);
@@ -156,9 +157,9 @@
         private System.Windows.Forms.Label lblPassword;
         private System.Windows.Forms.TextBox txtUserName;
         private System.Windows.Forms.Label lblUserName;
-        private System.Windows.Forms.TextBox txtFnam;
+        private System.Windows.Forms.TextBox txtFName;
         private System.Windows.Forms.Label lblFname;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtLName;
         private System.Windows.Forms.Label lblLname;
     }
 }
