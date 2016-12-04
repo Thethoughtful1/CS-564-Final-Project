@@ -61,6 +61,7 @@ namespace CS564ProjectV1
                 cmd.Parameters.AddWithValue("@lastName", lastName);
                 this.Hide();
                 Main.login = login;
+                Main.name = (firstName == "" ? "Dude" : firstName);
                 UserProfile userProfile = new UserProfile();
                 userProfile.Show();
 

@@ -40,6 +40,13 @@ namespace CS564ProjectV1
                 MessageBox.Show("Login Successful!");
                 this.Hide();
                 Main.login = txtUserName.Text;
+                
+                SqlCommand getName = new SqlCommand("GetName", Main.connection);
+                getName.CommandType = CommandType.StoredProcedure;
+                getName.Parameters.AddWithValue("@login",txtUserName.Text);
+                Main.name = (string)getName.ExecuteScalar();
+                MessageBox.Show("hello " + Main.name);
+
                 UserProfile userProfile = new UserProfile();
                 userProfile.Show();
             }
