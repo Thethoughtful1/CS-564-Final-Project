@@ -45,7 +45,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lblAvgPopulation = new System.Windows.Forms.Label();
-            this.lblPlaceInfo = new System.Windows.Forms.Label();
+            this.lblPlaceName = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.lblYourNotes = new System.Windows.Forms.Label();
             this.cmdSaveNotes = new System.Windows.Forms.Button();
@@ -215,15 +215,15 @@
             this.lblAvgPopulation.TabIndex = 58;
             this.lblAvgPopulation.Text = "Average Population:";
             // 
-            // lblPlaceInfo
+            // lblPlaceName
             // 
-            this.lblPlaceInfo.AutoSize = true;
-            this.lblPlaceInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPlaceInfo.Location = new System.Drawing.Point(567, 84);
-            this.lblPlaceInfo.Name = "lblPlaceInfo";
-            this.lblPlaceInfo.Size = new System.Drawing.Size(220, 36);
-            this.lblPlaceInfo.TabIndex = 57;
-            this.lblPlaceInfo.Text = "<Place Name>";
+            this.lblPlaceName.AutoSize = true;
+            this.lblPlaceName.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPlaceName.Location = new System.Drawing.Point(567, 84);
+            this.lblPlaceName.Name = "lblPlaceName";
+            this.lblPlaceName.Size = new System.Drawing.Size(220, 36);
+            this.lblPlaceName.TabIndex = 57;
+            this.lblPlaceName.Text = "<Place Name>";
             // 
             // textBox1
             // 
@@ -280,7 +280,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblAvgPopulation);
-            this.Controls.Add(this.lblPlaceInfo);
+            this.Controls.Add(this.lblPlaceName);
             this.Controls.Add(this.lblFindPlaceCity);
             this.Controls.Add(this.lblEditProfile);
             this.Controls.Add(this.lblFindPlaceCrit);
@@ -315,7 +315,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblAvgPopulation;
-        private System.Windows.Forms.Label lblPlaceInfo;
+        private System.Windows.Forms.Label lblPlaceName;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label lblYourNotes;
         private System.Windows.Forms.Button cmdSaveNotes;
