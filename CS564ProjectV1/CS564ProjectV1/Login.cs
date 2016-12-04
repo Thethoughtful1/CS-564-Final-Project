@@ -45,7 +45,6 @@ namespace CS564ProjectV1
                 getName.CommandType = CommandType.StoredProcedure;
                 getName.Parameters.AddWithValue("@login",txtUserName.Text);
                 Main.name = (string)getName.ExecuteScalar();
-                MessageBox.Show("hello " + Main.name);
 
                 UserProfile userProfile = new UserProfile();
                 userProfile.Show();

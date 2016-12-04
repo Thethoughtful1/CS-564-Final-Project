@@ -110,6 +110,7 @@
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(664, 192);
+            this.textBox2.MaxLength = 50;
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(100, 20);
             this.textBox2.TabIndex = 27;
@@ -126,6 +127,7 @@
             // txtFnam
             // 
             this.txtFnam.Location = new System.Drawing.Point(664, 162);
+            this.txtFnam.MaxLength = 50;
             this.txtFnam.Name = "txtFnam";
             this.txtFnam.Size = new System.Drawing.Size(100, 20);
             this.txtFnam.TabIndex = 25;
@@ -147,10 +149,12 @@
             this.cmdUpdate.TabIndex = 23;
             this.cmdUpdate.Text = "Update";
             this.cmdUpdate.UseVisualStyleBackColor = true;
+            this.cmdUpdate.Click += new System.EventHandler(this.cmdUpdate_Click);
             // 
             // txtPassword
             // 
             this.txtPassword.Location = new System.Drawing.Point(664, 252);
+            this.txtPassword.MaxLength = 500;
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(100, 20);
             this.txtPassword.TabIndex = 22;
@@ -160,13 +164,14 @@
             this.lblCurrentLocation.AutoSize = true;
             this.lblCurrentLocation.Location = new System.Drawing.Point(576, 256);
             this.lblCurrentLocation.Name = "lblCurrentLocation";
-            this.lblCurrentLocation.Size = new System.Drawing.Size(85, 13);
+            this.lblCurrentLocation.Size = new System.Drawing.Size(53, 13);
             this.lblCurrentLocation.TabIndex = 21;
-            this.lblCurrentLocation.Text = "Current Location";
+            this.lblCurrentLocation.Text = "Password";
             // 
             // txtUserName
             // 
             this.txtUserName.Location = new System.Drawing.Point(664, 222);
+            this.txtUserName.MaxLength = 50;
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(100, 20);
             this.txtUserName.TabIndex = 20;
