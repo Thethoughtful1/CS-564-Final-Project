@@ -64,11 +64,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ComparePlaces.cs">
+    <Compile Include="FindPlaceCity.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ComparePlaces.Designer.cs">
-      <DependentUpon>ComparePlaces.cs</DependentUpon>
+    <Compile Include="FindPlaceCity.Designer.cs">
+      <DependentUpon>FindPlaceCity.cs</DependentUpon>
     </Compile>
     <Compile Include="CompareResults.cs">
       <SubType>Form</SubType>
@@ -81,11 +81,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CS564LocationsDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="FindPlace.cs">
+    <Compile Include="FindPlaceCrit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FindPlace.Designer.cs">
-      <DependentUpon>FindPlace.cs</DependentUpon>
+    <Compile Include="FindPlaceCrit.Designer.cs">
+      <DependentUpon>FindPlaceCrit.cs</DependentUpon>
     </Compile>
     <Compile Include="PlaceInfo.cs">
       <SubType>Form</SubType>
@@ -125,14 +125,14 @@
     <Compile Include="UserProfile.Designer.cs">
       <DependentUpon>UserProfile.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="ComparePlaces.resx">
-      <DependentUpon>ComparePlaces.cs</DependentUpon>
+    <EmbeddedResource Include="FindPlaceCity.resx">
+      <DependentUpon>FindPlaceCity.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CompareResults.resx">
       <DependentUpon>CompareResults.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FindPlace.resx">
-      <DependentUpon>FindPlace.cs</DependentUpon>
+    <EmbeddedResource Include="FindPlaceCrit.resx">
+      <DependentUpon>FindPlaceCrit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PlaceInfo.resx">
       <DependentUpon>PlaceInfo.cs</DependentUpon>
