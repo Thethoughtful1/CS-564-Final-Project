@@ -59,7 +59,6 @@
             this.cmdRegister.TabIndex = 10;
             this.cmdRegister.Text = "Register";
             this.cmdRegister.UseVisualStyleBackColor = true;
-            this.cmdRegister.Click += new System.EventHandler(this.cmdRegister_Click);
             // 
             // txtPassword
             // 
