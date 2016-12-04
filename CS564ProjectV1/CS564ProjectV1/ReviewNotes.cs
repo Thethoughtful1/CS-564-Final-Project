@@ -35,7 +35,7 @@ namespace CS564ProjectV1
 
         private void lblFindPlaceCity_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            // *GWL hop from the new user screen to the login screen
+            // *EAS jump to the Find Place by City form
             this.Close();
             FindPlaceCity findPlaceCity = new FindPlaceCity();
             findPlaceCity.Show();

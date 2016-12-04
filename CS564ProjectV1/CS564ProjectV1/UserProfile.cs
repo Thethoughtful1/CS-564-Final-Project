@@ -16,5 +16,29 @@ namespace CS564ProjectV1
         {
             InitializeComponent();
         }
+
+        private void lblReviewNotes_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            // *EAS jump to the Review Notes form
+            this.Close();
+            ReviewNotes reviewNotes = new ReviewNotes();
+            reviewNotes.Show();
+        }
+
+        private void lblFindPlaceCrit_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            // *EAS jump to the Find Place by Criteria form
+            this.Close();
+            FindPlaceCrit findPlaceCrit = new FindPlaceCrit();
+            findPlaceCrit.Show();
+        }
+
+        private void lblFindPlaceCity_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            // *EAS jump to the Find Place by City form
+            this.Close();
+            FindPlaceCity findPlaceCity = new FindPlaceCity();
+            findPlaceCity.Show();
+        }
     }
 }
