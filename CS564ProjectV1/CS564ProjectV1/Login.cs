@@ -16,6 +16,9 @@ namespace CS564ProjectV1
         public FrmLogin()
         {
             InitializeComponent();
+            this.WindowState = FormWindowState.Minimized;
+            this.Show();
+            this.WindowState = FormWindowState.Normal;
         }
 
         // *GWL hop from the login screen to the new user screen
@@ -37,9 +40,14 @@ namespace CS564ProjectV1
 
             if (loginVerified)
             {
-                MessageBox.Show("Login Successful!");
                 this.Hide();
                 Main.login = txtUserName.Text;
+                
+                SqlCommand getName = new SqlCommand("GetName", Main.connection);
+                getName.CommandType = CommandType.StoredProcedure;
+                getName.Parameters.AddWithValue("@login",txtUserName.Text);
+                Main.name = (string)getName.ExecuteScalar();
+
                 UserProfile userProfile = new UserProfile();
                 userProfile.Show();
             }

@@ -31,8 +31,6 @@
             this.lblReviewNotes = new System.Windows.Forms.LinkLabel();
             this.lblFindPlaceCity = new System.Windows.Forms.LinkLabel();
             this.lblFindPlaceCrit = new System.Windows.Forms.LinkLabel();
-            this.lblUserExclamation = new System.Windows.Forms.Label();
-            this.lblUserName = new System.Windows.Forms.Label();
             this.lblWelcomeUser = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.lblLname = new System.Windows.Forms.Label();
@@ -41,9 +39,9 @@
             this.cmdUpdate = new System.Windows.Forms.Button();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.lblCurrentLocation = new System.Windows.Forms.Label();
-            this.txtUserName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lblMyProfile = new System.Windows.Forms.Label();
+            this.lblLogin = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblReviewNotes
@@ -79,29 +77,10 @@
             this.lblFindPlaceCrit.Text = "Find a Place by Criteria";
             this.lblFindPlaceCrit.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblFindPlaceCrit_LinkClicked);
             // 
-            // lblUserExclamation
-            // 
-            this.lblUserExclamation.AutoSize = true;
-            this.lblUserExclamation.Location = new System.Drawing.Point(754, 28);
-            this.lblUserExclamation.Name = "lblUserExclamation";
-            this.lblUserExclamation.Size = new System.Drawing.Size(10, 13);
-            this.lblUserExclamation.TabIndex = 15;
-            this.lblUserExclamation.Text = "!";
-            // 
-            // lblUserName
-            // 
-            this.lblUserName.AutoSize = true;
-            this.lblUserName.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.lblUserName.Location = new System.Drawing.Point(650, 28);
-            this.lblUserName.Name = "lblUserName";
-            this.lblUserName.Size = new System.Drawing.Size(103, 13);
-            this.lblUserName.TabIndex = 14;
-            this.lblUserName.Text = "TODO: Current User";
-            // 
             // lblWelcomeUser
             // 
             this.lblWelcomeUser.AutoSize = true;
-            this.lblWelcomeUser.Location = new System.Drawing.Point(599, 28);
+            this.lblWelcomeUser.Location = new System.Drawing.Point(680, 34);
             this.lblWelcomeUser.Name = "lblWelcomeUser";
             this.lblWelcomeUser.Size = new System.Drawing.Size(55, 13);
             this.lblWelcomeUser.TabIndex = 13;
@@ -109,7 +88,8 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(664, 192);
+            this.textBox2.Location = new System.Drawing.Point(664, 251);
+            this.textBox2.MaxLength = 50;
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(100, 20);
             this.textBox2.TabIndex = 27;
@@ -117,7 +97,7 @@
             // lblLname
             // 
             this.lblLname.AutoSize = true;
-            this.lblLname.Location = new System.Drawing.Point(576, 196);
+            this.lblLname.Location = new System.Drawing.Point(576, 255);
             this.lblLname.Name = "lblLname";
             this.lblLname.Size = new System.Drawing.Size(58, 13);
             this.lblLname.TabIndex = 26;
@@ -125,7 +105,8 @@
             // 
             // txtFnam
             // 
-            this.txtFnam.Location = new System.Drawing.Point(664, 162);
+            this.txtFnam.Location = new System.Drawing.Point(664, 221);
+            this.txtFnam.MaxLength = 50;
             this.txtFnam.Name = "txtFnam";
             this.txtFnam.Size = new System.Drawing.Size(100, 20);
             this.txtFnam.TabIndex = 25;
@@ -133,7 +114,7 @@
             // lblFname
             // 
             this.lblFname.AutoSize = true;
-            this.lblFname.Location = new System.Drawing.Point(576, 166);
+            this.lblFname.Location = new System.Drawing.Point(576, 225);
             this.lblFname.Name = "lblFname";
             this.lblFname.Size = new System.Drawing.Size(57, 13);
             this.lblFname.TabIndex = 24;
@@ -147,10 +128,12 @@
             this.cmdUpdate.TabIndex = 23;
             this.cmdUpdate.Text = "Update";
             this.cmdUpdate.UseVisualStyleBackColor = true;
+            this.cmdUpdate.Click += new System.EventHandler(this.cmdUpdate_Click);
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(664, 252);
+            this.txtPassword.Location = new System.Drawing.Point(664, 190);
+            this.txtPassword.MaxLength = 500;
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(100, 20);
             this.txtPassword.TabIndex = 22;
@@ -158,23 +141,16 @@
             // lblCurrentLocation
             // 
             this.lblCurrentLocation.AutoSize = true;
-            this.lblCurrentLocation.Location = new System.Drawing.Point(576, 256);
+            this.lblCurrentLocation.Location = new System.Drawing.Point(576, 194);
             this.lblCurrentLocation.Name = "lblCurrentLocation";
-            this.lblCurrentLocation.Size = new System.Drawing.Size(85, 13);
+            this.lblCurrentLocation.Size = new System.Drawing.Size(53, 13);
             this.lblCurrentLocation.TabIndex = 21;
-            this.lblCurrentLocation.Text = "Current Location";
-            // 
-            // txtUserName
-            // 
-            this.txtUserName.Location = new System.Drawing.Point(664, 222);
-            this.txtUserName.Name = "txtUserName";
-            this.txtUserName.Size = new System.Drawing.Size(100, 20);
-            this.txtUserName.TabIndex = 20;
+            this.lblCurrentLocation.Text = "Password";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(576, 226);
+            this.label1.Location = new System.Drawing.Point(576, 164);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(60, 13);
             this.label1.TabIndex = 19;
@@ -190,11 +166,21 @@
             this.lblMyProfile.TabIndex = 28;
             this.lblMyProfile.Text = "My Profile";
             // 
+            // lblLogin
+            // 
+            this.lblLogin.AutoSize = true;
+            this.lblLogin.Location = new System.Drawing.Point(661, 164);
+            this.lblLogin.Name = "lblLogin";
+            this.lblLogin.Size = new System.Drawing.Size(59, 13);
+            this.lblLogin.TabIndex = 29;
+            this.lblLogin.Text = "[Unknown]";
+            // 
             // UserProfile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1344, 729);
+            this.Controls.Add(this.lblLogin);
             this.Controls.Add(this.lblMyProfile);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.lblLname);
@@ -203,13 +189,10 @@
             this.Controls.Add(this.cmdUpdate);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.lblCurrentLocation);
-            this.Controls.Add(this.txtUserName);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblReviewNotes);
             this.Controls.Add(this.lblFindPlaceCity);
             this.Controls.Add(this.lblFindPlaceCrit);
-            this.Controls.Add(this.lblUserExclamation);
-            this.Controls.Add(this.lblUserName);
             this.Controls.Add(this.lblWelcomeUser);
             this.MaximumSize = new System.Drawing.Size(1360, 768);
             this.MinimumSize = new System.Drawing.Size(1360, 768);
@@ -225,8 +208,6 @@
         private System.Windows.Forms.LinkLabel lblReviewNotes;
         private System.Windows.Forms.LinkLabel lblFindPlaceCity;
         private System.Windows.Forms.LinkLabel lblFindPlaceCrit;
-        private System.Windows.Forms.Label lblUserExclamation;
-        private System.Windows.Forms.Label lblUserName;
         private System.Windows.Forms.Label lblWelcomeUser;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label lblLname;
@@ -235,8 +216,8 @@
         private System.Windows.Forms.Button cmdUpdate;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Label lblCurrentLocation;
-        private System.Windows.Forms.TextBox txtUserName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblMyProfile;
+        private System.Windows.Forms.Label lblLogin;
     }
 }

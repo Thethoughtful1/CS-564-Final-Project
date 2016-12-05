@@ -59,10 +59,12 @@
             this.cmdRegister.TabIndex = 10;
             this.cmdRegister.Text = "Register";
             this.cmdRegister.UseVisualStyleBackColor = true;
+            this.cmdRegister.Click += new System.EventHandler(this.cmdRegister_Click_1);
             // 
             // txtPassword
             // 
             this.txtPassword.Location = new System.Drawing.Point(638, 256);
+            this.txtPassword.MaxLength = 500;
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(100, 20);
             this.txtPassword.TabIndex = 9;
@@ -79,6 +81,7 @@
             // txtUserName
             // 
             this.txtUserName.Location = new System.Drawing.Point(638, 226);
+            this.txtUserName.MaxLength = 50;
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(100, 20);
             this.txtUserName.TabIndex = 7;
@@ -95,6 +98,7 @@
             // txtFName
             // 
             this.txtFName.Location = new System.Drawing.Point(638, 166);
+            this.txtFName.MaxLength = 50;
             this.txtFName.Name = "txtFName";
             this.txtFName.Size = new System.Drawing.Size(100, 20);
             this.txtFName.TabIndex = 13;
@@ -111,6 +115,7 @@
             // txtLName
             // 
             this.txtLName.Location = new System.Drawing.Point(638, 196);
+            this.txtLName.MaxLength = 50;
             this.txtLName.Name = "txtLName";
             this.txtLName.Size = new System.Drawing.Size(100, 20);
             this.txtLName.TabIndex = 15;
