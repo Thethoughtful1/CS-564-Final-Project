@@ -17,7 +17,7 @@ namespace CS564ProjectV1
         {
             InitializeComponent();
 
-            int placeId = 5548000;
+            int placeId = Main.placeId;
             
             //get the place name -- inherited from the search results
             SqlCommand cmd = new SqlCommand("GetPlaceName", Main.connection);
