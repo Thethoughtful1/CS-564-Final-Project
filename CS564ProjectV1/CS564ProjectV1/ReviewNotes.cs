@@ -21,8 +21,7 @@ namespace CS564ProjectV1
         {
             InitializeComponent();
 
-            lblUserName.Controls.Clear();
-            lblUserName = Main.name();
+            lblUserName.Text = "Welcome " + Main.name + " !";
 
             notePanel.Controls.Clear();
             int pointX = 0;
@@ -35,12 +34,20 @@ namespace CS564ProjectV1
             while (reader.Read()) {
                 String content = reader[0].ToString();
                 String placeName = reader[1].ToString();
-                String placeId = reader[2].ToString();
+                int placeId = Convert.ToInt32(reader[2]);
 
                 LinkLabel l = new LinkLabel();
                 l.Text = placeName;
                 l.Location = new Point(pointX, pointY);
+                l.Tag = placeId;
+                l.LinkClicked += myPlaceLinkClick;
                 notePanel.Controls.Add(l);
+
+                LinkLabel d = new LinkLabel();
+                d.Text = "delete note";
+                d.Location = new Point(pointX + 360, pointY);
+                notePanel.Controls.Add(d);
+
                 pointY += l.Height;
 
                 TextBox t = new TextBox();
@@ -81,6 +88,21 @@ namespace CS564ProjectV1
             this.Close();
             FindPlaceCity findPlaceCity = new FindPlaceCity();
             findPlaceCity.Show();
+        }
+
+        private void myPlaceLinkClick(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.Close();
+            var linkLabel = (LinkLabel)sender;
+            Main.placeId = (int)linkLabel.Tag;
+            PlaceInfo placeInfo = new PlaceInfo();
+            placeInfo.Show();
+        }
+
+        private void myDeleteNoteClick(object sender)
+        {
+            //SQL code to delete a note
+            this.Refresh();
         }
     }
 }
