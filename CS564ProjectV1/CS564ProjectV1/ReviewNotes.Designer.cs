@@ -31,9 +31,7 @@
             this.lblEditProfile = new System.Windows.Forms.LinkLabel();
             this.lblFindPlaceCity = new System.Windows.Forms.LinkLabel();
             this.lblFindPlaceCrit = new System.Windows.Forms.LinkLabel();
-            this.lblUserExclamation = new System.Windows.Forms.Label();
             this.lblUserName = new System.Windows.Forms.Label();
-            this.lblWelcomeUser = new System.Windows.Forms.Label();
             this.lblYourNotes = new System.Windows.Forms.Label();
             this.notePanel = new System.Windows.Forms.Panel();
             this.SuspendLayout();
@@ -68,33 +66,15 @@
             this.lblFindPlaceCrit.TabStop = true;
             this.lblFindPlaceCrit.Text = "Find a Place by Criteria";
             // 
-            // lblUserExclamation
-            // 
-            this.lblUserExclamation.AutoSize = true;
-            this.lblUserExclamation.Location = new System.Drawing.Point(754, 28);
-            this.lblUserExclamation.Name = "lblUserExclamation";
-            this.lblUserExclamation.Size = new System.Drawing.Size(10, 13);
-            this.lblUserExclamation.TabIndex = 9;
-            this.lblUserExclamation.Text = "!";
-            // 
             // lblUserName
             // 
             this.lblUserName.AutoSize = true;
             this.lblUserName.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.lblUserName.Location = new System.Drawing.Point(650, 28);
             this.lblUserName.Name = "lblUserName";
-            this.lblUserName.Size = new System.Drawing.Size(103, 13);
+            this.lblUserName.Size = new System.Drawing.Size(109, 13);
             this.lblUserName.TabIndex = 8;
-            this.lblUserName.Text = "TODO: Current User";
-            // 
-            // lblWelcomeUser
-            // 
-            this.lblWelcomeUser.AutoSize = true;
-            this.lblWelcomeUser.Location = new System.Drawing.Point(599, 28);
-            this.lblWelcomeUser.Name = "lblWelcomeUser";
-            this.lblWelcomeUser.Size = new System.Drawing.Size(55, 13);
-            this.lblWelcomeUser.TabIndex = 7;
-            this.lblWelcomeUser.Text = "Welcome ";
+            this.lblUserName.Text = "Welcome userName !";
             // 
             // lblYourNotes
             // 
@@ -123,9 +103,7 @@
             this.Controls.Add(this.lblEditProfile);
             this.Controls.Add(this.lblFindPlaceCity);
             this.Controls.Add(this.lblFindPlaceCrit);
-            this.Controls.Add(this.lblUserExclamation);
             this.Controls.Add(this.lblUserName);
-            this.Controls.Add(this.lblWelcomeUser);
             this.Name = "ReviewNotes";
             this.Text = "Review Notes";
             this.ResumeLayout(false);
@@ -138,9 +116,7 @@
         private System.Windows.Forms.LinkLabel lblEditProfile;
         private System.Windows.Forms.LinkLabel lblFindPlaceCity;
         private System.Windows.Forms.LinkLabel lblFindPlaceCrit;
-        private System.Windows.Forms.Label lblUserExclamation;
         private System.Windows.Forms.Label lblUserName;
-        private System.Windows.Forms.Label lblWelcomeUser;
         private System.Windows.Forms.Label lblYourNotes;
         private System.Windows.Forms.Panel notePanel;
     }

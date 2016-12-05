@@ -15,6 +15,7 @@ namespace CS564ProjectV1
     {
         public static string login;
         public static string name;
+        public static int placeId = 5548000;        //default to Madison
         static string dbConnectionString = @"Server=Leap;Database=Locations;Integrated Security=true";
         public static SqlConnection connection = new SqlConnection(dbConnectionString);
         public Main()
