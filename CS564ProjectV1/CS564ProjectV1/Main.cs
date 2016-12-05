@@ -27,7 +27,7 @@ namespace CS564ProjectV1
         private void cmdLaunch_Click(object sender, EventArgs e)
         {
             // *GWL launch into login screen
-            this.Hide();
+            this.WindowState = FormWindowState.Minimized;
             FrmLogin loginScreen = new FrmLogin();
             loginScreen.Show();
         }
