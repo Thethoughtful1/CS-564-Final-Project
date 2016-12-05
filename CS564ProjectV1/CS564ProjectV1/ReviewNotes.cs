@@ -63,6 +63,7 @@ namespace CS564ProjectV1
                 pointY += t.Height + 20;
 
             }
+            reader.Close();
 
         }
 
