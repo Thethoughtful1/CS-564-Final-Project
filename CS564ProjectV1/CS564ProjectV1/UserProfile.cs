@@ -47,22 +47,42 @@ namespace CS564ProjectV1
         private void cmdUpdate_Click(object sender, EventArgs e)
         {
 
+<<<<<<< HEAD
             string login = Main.login;
+=======
+            string login = txtUserName.Text;
+>>>>>>> refs/remotes/origin/master
             string password = txtPassword.Text;
             string firstName = txtFnam.Text;
             string lastName = textBox2.Text;
 
 
+<<<<<<< HEAD
+=======
+            if (password == "" || password.Length > 500)
+            {
+                MessageBox.Show("Please enter a password of up to 500 characters.");
+            }
+            else
+            {
+>>>>>>> refs/remotes/origin/master
                 SqlCommand cmd = new SqlCommand("UpdateUser", Main.connection);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@login", login);
                 cmd.Parameters.AddWithValue("@password", password);
                 cmd.Parameters.AddWithValue("@firstName", firstName);
                 cmd.Parameters.AddWithValue("@lastName", lastName);
+<<<<<<< HEAD
                 cmd.ExecuteScalar();
                 Main.name = (firstName == "" ? "Dude" : firstName);
                 lblWelcomeUser.Text = "Welcome " + Main.name + "!";
                 this.Refresh();
+=======
+                Main.name = (firstName == "" ? "Dude" : firstName);
+                lblUserName.Text = Main.name;
+                this.Refresh();
+            }
+>>>>>>> refs/remotes/origin/master
         }
     }
 }
