@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.linkComparePlaces = new System.Windows.Forms.LinkLabel();
+            this.lblFindPlaceCity = new System.Windows.Forms.LinkLabel();
             this.lblEditProfile = new System.Windows.Forms.LinkLabel();
-            this.lblFindPlace = new System.Windows.Forms.LinkLabel();
+            this.lblFindPlaceCrit = new System.Windows.Forms.LinkLabel();
             this.lblReviewNotes = new System.Windows.Forms.LinkLabel();
             this.lblUserExclamation = new System.Windows.Forms.Label();
             this.lblUserName = new System.Windows.Forms.Label();
@@ -45,22 +45,34 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lblAvgPopulation = new System.Windows.Forms.Label();
-            this.lblPlaceInfo = new System.Windows.Forms.Label();
+            this.lblPlaceName = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.lblYourNotes = new System.Windows.Forms.Label();
             this.cmdSaveNotes = new System.Windows.Forms.Button();
             this.lblDeleteNote = new System.Windows.Forms.LinkLabel();
+            this.grpStateInfo = new System.Windows.Forms.GroupBox();
+            this.lblAvgPop = new System.Windows.Forms.Label();
+            this.lblAvgPopInfo = new System.Windows.Forms.Label();
+            this.lblAvgWelfare = new System.Windows.Forms.Label();
+            this.lblAvgWelfareInfo = new System.Windows.Forms.Label();
+            this.lblAvgNatRec = new System.Windows.Forms.Label();
+            this.lblAvgNatRecInfo = new System.Windows.Forms.Label();
+            this.lblAvgEdu = new System.Windows.Forms.Label();
+            this.lblAvgEduInfo = new System.Windows.Forms.Label();
+            this.lblAvgIncome = new System.Windows.Forms.Label();
+            this.lblAvgIncomeInfo = new System.Windows.Forms.Label();
+            this.grpStateInfo.SuspendLayout();
             this.SuspendLayout();
             // 
-            // linkComparePlaces
+            // lblFindPlaceCity
             // 
-            this.linkComparePlaces.AutoSize = true;
-            this.linkComparePlaces.Location = new System.Drawing.Point(867, 55);
-            this.linkComparePlaces.Name = "linkComparePlaces";
-            this.linkComparePlaces.Size = new System.Drawing.Size(84, 13);
-            this.linkComparePlaces.TabIndex = 56;
-            this.linkComparePlaces.TabStop = true;
-            this.linkComparePlaces.Text = "Compare Places";
+            this.lblFindPlaceCity.AutoSize = true;
+            this.lblFindPlaceCity.Location = new System.Drawing.Point(867, 55);
+            this.lblFindPlaceCity.Name = "lblFindPlaceCity";
+            this.lblFindPlaceCity.Size = new System.Drawing.Size(100, 13);
+            this.lblFindPlaceCity.TabIndex = 56;
+            this.lblFindPlaceCity.TabStop = true;
+            this.lblFindPlaceCity.Text = "Find a Place by City";
             // 
             // lblEditProfile
             // 
@@ -72,15 +84,15 @@
             this.lblEditProfile.TabStop = true;
             this.lblEditProfile.Text = "Edit Profile";
             // 
-            // lblFindPlace
+            // lblFindPlaceCrit
             // 
-            this.lblFindPlace.AutoSize = true;
-            this.lblFindPlace.Location = new System.Drawing.Point(709, 55);
-            this.lblFindPlace.Name = "lblFindPlace";
-            this.lblFindPlace.Size = new System.Drawing.Size(66, 13);
-            this.lblFindPlace.TabIndex = 54;
-            this.lblFindPlace.TabStop = true;
-            this.lblFindPlace.Text = "Find a Place";
+            this.lblFindPlaceCrit.AutoSize = true;
+            this.lblFindPlaceCrit.Location = new System.Drawing.Point(709, 55);
+            this.lblFindPlaceCrit.Name = "lblFindPlaceCrit";
+            this.lblFindPlaceCrit.Size = new System.Drawing.Size(115, 13);
+            this.lblFindPlaceCrit.TabIndex = 54;
+            this.lblFindPlaceCrit.TabStop = true;
+            this.lblFindPlaceCrit.Text = "Find a Place by Criteria";
             // 
             // lblReviewNotes
             // 
@@ -215,15 +227,15 @@
             this.lblAvgPopulation.TabIndex = 58;
             this.lblAvgPopulation.Text = "Average Population:";
             // 
-            // lblPlaceInfo
+            // lblPlaceName
             // 
-            this.lblPlaceInfo.AutoSize = true;
-            this.lblPlaceInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPlaceInfo.Location = new System.Drawing.Point(650, 96);
-            this.lblPlaceInfo.Name = "lblPlaceInfo";
-            this.lblPlaceInfo.Size = new System.Drawing.Size(75, 13);
-            this.lblPlaceInfo.TabIndex = 57;
-            this.lblPlaceInfo.Text = "Place Name";
+            this.lblPlaceName.AutoSize = true;
+            this.lblPlaceName.Font = new System.Drawing.Font("Microsoft Sans Serif", 28F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPlaceName.Location = new System.Drawing.Point(541, 84);
+            this.lblPlaceName.Name = "lblPlaceName";
+            this.lblPlaceName.Size = new System.Drawing.Size(283, 44);
+            this.lblPlaceName.TabIndex = 57;
+            this.lblPlaceName.Text = "<Place Name>";
             // 
             // textBox1
             // 
@@ -261,11 +273,138 @@
             this.lblDeleteNote.TabStop = true;
             this.lblDeleteNote.Text = "Delete Note";
             // 
+            // grpStateInfo
+            // 
+            this.grpStateInfo.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.grpStateInfo.Controls.Add(this.lblAvgPop);
+            this.grpStateInfo.Controls.Add(this.lblAvgPopInfo);
+            this.grpStateInfo.Controls.Add(this.lblAvgWelfare);
+            this.grpStateInfo.Controls.Add(this.lblAvgWelfareInfo);
+            this.grpStateInfo.Controls.Add(this.lblAvgNatRec);
+            this.grpStateInfo.Controls.Add(this.lblAvgNatRecInfo);
+            this.grpStateInfo.Controls.Add(this.lblAvgEdu);
+            this.grpStateInfo.Controls.Add(this.lblAvgEduInfo);
+            this.grpStateInfo.Controls.Add(this.lblAvgIncome);
+            this.grpStateInfo.Controls.Add(this.lblAvgIncomeInfo);
+            this.grpStateInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpStateInfo.Location = new System.Drawing.Point(56, 84);
+            this.grpStateInfo.Name = "grpStateInfo";
+            this.grpStateInfo.Size = new System.Drawing.Size(340, 555);
+            this.grpStateInfo.TabIndex = 72;
+            this.grpStateInfo.TabStop = false;
+            this.grpStateInfo.Text = "State Information";
+            // 
+            // lblAvgPop
+            // 
+            this.lblAvgPop.AutoSize = true;
+            this.lblAvgPop.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAvgPop.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.lblAvgPop.Location = new System.Drawing.Point(16, 438);
+            this.lblAvgPop.Name = "lblAvgPop";
+            this.lblAvgPop.Size = new System.Drawing.Size(219, 37);
+            this.lblAvgPop.TabIndex = 74;
+            this.lblAvgPop.Text = "<Population>";
+            // 
+            // lblAvgPopInfo
+            // 
+            this.lblAvgPopInfo.AutoSize = true;
+            this.lblAvgPopInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAvgPopInfo.Location = new System.Drawing.Point(16, 475);
+            this.lblAvgPopInfo.Name = "lblAvgPopInfo";
+            this.lblAvgPopInfo.Size = new System.Drawing.Size(115, 20);
+            this.lblAvgPopInfo.TabIndex = 73;
+            this.lblAvgPopInfo.Text = "Avg Population";
+            // 
+            // lblAvgWelfare
+            // 
+            this.lblAvgWelfare.AutoSize = true;
+            this.lblAvgWelfare.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAvgWelfare.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.lblAvgWelfare.Location = new System.Drawing.Point(16, 341);
+            this.lblAvgWelfare.Name = "lblAvgWelfare";
+            this.lblAvgWelfare.Size = new System.Drawing.Size(174, 37);
+            this.lblAvgWelfare.TabIndex = 74;
+            this.lblAvgWelfare.Text = "<Welfare>";
+            // 
+            // lblAvgWelfareInfo
+            // 
+            this.lblAvgWelfareInfo.AutoSize = true;
+            this.lblAvgWelfareInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAvgWelfareInfo.Location = new System.Drawing.Point(16, 378);
+            this.lblAvgWelfareInfo.Name = "lblAvgWelfareInfo";
+            this.lblAvgWelfareInfo.Size = new System.Drawing.Size(167, 20);
+            this.lblAvgWelfareInfo.TabIndex = 73;
+            this.lblAvgWelfareInfo.Text = "Avg Welfare Spending";
+            // 
+            // lblAvgNatRec
+            // 
+            this.lblAvgNatRec.AutoSize = true;
+            this.lblAvgNatRec.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAvgNatRec.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.lblAvgNatRec.Location = new System.Drawing.Point(16, 244);
+            this.lblAvgNatRec.Name = "lblAvgNatRec";
+            this.lblAvgNatRec.Size = new System.Drawing.Size(297, 37);
+            this.lblAvgNatRec.TabIndex = 5;
+            this.lblAvgNatRec.Text = "<Nat\'l Resources>";
+            // 
+            // lblAvgNatRecInfo
+            // 
+            this.lblAvgNatRecInfo.AutoSize = true;
+            this.lblAvgNatRecInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAvgNatRecInfo.Location = new System.Drawing.Point(16, 281);
+            this.lblAvgNatRecInfo.Name = "lblAvgNatRecInfo";
+            this.lblAvgNatRecInfo.Size = new System.Drawing.Size(244, 20);
+            this.lblAvgNatRecInfo.TabIndex = 4;
+            this.lblAvgNatRecInfo.Text = "Avg Natural Resources Spending";
+            // 
+            // lblAvgEdu
+            // 
+            this.lblAvgEdu.AutoSize = true;
+            this.lblAvgEdu.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAvgEdu.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.lblAvgEdu.Location = new System.Drawing.Point(16, 147);
+            this.lblAvgEdu.Name = "lblAvgEdu";
+            this.lblAvgEdu.Size = new System.Drawing.Size(209, 37);
+            this.lblAvgEdu.TabIndex = 3;
+            this.lblAvgEdu.Text = "<Education>";
+            // 
+            // lblAvgEduInfo
+            // 
+            this.lblAvgEduInfo.AutoSize = true;
+            this.lblAvgEduInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAvgEduInfo.Location = new System.Drawing.Point(16, 184);
+            this.lblAvgEduInfo.Name = "lblAvgEduInfo";
+            this.lblAvgEduInfo.Size = new System.Drawing.Size(184, 20);
+            this.lblAvgEduInfo.TabIndex = 2;
+            this.lblAvgEduInfo.Text = "Avg Education Spending";
+            // 
+            // lblAvgIncome
+            // 
+            this.lblAvgIncome.AutoSize = true;
+            this.lblAvgIncome.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAvgIncome.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.lblAvgIncome.Location = new System.Drawing.Point(16, 50);
+            this.lblAvgIncome.Name = "lblAvgIncome";
+            this.lblAvgIncome.Size = new System.Drawing.Size(167, 37);
+            this.lblAvgIncome.TabIndex = 1;
+            this.lblAvgIncome.Text = "<Income>";
+            // 
+            // lblAvgIncomeInfo
+            // 
+            this.lblAvgIncomeInfo.AutoSize = true;
+            this.lblAvgIncomeInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAvgIncomeInfo.Location = new System.Drawing.Point(16, 87);
+            this.lblAvgIncomeInfo.Name = "lblAvgIncomeInfo";
+            this.lblAvgIncomeInfo.Size = new System.Drawing.Size(190, 20);
+            this.lblAvgIncomeInfo.TabIndex = 0;
+            this.lblAvgIncomeInfo.Text = "Avg Income Tax Revenue";
+            // 
             // PlaceInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1344, 729);
+            this.ClientSize = new System.Drawing.Size(1276, 693);
+            this.Controls.Add(this.grpStateInfo);
             this.Controls.Add(this.lblDeleteNote);
             this.Controls.Add(this.cmdSaveNotes);
             this.Controls.Add(this.lblYourNotes);
@@ -280,17 +419,19 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblAvgPopulation);
-            this.Controls.Add(this.lblPlaceInfo);
-            this.Controls.Add(this.linkComparePlaces);
+            this.Controls.Add(this.lblPlaceName);
+            this.Controls.Add(this.lblFindPlaceCity);
             this.Controls.Add(this.lblEditProfile);
-            this.Controls.Add(this.lblFindPlace);
+            this.Controls.Add(this.lblFindPlaceCrit);
             this.Controls.Add(this.lblReviewNotes);
             this.Controls.Add(this.lblUserExclamation);
             this.Controls.Add(this.lblUserName);
             this.Controls.Add(this.lblWelcomeUser);
-            this.MinimumSize = new System.Drawing.Size(1360, 768);
+            this.MinimumSize = new System.Drawing.Size(1278, 678);
             this.Name = "PlaceInfo";
             this.Text = "PlaceInfo";
+            this.grpStateInfo.ResumeLayout(false);
+            this.grpStateInfo.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -298,9 +439,9 @@
 
         #endregion
 
-        private System.Windows.Forms.LinkLabel linkComparePlaces;
+        private System.Windows.Forms.LinkLabel lblFindPlaceCity;
         private System.Windows.Forms.LinkLabel lblEditProfile;
-        private System.Windows.Forms.LinkLabel lblFindPlace;
+        private System.Windows.Forms.LinkLabel lblFindPlaceCrit;
         private System.Windows.Forms.LinkLabel lblReviewNotes;
         private System.Windows.Forms.Label lblUserExclamation;
         private System.Windows.Forms.Label lblUserName;
@@ -315,10 +456,21 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblAvgPopulation;
-        private System.Windows.Forms.Label lblPlaceInfo;
+        private System.Windows.Forms.Label lblPlaceName;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label lblYourNotes;
         private System.Windows.Forms.Button cmdSaveNotes;
         private System.Windows.Forms.LinkLabel lblDeleteNote;
+        private System.Windows.Forms.GroupBox grpStateInfo;
+        private System.Windows.Forms.Label lblAvgIncome;
+        private System.Windows.Forms.Label lblAvgIncomeInfo;
+        private System.Windows.Forms.Label lblAvgPop;
+        private System.Windows.Forms.Label lblAvgPopInfo;
+        private System.Windows.Forms.Label lblAvgWelfare;
+        private System.Windows.Forms.Label lblAvgWelfareInfo;
+        private System.Windows.Forms.Label lblAvgNatRec;
+        private System.Windows.Forms.Label lblAvgNatRecInfo;
+        private System.Windows.Forms.Label lblAvgEdu;
+        private System.Windows.Forms.Label lblAvgEduInfo;
     }
 }
