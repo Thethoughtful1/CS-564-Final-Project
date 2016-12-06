@@ -35,16 +35,6 @@
             this.lblUserExclamation = new System.Windows.Forms.Label();
             this.lblUserName = new System.Windows.Forms.Label();
             this.lblWelcomeUser = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lblAvgPopulation = new System.Windows.Forms.Label();
             this.lblPlaceName = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.lblYourNotes = new System.Windows.Forms.Label();
@@ -61,7 +51,22 @@
             this.lblAvgEduInfo = new System.Windows.Forms.Label();
             this.lblAvgIncome = new System.Windows.Forms.Label();
             this.lblAvgIncomeInfo = new System.Windows.Forms.Label();
+            this.grpTopNotes = new System.Windows.Forms.GroupBox();
+            this.lblCurPop = new System.Windows.Forms.Label();
+            this.lblPopChangeInfo = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.lblCurPopInfo = new System.Windows.Forms.Label();
+            this.picPopChangeSame = new System.Windows.Forms.PictureBox();
+            this.picPopChangeDown = new System.Windows.Forms.PictureBox();
+            this.picPopChangeUp = new System.Windows.Forms.PictureBox();
             this.grpStateInfo.SuspendLayout();
+            this.grpTopNotes.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picPopChangeSame)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picPopChangeDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picPopChangeUp)).BeginInit();
             this.SuspendLayout();
             // 
             // lblFindPlaceCity
@@ -132,106 +137,11 @@
             this.lblWelcomeUser.TabIndex = 50;
             this.lblWelcomeUser.Text = "Welcome ";
             // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(652, 296);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(41, 13);
-            this.label13.TabIndex = 67;
-            this.label13.Text = "label13";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(652, 257);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(41, 13);
-            this.label11.TabIndex = 66;
-            this.label11.Text = "label11";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(652, 218);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(35, 13);
-            this.label9.TabIndex = 65;
-            this.label9.Text = "label9";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(652, 179);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(35, 13);
-            this.label7.TabIndex = 64;
-            this.label7.Text = "label7";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(652, 140);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(35, 13);
-            this.label5.TabIndex = 63;
-            this.label5.Text = "label5";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(504, 296);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(29, 13);
-            this.label4.TabIndex = 62;
-            this.label4.Text = "etc.";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(504, 257);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(29, 13);
-            this.label3.TabIndex = 61;
-            this.label3.Text = "etc.";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(504, 218);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(29, 13);
-            this.label2.TabIndex = 60;
-            this.label2.Text = "etc,";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(504, 179);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(29, 13);
-            this.label1.TabIndex = 59;
-            this.label1.Text = "etc.";
-            // 
-            // lblAvgPopulation
-            // 
-            this.lblAvgPopulation.AutoSize = true;
-            this.lblAvgPopulation.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAvgPopulation.Location = new System.Drawing.Point(504, 140);
-            this.lblAvgPopulation.Name = "lblAvgPopulation";
-            this.lblAvgPopulation.Size = new System.Drawing.Size(122, 13);
-            this.lblAvgPopulation.TabIndex = 58;
-            this.lblAvgPopulation.Text = "Average Population:";
-            // 
             // lblPlaceName
             // 
             this.lblPlaceName.AutoSize = true;
             this.lblPlaceName.Font = new System.Drawing.Font("Microsoft Sans Serif", 28F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPlaceName.Location = new System.Drawing.Point(541, 84);
+            this.lblPlaceName.Location = new System.Drawing.Point(533, 84);
             this.lblPlaceName.Name = "lblPlaceName";
             this.lblPlaceName.Size = new System.Drawing.Size(283, 44);
             this.lblPlaceName.TabIndex = 57;
@@ -239,7 +149,8 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(507, 380);
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(16, 371);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(365, 133);
@@ -248,15 +159,17 @@
             // lblYourNotes
             // 
             this.lblYourNotes.AutoSize = true;
-            this.lblYourNotes.Location = new System.Drawing.Point(504, 364);
+            this.lblYourNotes.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblYourNotes.Location = new System.Drawing.Point(13, 355);
             this.lblYourNotes.Name = "lblYourNotes";
-            this.lblYourNotes.Size = new System.Drawing.Size(63, 13);
+            this.lblYourNotes.Size = new System.Drawing.Size(70, 15);
             this.lblYourNotes.TabIndex = 69;
             this.lblYourNotes.Text = "Your Notes:";
             // 
             // cmdSaveNotes
             // 
-            this.cmdSaveNotes.Location = new System.Drawing.Point(650, 536);
+            this.cmdSaveNotes.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdSaveNotes.Location = new System.Drawing.Point(169, 518);
             this.cmdSaveNotes.Name = "cmdSaveNotes";
             this.cmdSaveNotes.Size = new System.Drawing.Size(75, 23);
             this.cmdSaveNotes.TabIndex = 70;
@@ -266,9 +179,10 @@
             // lblDeleteNote
             // 
             this.lblDeleteNote.AutoSize = true;
-            this.lblDeleteNote.Location = new System.Drawing.Point(808, 364);
+            this.lblDeleteNote.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDeleteNote.Location = new System.Drawing.Point(317, 355);
             this.lblDeleteNote.Name = "lblDeleteNote";
-            this.lblDeleteNote.Size = new System.Drawing.Size(64, 13);
+            this.lblDeleteNote.Size = new System.Drawing.Size(72, 15);
             this.lblDeleteNote.TabIndex = 71;
             this.lblDeleteNote.TabStop = true;
             this.lblDeleteNote.Text = "Delete Note";
@@ -399,26 +313,143 @@
             this.lblAvgIncomeInfo.TabIndex = 0;
             this.lblAvgIncomeInfo.Text = "Avg Income Tax Revenue";
             // 
+            // grpTopNotes
+            // 
+            this.grpTopNotes.BackColor = System.Drawing.SystemColors.Info;
+            this.grpTopNotes.Controls.Add(this.textBox1);
+            this.grpTopNotes.Controls.Add(this.cmdSaveNotes);
+            this.grpTopNotes.Controls.Add(this.lblDeleteNote);
+            this.grpTopNotes.Controls.Add(this.lblYourNotes);
+            this.grpTopNotes.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpTopNotes.Location = new System.Drawing.Point(870, 84);
+            this.grpTopNotes.Name = "grpTopNotes";
+            this.grpTopNotes.Size = new System.Drawing.Size(394, 555);
+            this.grpTopNotes.TabIndex = 73;
+            this.grpTopNotes.TabStop = false;
+            this.grpTopNotes.Text = "Top Notes for Place";
+            // 
+            // lblCurPop
+            // 
+            this.lblCurPop.AutoSize = true;
+            this.lblCurPop.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCurPop.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.lblCurPop.Location = new System.Drawing.Point(430, 165);
+            this.lblCurPop.Name = "lblCurPop";
+            this.lblCurPop.Size = new System.Drawing.Size(216, 37);
+            this.lblCurPop.TabIndex = 75;
+            this.lblCurPop.Text = "<population>";
+            // 
+            // lblPopChangeInfo
+            // 
+            this.lblPopChangeInfo.AutoSize = true;
+            this.lblPopChangeInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPopChangeInfo.Location = new System.Drawing.Point(708, 213);
+            this.lblPopChangeInfo.Name = "lblPopChangeInfo";
+            this.lblPopChangeInfo.Size = new System.Drawing.Size(137, 20);
+            this.lblPopChangeInfo.TabIndex = 74;
+            this.lblPopChangeInfo.Text = "+ 10.00% per year";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.label1.Location = new System.Drawing.Point(430, 276);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(389, 37);
+            this.label1.TabIndex = 77;
+            this.label1.Text = "<avgLaborParticipation>";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(430, 313);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(162, 20);
+            this.label2.TabIndex = 76;
+            this.label2.Text = "% Population Change";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.label3.Location = new System.Drawing.Point(430, 394);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(235, 37);
+            this.label3.TabIndex = 79;
+            this.label3.Text = "<PopChange>";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(430, 431);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(162, 20);
+            this.label4.TabIndex = 78;
+            this.label4.Text = "% Population Change";
+            // 
+            // lblCurPopInfo
+            // 
+            this.lblCurPopInfo.AutoSize = true;
+            this.lblCurPopInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCurPopInfo.Location = new System.Drawing.Point(430, 213);
+            this.lblCurPopInfo.Name = "lblCurPopInfo";
+            this.lblCurPopInfo.Size = new System.Drawing.Size(127, 20);
+            this.lblCurPopInfo.TabIndex = 82;
+            this.lblCurPopInfo.Text = "Place Population";
+            // 
+            // picPopChangeSame
+            // 
+            this.picPopChangeSame.Image = global::CS564ProjectV1.Properties.Resources.Right;
+            this.picPopChangeSame.Location = new System.Drawing.Point(724, 158);
+            this.picPopChangeSame.Name = "picPopChangeSame";
+            this.picPopChangeSame.Size = new System.Drawing.Size(100, 50);
+            this.picPopChangeSame.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picPopChangeSame.TabIndex = 83;
+            this.picPopChangeSame.TabStop = false;
+            this.picPopChangeSame.Visible = false;
+            // 
+            // picPopChangeDown
+            // 
+            this.picPopChangeDown.Image = global::CS564ProjectV1.Properties.Resources.Down;
+            this.picPopChangeDown.Location = new System.Drawing.Point(724, 158);
+            this.picPopChangeDown.Name = "picPopChangeDown";
+            this.picPopChangeDown.Size = new System.Drawing.Size(100, 50);
+            this.picPopChangeDown.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picPopChangeDown.TabIndex = 81;
+            this.picPopChangeDown.TabStop = false;
+            this.picPopChangeDown.Visible = false;
+            // 
+            // picPopChangeUp
+            // 
+            this.picPopChangeUp.Image = global::CS564ProjectV1.Properties.Resources.Up;
+            this.picPopChangeUp.Location = new System.Drawing.Point(724, 158);
+            this.picPopChangeUp.Name = "picPopChangeUp";
+            this.picPopChangeUp.Size = new System.Drawing.Size(100, 50);
+            this.picPopChangeUp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picPopChangeUp.TabIndex = 80;
+            this.picPopChangeUp.TabStop = false;
+            this.picPopChangeUp.Visible = false;
+            // 
             // PlaceInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1276, 693);
-            this.Controls.Add(this.grpStateInfo);
-            this.Controls.Add(this.lblDeleteNote);
-            this.Controls.Add(this.cmdSaveNotes);
-            this.Controls.Add(this.lblYourNotes);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label13);
-            this.Controls.Add(this.label11);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.picPopChangeSame);
+            this.Controls.Add(this.lblCurPopInfo);
+            this.Controls.Add(this.picPopChangeDown);
+            this.Controls.Add(this.picPopChangeUp);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.lblAvgPopulation);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblCurPop);
+            this.Controls.Add(this.lblPopChangeInfo);
+            this.Controls.Add(this.grpStateInfo);
             this.Controls.Add(this.lblPlaceName);
             this.Controls.Add(this.lblFindPlaceCity);
             this.Controls.Add(this.lblEditProfile);
@@ -427,11 +458,17 @@
             this.Controls.Add(this.lblUserExclamation);
             this.Controls.Add(this.lblUserName);
             this.Controls.Add(this.lblWelcomeUser);
-            this.MinimumSize = new System.Drawing.Size(1278, 678);
+            this.Controls.Add(this.grpTopNotes);
+            this.MinimumSize = new System.Drawing.Size(1216, 678);
             this.Name = "PlaceInfo";
             this.Text = "PlaceInfo";
             this.grpStateInfo.ResumeLayout(false);
             this.grpStateInfo.PerformLayout();
+            this.grpTopNotes.ResumeLayout(false);
+            this.grpTopNotes.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picPopChangeSame)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picPopChangeDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picPopChangeUp)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -446,16 +483,6 @@
         private System.Windows.Forms.Label lblUserExclamation;
         private System.Windows.Forms.Label lblUserName;
         private System.Windows.Forms.Label lblWelcomeUser;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label lblAvgPopulation;
         private System.Windows.Forms.Label lblPlaceName;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label lblYourNotes;
@@ -472,5 +499,16 @@
         private System.Windows.Forms.Label lblAvgNatRecInfo;
         private System.Windows.Forms.Label lblAvgEdu;
         private System.Windows.Forms.Label lblAvgEduInfo;
+        private System.Windows.Forms.GroupBox grpTopNotes;
+        private System.Windows.Forms.Label lblCurPop;
+        private System.Windows.Forms.Label lblPopChangeInfo;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.PictureBox picPopChangeUp;
+        private System.Windows.Forms.PictureBox picPopChangeDown;
+        private System.Windows.Forms.Label lblCurPopInfo;
+        private System.Windows.Forms.PictureBox picPopChangeSame;
     }
 }
