@@ -83,7 +83,7 @@
             // 
             this.lblYourNotes.AutoSize = true;
             this.lblYourNotes.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblYourNotes.Location = new System.Drawing.Point(468, 95);
+            this.lblYourNotes.Location = new System.Drawing.Point(401, 101);
             this.lblYourNotes.Name = "lblYourNotes";
             this.lblYourNotes.Size = new System.Drawing.Size(70, 13);
             this.lblYourNotes.TabIndex = 13;
@@ -91,9 +91,10 @@
             // 
             // notePanel
             // 
-            this.notePanel.Location = new System.Drawing.Point(471, 123);
+            this.notePanel.AutoScroll = true;
+            this.notePanel.Location = new System.Drawing.Point(404, 129);
             this.notePanel.Name = "notePanel";
-            this.notePanel.Size = new System.Drawing.Size(430, 400);
+            this.notePanel.Size = new System.Drawing.Size(570, 400);
             this.notePanel.TabIndex = 14;
             // 
             // ReviewNotes

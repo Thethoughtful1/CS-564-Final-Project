@@ -164,7 +164,7 @@ namespace CS564ProjectV1
             }
             else
             {
-                picPopChangeSame.Visible = true;
+                picPovertySame.Visible = true;
                 povertyChangeString = "+ " + povertyChangeString + " per year";
             }
             lblPovertyChangeInfo.Text = povertyChangeString;
