@@ -31,7 +31,7 @@
             this.lblEditProfile = new System.Windows.Forms.LinkLabel();
             this.lblFindPlaceCity = new System.Windows.Forms.LinkLabel();
             this.lblFindPlaceCrit = new System.Windows.Forms.LinkLabel();
-            this.lblUserName = new System.Windows.Forms.Label();
+            this.lblWelcomeUser = new System.Windows.Forms.Label();
             this.lblYourNotes = new System.Windows.Forms.Label();
             this.notePanel = new System.Windows.Forms.Panel();
             this.SuspendLayout();
@@ -45,6 +45,7 @@
             this.lblEditProfile.TabIndex = 12;
             this.lblEditProfile.TabStop = true;
             this.lblEditProfile.Text = "Edit Profile";
+            this.lblEditProfile.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblEditProfile_LinkClicked);
             // 
             // lblFindPlaceCity
             // 
@@ -55,6 +56,7 @@
             this.lblFindPlaceCity.TabIndex = 11;
             this.lblFindPlaceCity.TabStop = true;
             this.lblFindPlaceCity.Text = "Find a Place by City";
+            this.lblFindPlaceCity.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblFindPlaceCity_LinkClicked);
             // 
             // lblFindPlaceCrit
             // 
@@ -65,16 +67,17 @@
             this.lblFindPlaceCrit.TabIndex = 10;
             this.lblFindPlaceCrit.TabStop = true;
             this.lblFindPlaceCrit.Text = "Find a Place by Criteria";
+            this.lblFindPlaceCrit.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblFindPlaceCrit_LinkClicked);
             // 
-            // lblUserName
+            // lblWelcomeUser
             // 
-            this.lblUserName.AutoSize = true;
-            this.lblUserName.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.lblUserName.Location = new System.Drawing.Point(650, 28);
-            this.lblUserName.Name = "lblUserName";
-            this.lblUserName.Size = new System.Drawing.Size(109, 13);
-            this.lblUserName.TabIndex = 8;
-            this.lblUserName.Text = "Welcome userName !";
+            this.lblWelcomeUser.AutoSize = true;
+            this.lblWelcomeUser.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblWelcomeUser.Location = new System.Drawing.Point(620, 28);
+            this.lblWelcomeUser.Name = "lblWelcomeUser";
+            this.lblWelcomeUser.Size = new System.Drawing.Size(52, 13);
+            this.lblWelcomeUser.TabIndex = 8;
+            this.lblWelcomeUser.Text = "Welcome";
             // 
             // lblYourNotes
             // 
@@ -103,7 +106,7 @@
             this.Controls.Add(this.lblEditProfile);
             this.Controls.Add(this.lblFindPlaceCity);
             this.Controls.Add(this.lblFindPlaceCrit);
-            this.Controls.Add(this.lblUserName);
+            this.Controls.Add(this.lblWelcomeUser);
             this.Name = "ReviewNotes";
             this.Text = "Review Notes";
             this.ResumeLayout(false);
@@ -116,7 +119,7 @@
         private System.Windows.Forms.LinkLabel lblEditProfile;
         private System.Windows.Forms.LinkLabel lblFindPlaceCity;
         private System.Windows.Forms.LinkLabel lblFindPlaceCrit;
-        private System.Windows.Forms.Label lblUserName;
+        private System.Windows.Forms.Label lblWelcomeUser;
         private System.Windows.Forms.Label lblYourNotes;
         private System.Windows.Forms.Panel notePanel;
     }
