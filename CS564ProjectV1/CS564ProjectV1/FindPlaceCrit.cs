@@ -15,6 +15,32 @@ namespace CS564ProjectV1
         public FindPlaceCrit()
         {
             InitializeComponent();
+            lblWelcomeUser.Text = "Welcome " + Main.name + " !";
         }
+        
+
+        private void lblReviewNotes_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            // *EAS jump to the Review Notes form
+            this.Close();
+            ReviewNotes reviewNotes = new ReviewNotes();
+            reviewNotes.Show();
+        }
+
+        private void lblEditProfile_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            // *EAS jump to the Edit Profile screen
+            this.Close();
+            UserProfile userProfile = new UserProfile();
+            userProfile.Show();
+        }
+        private void lblFindPlaceCity_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            // *EAS jump to the Find Place by City form
+            this.Close();
+            FindPlaceCity findPlaceCity = new FindPlaceCity();
+            findPlaceCity.Show();
+        }
+        
     }
 }

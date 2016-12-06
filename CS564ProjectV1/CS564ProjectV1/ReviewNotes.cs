@@ -20,8 +20,14 @@ namespace CS564ProjectV1
         public ReviewNotes()
         {
             InitializeComponent();
+            drawForm();            
 
-            lblUserName.Text = "Welcome " + Main.name + " !";
+        }
+
+        private void drawForm()
+        {
+
+            lblWelcomeUser.Text = "Welcome " + Main.name + " !";
 
             notePanel.Controls.Clear();
             int pointX = 0;
@@ -31,10 +37,12 @@ namespace CS564ProjectV1
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@login", Main.login);
             SqlDataReader reader = cmd.ExecuteReader();
-            while (reader.Read()) {
-                String content = reader[0].ToString();
-                String placeName = reader[1].ToString();
-                int placeId = Convert.ToInt32(reader[2]);
+            while (reader.Read())
+            {
+                int noteId = Convert.ToInt32(reader[0]);
+                String content = reader[1].ToString();
+                String placeName = reader[2].ToString();
+                int placeId = Convert.ToInt32(reader[3]);
 
                 LinkLabel l = new LinkLabel();
                 l.Text = placeName;
@@ -46,6 +54,8 @@ namespace CS564ProjectV1
                 LinkLabel d = new LinkLabel();
                 d.Text = "delete note";
                 d.Location = new Point(pointX + 360, pointY);
+                d.Tag = noteId;
+                d.LinkClicked += myDeleteNoteClick;
                 notePanel.Controls.Add(d);
 
                 pointY += l.Height;
@@ -67,6 +77,7 @@ namespace CS564ProjectV1
 
         }
 
+
         private void lblEditProfile_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             // *EAS jump to the Edit Profile screen
@@ -74,6 +85,7 @@ namespace CS564ProjectV1
             UserProfile userProfile = new UserProfile();
             userProfile.Show();
         }
+
 
         private void lblFindPlaceCrit_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
@@ -100,10 +112,18 @@ namespace CS564ProjectV1
             placeInfo.Show();
         }
 
-        private void myDeleteNoteClick(object sender)
+        private void myDeleteNoteClick(object sender, LinkLabelLinkClickedEventArgs e)
         {
             //SQL code to delete a note
+            var linkLabel = (LinkLabel)sender;
+            int noteId = (int)linkLabel.Tag;
+            SqlCommand deleteCmd = new SqlCommand("deleteNote", Main.connection);
+            deleteCmd.CommandType = CommandType.StoredProcedure;
+            deleteCmd.Parameters.AddWithValue("@noteId", noteId);
+            deleteCmd.ExecuteNonQuery();
+            drawForm();
             this.Refresh();
         }
+
     }
 }
