@@ -80,7 +80,7 @@
             // lblWelcomeUser
             // 
             this.lblWelcomeUser.AutoSize = true;
-            this.lblWelcomeUser.Location = new System.Drawing.Point(680, 34);
+            this.lblWelcomeUser.Location = new System.Drawing.Point(617, 27);
             this.lblWelcomeUser.Name = "lblWelcomeUser";
             this.lblWelcomeUser.Size = new System.Drawing.Size(55, 13);
             this.lblWelcomeUser.TabIndex = 13;

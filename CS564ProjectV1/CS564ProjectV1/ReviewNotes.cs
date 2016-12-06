@@ -21,7 +21,7 @@ namespace CS564ProjectV1
         {
             InitializeComponent();
 
-            lblUserName.Text = "Welcome " + Main.name + " !";
+            lblWelcomeUser.Text = "Welcome " + Main.name + " !";
 
             notePanel.Controls.Clear();
             int pointX = 0;
@@ -75,6 +75,7 @@ namespace CS564ProjectV1
             userProfile.Show();
         }
 
+
         private void lblFindPlaceCrit_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             // *EAS jump to the Find Place by Criteria form
@@ -105,5 +106,6 @@ namespace CS564ProjectV1
             //SQL code to delete a note
             this.Refresh();
         }
+
     }
 }
