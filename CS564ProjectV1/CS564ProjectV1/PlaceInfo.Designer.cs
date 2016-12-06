@@ -762,10 +762,7 @@
             this.Controls.Add(this.lblLaborChangeInfo);
             this.Controls.Add(this.lblPovertyRate);
             this.Controls.Add(this.lblPovertyRateInfo);
-            this.Controls.Add(this.picPopChangeSame);
             this.Controls.Add(this.lblCurPopInfo);
-            this.Controls.Add(this.picPopChangeDown);
-            this.Controls.Add(this.picPopChangeUp);
             this.Controls.Add(this.lblCurAvgIncome);
             this.Controls.Add(this.lblCurAvgIncomeInfo);
             this.Controls.Add(this.lblCurLabor);
@@ -791,6 +788,9 @@
             this.Controls.Add(this.picIncomeSame);
             this.Controls.Add(this.picIncomeDown);
             this.Controls.Add(this.picIncomeUp);
+            this.Controls.Add(this.picPopChangeSame);
+            this.Controls.Add(this.picPopChangeDown);
+            this.Controls.Add(this.picPopChangeUp);
             this.MinimumSize = new System.Drawing.Size(1216, 678);
             this.Name = "PlaceInfo";
             this.Text = "PlaceInfo";
