@@ -50,6 +50,7 @@
             this.lblAvgIncome = new System.Windows.Forms.Label();
             this.lblAvgIncomeInfo = new System.Windows.Forms.Label();
             this.grpTopNotes = new System.Windows.Forms.GroupBox();
+            this.notePanel = new System.Windows.Forms.Panel();
             this.lblCurPop = new System.Windows.Forms.Label();
             this.lblPopChangeInfo = new System.Windows.Forms.Label();
             this.lblCurLabor = new System.Windows.Forms.Label();
@@ -85,7 +86,6 @@
             this.lblGenderRatioInfo = new System.Windows.Forms.Label();
             this.lblMedianAge = new System.Windows.Forms.Label();
             this.lblGenderRatio = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.grpStateInfo.SuspendLayout();
             this.grpTopNotes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picPopChangeSame)).BeginInit();
@@ -207,6 +207,7 @@
             this.lblDeleteNote.TabIndex = 71;
             this.lblDeleteNote.TabStop = true;
             this.lblDeleteNote.Text = "delete note";
+            this.lblDeleteNote.Visible = false;
             this.lblDeleteNote.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblDeleteNote_LinkClicked);
             // 
             // grpStateInfo
@@ -338,7 +339,7 @@
             // grpTopNotes
             // 
             this.grpTopNotes.BackColor = System.Drawing.SystemColors.Info;
-            this.grpTopNotes.Controls.Add(this.panel1);
+            this.grpTopNotes.Controls.Add(this.notePanel);
             this.grpTopNotes.Controls.Add(this.noteTextBox);
             this.grpTopNotes.Controls.Add(this.cmdSaveNotes);
             this.grpTopNotes.Controls.Add(this.lblDeleteNote);
@@ -349,7 +350,15 @@
             this.grpTopNotes.Size = new System.Drawing.Size(394, 555);
             this.grpTopNotes.TabIndex = 73;
             this.grpTopNotes.TabStop = false;
-            this.grpTopNotes.Text = "Top Notes for Place";
+            this.grpTopNotes.Text = "What people have to say";
+            // 
+            // notePanel
+            // 
+            this.notePanel.AutoScroll = true;
+            this.notePanel.Location = new System.Drawing.Point(9, 31);
+            this.notePanel.Name = "notePanel";
+            this.notePanel.Size = new System.Drawing.Size(371, 311);
+            this.notePanel.TabIndex = 72;
             // 
             // lblCurPop
             // 
@@ -734,13 +743,6 @@
             this.lblGenderRatio.Text = "Ratio";
             this.lblGenderRatio.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // panel1
-            // 
-            this.panel1.Location = new System.Drawing.Point(9, 33);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(371, 309);
-            this.panel1.TabIndex = 72;
-            // 
             // PlaceInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -868,6 +870,6 @@
         private System.Windows.Forms.Label lblGenderRatioInfo;
         private System.Windows.Forms.Label lblMedianAge;
         private System.Windows.Forms.Label lblGenderRatio;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel notePanel;
     }
 }
