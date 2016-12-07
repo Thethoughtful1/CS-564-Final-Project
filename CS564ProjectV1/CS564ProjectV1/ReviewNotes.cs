@@ -65,7 +65,8 @@ namespace CS564ProjectV1
                 t.ScrollBars = ScrollBars.Vertical;
                 t.WordWrap = true;
                 t.Width = 450;
-                t.Height = 150;
+                t.Height = 100;
+                t.Font = new Font(t.Font.FontFamily, 12);
                 t.Text = content;
                 t.Location = new Point(pointX, pointY);
                 notePanel.Controls.Add(t);
