@@ -353,6 +353,7 @@
             this.cmdSearch.TabIndex = 40;
             this.cmdSearch.Text = "Search";
             this.cmdSearch.UseVisualStyleBackColor = true;
+            this.cmdSearch.Click += new System.EventHandler(this.cmdSearch_Click);
             // 
             // cboCrit1SpecialBool
             // 
@@ -363,6 +364,7 @@
             this.cboCrit1SpecialBool.Name = "cboCrit1SpecialBool";
             this.cboCrit1SpecialBool.Size = new System.Drawing.Size(45, 21);
             this.cboCrit1SpecialBool.TabIndex = 41;
+            this.cboCrit1SpecialBool.Text = "≈";
             this.cboCrit1SpecialBool.Visible = false;
             // 
             // cboCrit2SpecialBool
@@ -374,6 +376,7 @@
             this.cboCrit2SpecialBool.Name = "cboCrit2SpecialBool";
             this.cboCrit2SpecialBool.Size = new System.Drawing.Size(45, 21);
             this.cboCrit2SpecialBool.TabIndex = 42;
+            this.cboCrit2SpecialBool.Text = "≈";
             this.cboCrit2SpecialBool.Visible = false;
             // 
             // cboIndustry1
