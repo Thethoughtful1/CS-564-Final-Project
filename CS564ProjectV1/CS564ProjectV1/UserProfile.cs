@@ -61,5 +61,6 @@ namespace CS564ProjectV1
             lblWelcomeUser.Text = "Welcome " + Main.name + "!";
             this.Refresh();
         }
+        
     }
 }

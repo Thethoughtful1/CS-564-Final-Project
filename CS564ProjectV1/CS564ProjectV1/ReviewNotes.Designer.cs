@@ -94,7 +94,7 @@
             this.notePanel.AutoScroll = true;
             this.notePanel.Location = new System.Drawing.Point(404, 129);
             this.notePanel.Name = "notePanel";
-            this.notePanel.Size = new System.Drawing.Size(570, 400);
+            this.notePanel.Size = new System.Drawing.Size(570, 588);
             this.notePanel.TabIndex = 14;
             // 
             // ReviewNotes
