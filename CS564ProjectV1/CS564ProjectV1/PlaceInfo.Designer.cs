@@ -32,11 +32,9 @@
             this.lblEditProfile = new System.Windows.Forms.LinkLabel();
             this.lblFindPlaceCrit = new System.Windows.Forms.LinkLabel();
             this.lblReviewNotes = new System.Windows.Forms.LinkLabel();
-            this.lblUserExclamation = new System.Windows.Forms.Label();
-            this.lblUserName = new System.Windows.Forms.Label();
             this.lblWelcomeUser = new System.Windows.Forms.Label();
             this.lblPlaceName = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.noteTextBox = new System.Windows.Forms.TextBox();
             this.lblYourNotes = new System.Windows.Forms.Label();
             this.cmdSaveNotes = new System.Windows.Forms.Button();
             this.lblDeleteNote = new System.Windows.Forms.LinkLabel();
@@ -52,6 +50,7 @@
             this.lblAvgIncome = new System.Windows.Forms.Label();
             this.lblAvgIncomeInfo = new System.Windows.Forms.Label();
             this.grpTopNotes = new System.Windows.Forms.GroupBox();
+            this.notePanel = new System.Windows.Forms.Panel();
             this.lblCurPop = new System.Windows.Forms.Label();
             this.lblPopChangeInfo = new System.Windows.Forms.Label();
             this.lblCurLabor = new System.Windows.Forms.Label();
@@ -113,6 +112,7 @@
             this.lblFindPlaceCity.TabIndex = 56;
             this.lblFindPlaceCity.TabStop = true;
             this.lblFindPlaceCity.Text = "Find a Place by City";
+            this.lblFindPlaceCity.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblFindPlaceCity_LinkClicked);
             // 
             // lblEditProfile
             // 
@@ -123,6 +123,7 @@
             this.lblEditProfile.TabIndex = 55;
             this.lblEditProfile.TabStop = true;
             this.lblEditProfile.Text = "Edit Profile";
+            this.lblEditProfile.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblEditProfile_LinkClicked);
             // 
             // lblFindPlaceCrit
             // 
@@ -133,6 +134,7 @@
             this.lblFindPlaceCrit.TabIndex = 54;
             this.lblFindPlaceCrit.TabStop = true;
             this.lblFindPlaceCrit.Text = "Find a Place by Criteria";
+            this.lblFindPlaceCrit.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblFindPlaceCrit_LinkClicked);
             // 
             // lblReviewNotes
             // 
@@ -143,25 +145,7 @@
             this.lblReviewNotes.TabIndex = 53;
             this.lblReviewNotes.TabStop = true;
             this.lblReviewNotes.Text = "Review Notes";
-            // 
-            // lblUserExclamation
-            // 
-            this.lblUserExclamation.AutoSize = true;
-            this.lblUserExclamation.Location = new System.Drawing.Point(754, 28);
-            this.lblUserExclamation.Name = "lblUserExclamation";
-            this.lblUserExclamation.Size = new System.Drawing.Size(10, 13);
-            this.lblUserExclamation.TabIndex = 52;
-            this.lblUserExclamation.Text = "!";
-            // 
-            // lblUserName
-            // 
-            this.lblUserName.AutoSize = true;
-            this.lblUserName.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.lblUserName.Location = new System.Drawing.Point(650, 28);
-            this.lblUserName.Name = "lblUserName";
-            this.lblUserName.Size = new System.Drawing.Size(103, 13);
-            this.lblUserName.TabIndex = 51;
-            this.lblUserName.Text = "TODO: Current User";
+            this.lblReviewNotes.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblReviewNotes_LinkClicked);
             // 
             // lblWelcomeUser
             // 
@@ -183,14 +167,14 @@
             this.lblPlaceName.Text = "<Place Name>";
             this.lblPlaceName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox1
+            // noteTextBox
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(16, 371);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(365, 133);
-            this.textBox1.TabIndex = 68;
+            this.noteTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.noteTextBox.Location = new System.Drawing.Point(16, 373);
+            this.noteTextBox.Multiline = true;
+            this.noteTextBox.Name = "noteTextBox";
+            this.noteTextBox.Size = new System.Drawing.Size(365, 131);
+            this.noteTextBox.TabIndex = 68;
             // 
             // lblYourNotes
             // 
@@ -211,6 +195,7 @@
             this.cmdSaveNotes.TabIndex = 70;
             this.cmdSaveNotes.Text = "Save Note";
             this.cmdSaveNotes.UseVisualStyleBackColor = true;
+            this.cmdSaveNotes.Click += new System.EventHandler(this.cmdSaveNotes_Click);
             // 
             // lblDeleteNote
             // 
@@ -218,10 +203,12 @@
             this.lblDeleteNote.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDeleteNote.Location = new System.Drawing.Point(317, 355);
             this.lblDeleteNote.Name = "lblDeleteNote";
-            this.lblDeleteNote.Size = new System.Drawing.Size(72, 15);
+            this.lblDeleteNote.Size = new System.Drawing.Size(68, 15);
             this.lblDeleteNote.TabIndex = 71;
             this.lblDeleteNote.TabStop = true;
-            this.lblDeleteNote.Text = "Delete Note";
+            this.lblDeleteNote.Text = "delete note";
+            this.lblDeleteNote.Visible = false;
+            this.lblDeleteNote.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblDeleteNote_LinkClicked);
             // 
             // grpStateInfo
             // 
@@ -352,7 +339,8 @@
             // grpTopNotes
             // 
             this.grpTopNotes.BackColor = System.Drawing.SystemColors.Info;
-            this.grpTopNotes.Controls.Add(this.textBox1);
+            this.grpTopNotes.Controls.Add(this.notePanel);
+            this.grpTopNotes.Controls.Add(this.noteTextBox);
             this.grpTopNotes.Controls.Add(this.cmdSaveNotes);
             this.grpTopNotes.Controls.Add(this.lblDeleteNote);
             this.grpTopNotes.Controls.Add(this.lblYourNotes);
@@ -362,7 +350,15 @@
             this.grpTopNotes.Size = new System.Drawing.Size(394, 555);
             this.grpTopNotes.TabIndex = 73;
             this.grpTopNotes.TabStop = false;
-            this.grpTopNotes.Text = "Top Notes for Place";
+            this.grpTopNotes.Text = "What people have to say";
+            // 
+            // notePanel
+            // 
+            this.notePanel.AutoScroll = true;
+            this.notePanel.Location = new System.Drawing.Point(9, 31);
+            this.notePanel.Name = "notePanel";
+            this.notePanel.Size = new System.Drawing.Size(371, 311);
+            this.notePanel.TabIndex = 72;
             // 
             // lblCurPop
             // 
@@ -775,8 +771,6 @@
             this.Controls.Add(this.lblEditProfile);
             this.Controls.Add(this.lblFindPlaceCrit);
             this.Controls.Add(this.lblReviewNotes);
-            this.Controls.Add(this.lblUserExclamation);
-            this.Controls.Add(this.lblUserName);
             this.Controls.Add(this.lblWelcomeUser);
             this.Controls.Add(this.grpTopNotes);
             this.Controls.Add(this.picPovertySame);
@@ -823,11 +817,9 @@
         private System.Windows.Forms.LinkLabel lblEditProfile;
         private System.Windows.Forms.LinkLabel lblFindPlaceCrit;
         private System.Windows.Forms.LinkLabel lblReviewNotes;
-        private System.Windows.Forms.Label lblUserExclamation;
-        private System.Windows.Forms.Label lblUserName;
         private System.Windows.Forms.Label lblWelcomeUser;
         private System.Windows.Forms.Label lblPlaceName;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox noteTextBox;
         private System.Windows.Forms.Label lblYourNotes;
         private System.Windows.Forms.Button cmdSaveNotes;
         private System.Windows.Forms.LinkLabel lblDeleteNote;
@@ -878,5 +870,6 @@
         private System.Windows.Forms.Label lblGenderRatioInfo;
         private System.Windows.Forms.Label lblMedianAge;
         private System.Windows.Forms.Label lblGenderRatio;
+        private System.Windows.Forms.Panel notePanel;
     }
 }

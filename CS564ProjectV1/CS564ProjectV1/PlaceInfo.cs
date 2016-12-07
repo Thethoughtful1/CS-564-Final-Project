@@ -18,7 +18,14 @@ namespace CS564ProjectV1
             InitializeComponent();
 
             int placeId = Main.placeId;
-                        
+            lblWelcomeUser.Text = Main.name;
+
+            drawForm(placeId);
+            
+        }
+
+        private void drawForm(int placeId)
+        {
             getPlaceName(placeId);
             getStateData(placeId);
             getCurrentPopulation(placeId);
@@ -30,8 +37,10 @@ namespace CS564ProjectV1
             getTopIndustries(placeId);
             getMedianAge(placeId);
             getGenderRatio(placeId);
-            
+            getPlaceNotes(placeId);
+            getUserNote(placeId);
         }
+
         private void getPlaceName(int placeId)
         {
             //get the place name -- inherited from the search results
@@ -273,6 +282,152 @@ namespace CS564ProjectV1
             double ratio = (double)cmd.ExecuteScalar();
             lblGenderRatio.Text = ratio.ToString();
             cmd.Dispose();
+        }
+
+        private void getPlaceNotes(int placeId)
+        {
+            notePanel.Controls.Clear();
+            int pointX = 0;
+            int pointY = 10;
+
+            SqlCommand cmd = new SqlCommand("placeNotes", Main.connection);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@login", Main.login);
+            cmd.Parameters.AddWithValue("@placeId", placeId);
+            SqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                String content = reader[0].ToString();
+                String user = reader[1].ToString();
+
+                Label l = new Label();
+                l.Text = user;
+                l.Font = new Font(l.Font.FontFamily, 10);
+                l.Location = new Point(pointX + 250, pointY);
+                notePanel.Controls.Add(l);
+
+                pointY += l.Height;
+
+                TextBox t = new TextBox();
+                t.Multiline = true;
+                t.ScrollBars = ScrollBars.Vertical;
+                t.WordWrap = true;
+                t.Width = 330;
+                t.Height = 80;
+                t.Font = new Font(t.Font.FontFamily, 12);
+                t.Text = content;
+                t.Location = new Point(pointX, pointY);
+                notePanel.Controls.Add(t);
+                notePanel.Show();
+                pointY += t.Height + 20;
+
+            }
+            reader.Close();
+            cmd.Dispose();
+        }
+        private void getUserNote(int placeId)
+        {
+            SqlCommand userNote = new SqlCommand("userPlaceNote", Main.connection);
+            userNote.CommandType = CommandType.StoredProcedure;
+            userNote.Parameters.AddWithValue("@login", Main.login);
+            userNote.Parameters.AddWithValue("@placeId", placeId);
+            SqlDataReader reader = userNote.ExecuteReader();
+            int noteId = 0;
+            String content;
+            while (reader.Read())
+            {
+                noteId = Convert.ToInt32(reader[0]);
+                content = reader[1].ToString();
+                noteTextBox.Text = content;
+
+            }
+
+
+            lblDeleteNote.Tag = noteId;
+            cmdSaveNotes.Tag = noteId;
+            noteTextBox.Font = new Font(noteTextBox.Font.FontFamily, 12);
+            if (noteId > 0)
+            {
+                lblDeleteNote.Visible = true;
+            }
+
+
+            reader.Close();
+
+        }
+
+
+        private void lblDeleteNote_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            //SQL code to delete a note
+            var linkLabel = (LinkLabel)sender;
+            int noteId = (int)linkLabel.Tag;
+            SqlCommand deleteCmd = new SqlCommand("deleteNote", Main.connection);
+            deleteCmd.CommandType = CommandType.StoredProcedure;
+            deleteCmd.Parameters.AddWithValue("@noteId", noteId);
+            deleteCmd.ExecuteNonQuery();
+            lblDeleteNote.Visible = false;
+            noteTextBox.Clear();
+            drawForm(Main.placeId);
+            this.Refresh();
+        }
+
+        private void cmdSaveNotes_Click(object sender, EventArgs e)
+        {
+            //SQL code to update a note
+            var button = (Button)sender;
+            int noteId = (int)button.Tag;
+            if (noteId == 0)
+            {
+                SqlCommand saveCmd = new SqlCommand("createNote", Main.connection);
+                saveCmd.CommandType = CommandType.StoredProcedure;
+                saveCmd.Parameters.AddWithValue("@content", noteTextBox.Text);
+                saveCmd.Parameters.AddWithValue("@placeId", Main.placeId);
+                saveCmd.Parameters.AddWithValue("@userLogin", Main.login);
+                saveCmd.ExecuteNonQuery();
+            }
+            else
+            {
+                SqlCommand saveCmd = new SqlCommand("updateNote", Main.connection);
+                saveCmd.CommandType = CommandType.StoredProcedure;
+                saveCmd.Parameters.AddWithValue("@noteId", noteId);
+                saveCmd.Parameters.AddWithValue("@content", noteTextBox.Text);
+                saveCmd.ExecuteNonQuery();
+            }
+            drawForm(Main.placeId);
+            this.Refresh();
+        }
+
+        private void lblEditProfile_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            // *EAS jump to the Edit Profile screen
+            this.Close();
+            UserProfile userProfile = new UserProfile();
+            userProfile.Show();
+        }
+
+        private void lblReviewNotes_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            // *EAS jump to the Review Notes form
+            this.Close();
+            ReviewNotes reviewNotes = new ReviewNotes();
+            reviewNotes.Show();
+        }
+
+        private void lblFindPlaceCrit_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            // *EAS jump to the Find Place by Criteria form
+            this.Close();
+            FindPlaceCrit findPlaceCrit = new FindPlaceCrit();
+            findPlaceCrit.Show();
+        }
+
+        private void lblFindPlaceCity_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            // *EAS jump to the Find Place by City form
+            this.Close();
+            FindPlaceCity findPlaceCity = new FindPlaceCity();
+            findPlaceCity.Show();
         }
     }
 }
