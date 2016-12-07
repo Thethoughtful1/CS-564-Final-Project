@@ -39,21 +39,28 @@
             this.lblCriteria4 = new System.Windows.Forms.Label();
             this.lblCriteria5 = new System.Windows.Forms.Label();
             this.cboCriteria1 = new System.Windows.Forms.ComboBox();
-            this.cboCriteria1Boolean = new System.Windows.Forms.ComboBox();
-            this.txtCriteria1String = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
-            this.comboBox6 = new System.Windows.Forms.ComboBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.comboBox7 = new System.Windows.Forms.ComboBox();
-            this.comboBox8 = new System.Windows.Forms.ComboBox();
+            this.cboCrit1Bool = new System.Windows.Forms.ComboBox();
+            this.txtCrit1Str = new System.Windows.Forms.TextBox();
+            this.txtCrit2Str = new System.Windows.Forms.TextBox();
+            this.cboCrit2Bool = new System.Windows.Forms.ComboBox();
+            this.cboCriteria2 = new System.Windows.Forms.ComboBox();
+            this.txtCrit3Str = new System.Windows.Forms.TextBox();
+            this.cboCrit3Bool = new System.Windows.Forms.ComboBox();
+            this.cboCriteria3 = new System.Windows.Forms.ComboBox();
+            this.txtCrit4Str = new System.Windows.Forms.TextBox();
+            this.cboCrit4Bool = new System.Windows.Forms.ComboBox();
+            this.cboCriteria4 = new System.Windows.Forms.ComboBox();
+            this.txtCrit5Str = new System.Windows.Forms.TextBox();
+            this.cboCrit5Bool = new System.Windows.Forms.ComboBox();
+            this.cboCriteria5 = new System.Windows.Forms.ComboBox();
             this.cmdSearch = new System.Windows.Forms.Button();
+            this.cboCrit1SpecialBool = new System.Windows.Forms.ComboBox();
+            this.cboCrit2SpecialBool = new System.Windows.Forms.ComboBox();
+            this.cboIndustry1 = new System.Windows.Forms.ComboBox();
+            this.cboIndustry2 = new System.Windows.Forms.ComboBox();
+            this.cboIndustry3 = new System.Windows.Forms.ComboBox();
+            this.cboIndustry4 = new System.Windows.Forms.ComboBox();
+            this.cboIndustry5 = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // lblEditProfile
@@ -101,18 +108,18 @@
             // lblFindPlace
             // 
             this.lblFindPlace.AutoSize = true;
-            this.lblFindPlace.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFindPlace.Location = new System.Drawing.Point(468, 95);
+            this.lblFindPlace.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFindPlace.Location = new System.Drawing.Point(392, 100);
             this.lblFindPlace.Name = "lblFindPlace";
-            this.lblFindPlace.Size = new System.Drawing.Size(77, 13);
+            this.lblFindPlace.Size = new System.Drawing.Size(386, 20);
             this.lblFindPlace.TabIndex = 19;
-            this.lblFindPlace.Text = "Find a place";
+            this.lblFindPlace.Text = "Find places that match your configured criteria:";
             // 
             // lblCriteria1
             // 
             this.lblCriteria1.AutoSize = true;
             this.lblCriteria1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCriteria1.Location = new System.Drawing.Point(393, 130);
+            this.lblCriteria1.Location = new System.Drawing.Point(393, 154);
             this.lblCriteria1.Name = "lblCriteria1";
             this.lblCriteria1.Size = new System.Drawing.Size(51, 13);
             this.lblCriteria1.TabIndex = 20;
@@ -122,7 +129,7 @@
             // 
             this.lblCriteria2.AutoSize = true;
             this.lblCriteria2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCriteria2.Location = new System.Drawing.Point(393, 169);
+            this.lblCriteria2.Location = new System.Drawing.Point(393, 193);
             this.lblCriteria2.Name = "lblCriteria2";
             this.lblCriteria2.Size = new System.Drawing.Size(51, 13);
             this.lblCriteria2.TabIndex = 21;
@@ -132,7 +139,7 @@
             // 
             this.lblCriteria3.AutoSize = true;
             this.lblCriteria3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCriteria3.Location = new System.Drawing.Point(393, 208);
+            this.lblCriteria3.Location = new System.Drawing.Point(393, 232);
             this.lblCriteria3.Name = "lblCriteria3";
             this.lblCriteria3.Size = new System.Drawing.Size(51, 13);
             this.lblCriteria3.TabIndex = 22;
@@ -142,7 +149,7 @@
             // 
             this.lblCriteria4.AutoSize = true;
             this.lblCriteria4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCriteria4.Location = new System.Drawing.Point(393, 247);
+            this.lblCriteria4.Location = new System.Drawing.Point(393, 271);
             this.lblCriteria4.Name = "lblCriteria4";
             this.lblCriteria4.Size = new System.Drawing.Size(51, 13);
             this.lblCriteria4.TabIndex = 23;
@@ -152,7 +159,7 @@
             // 
             this.lblCriteria5.AutoSize = true;
             this.lblCriteria5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCriteria5.Location = new System.Drawing.Point(393, 286);
+            this.lblCriteria5.Location = new System.Drawing.Point(393, 310);
             this.lblCriteria5.Name = "lblCriteria5";
             this.lblCriteria5.Size = new System.Drawing.Size(51, 13);
             this.lblCriteria5.TabIndex = 24;
@@ -161,147 +168,286 @@
             // cboCriteria1
             // 
             this.cboCriteria1.FormattingEnabled = true;
-            this.cboCriteria1.Location = new System.Drawing.Point(471, 126);
+            this.cboCriteria1.Items.AddRange(new object[] {
+            "Name",
+            "State",
+            "Average Income",
+            "Gender Ratio",
+            "Industry Participation Rate",
+            "Labor Participation Rate",
+            "Median Age",
+            "Poverty Level",
+            ""});
+            this.cboCriteria1.Location = new System.Drawing.Point(471, 150);
             this.cboCriteria1.Name = "cboCriteria1";
             this.cboCriteria1.Size = new System.Drawing.Size(121, 21);
             this.cboCriteria1.TabIndex = 25;
+            this.cboCriteria1.SelectedIndexChanged += new System.EventHandler(this.cboCriteria1_SelectedIndexChanged);
             // 
-            // cboCriteria1Boolean
+            // cboCrit1Bool
             // 
-            this.cboCriteria1Boolean.FormattingEnabled = true;
-            this.cboCriteria1Boolean.Location = new System.Drawing.Point(622, 126);
-            this.cboCriteria1Boolean.Name = "cboCriteria1Boolean";
-            this.cboCriteria1Boolean.Size = new System.Drawing.Size(45, 21);
-            this.cboCriteria1Boolean.TabIndex = 26;
+            this.cboCrit1Bool.FormattingEnabled = true;
+            this.cboCrit1Bool.Items.AddRange(new object[] {
+            "≈",
+            ">",
+            "<"});
+            this.cboCrit1Bool.Location = new System.Drawing.Point(622, 150);
+            this.cboCrit1Bool.Name = "cboCrit1Bool";
+            this.cboCrit1Bool.Size = new System.Drawing.Size(45, 21);
+            this.cboCrit1Bool.TabIndex = 26;
             // 
-            // txtCriteria1String
+            // txtCrit1Str
             // 
-            this.txtCriteria1String.Location = new System.Drawing.Point(697, 126);
-            this.txtCriteria1String.Name = "txtCriteria1String";
-            this.txtCriteria1String.Size = new System.Drawing.Size(183, 20);
-            this.txtCriteria1String.TabIndex = 27;
+            this.txtCrit1Str.Location = new System.Drawing.Point(697, 150);
+            this.txtCrit1Str.Name = "txtCrit1Str";
+            this.txtCrit1Str.Size = new System.Drawing.Size(183, 20);
+            this.txtCrit1Str.TabIndex = 27;
             // 
-            // textBox1
+            // txtCrit2Str
             // 
-            this.textBox1.Location = new System.Drawing.Point(697, 166);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(183, 20);
-            this.textBox1.TabIndex = 30;
+            this.txtCrit2Str.Location = new System.Drawing.Point(697, 190);
+            this.txtCrit2Str.Name = "txtCrit2Str";
+            this.txtCrit2Str.Size = new System.Drawing.Size(183, 20);
+            this.txtCrit2Str.TabIndex = 30;
             // 
-            // comboBox1
+            // cboCrit2Bool
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(622, 166);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(45, 21);
-            this.comboBox1.TabIndex = 29;
+            this.cboCrit2Bool.FormattingEnabled = true;
+            this.cboCrit2Bool.Items.AddRange(new object[] {
+            "≈",
+            ">",
+            "<"});
+            this.cboCrit2Bool.Location = new System.Drawing.Point(622, 190);
+            this.cboCrit2Bool.Name = "cboCrit2Bool";
+            this.cboCrit2Bool.Size = new System.Drawing.Size(45, 21);
+            this.cboCrit2Bool.TabIndex = 29;
             // 
-            // comboBox2
+            // cboCriteria2
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(471, 166);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 21);
-            this.comboBox2.TabIndex = 28;
+            this.cboCriteria2.FormattingEnabled = true;
+            this.cboCriteria2.Items.AddRange(new object[] {
+            "Name",
+            "State",
+            "Average Income",
+            "Gender Ratio",
+            "Industry Participation Rate",
+            "Labor Participation Rate",
+            "Median Age",
+            "Poverty Level"});
+            this.cboCriteria2.Location = new System.Drawing.Point(471, 190);
+            this.cboCriteria2.Name = "cboCriteria2";
+            this.cboCriteria2.Size = new System.Drawing.Size(121, 21);
+            this.cboCriteria2.TabIndex = 28;
+            this.cboCriteria2.SelectedIndexChanged += new System.EventHandler(this.cboCriteria2_SelectedIndexChanged);
             // 
-            // textBox2
+            // txtCrit3Str
             // 
-            this.textBox2.Location = new System.Drawing.Point(697, 206);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(183, 20);
-            this.textBox2.TabIndex = 33;
+            this.txtCrit3Str.Location = new System.Drawing.Point(697, 230);
+            this.txtCrit3Str.Name = "txtCrit3Str";
+            this.txtCrit3Str.Size = new System.Drawing.Size(183, 20);
+            this.txtCrit3Str.TabIndex = 33;
             // 
-            // comboBox3
+            // cboCrit3Bool
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(622, 206);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(45, 21);
-            this.comboBox3.TabIndex = 32;
+            this.cboCrit3Bool.FormattingEnabled = true;
+            this.cboCrit3Bool.Items.AddRange(new object[] {
+            "≈",
+            ">",
+            "<"});
+            this.cboCrit3Bool.Location = new System.Drawing.Point(622, 230);
+            this.cboCrit3Bool.Name = "cboCrit3Bool";
+            this.cboCrit3Bool.Size = new System.Drawing.Size(45, 21);
+            this.cboCrit3Bool.TabIndex = 32;
             // 
-            // comboBox4
+            // cboCriteria3
             // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(471, 206);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(121, 21);
-            this.comboBox4.TabIndex = 31;
+            this.cboCriteria3.FormattingEnabled = true;
+            this.cboCriteria3.Items.AddRange(new object[] {
+            "Average Income",
+            "Gender Ratio",
+            "Industry Participation Rate",
+            "Labor Participation Rate",
+            "Median Age",
+            "Poverty Level"});
+            this.cboCriteria3.Location = new System.Drawing.Point(471, 230);
+            this.cboCriteria3.Name = "cboCriteria3";
+            this.cboCriteria3.Size = new System.Drawing.Size(121, 21);
+            this.cboCriteria3.TabIndex = 31;
+            this.cboCriteria3.SelectedIndexChanged += new System.EventHandler(this.cboCriteria3_SelectedIndexChanged);
             // 
-            // textBox3
+            // txtCrit4Str
             // 
-            this.textBox3.Location = new System.Drawing.Point(697, 246);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(183, 20);
-            this.textBox3.TabIndex = 36;
+            this.txtCrit4Str.Location = new System.Drawing.Point(697, 270);
+            this.txtCrit4Str.Name = "txtCrit4Str";
+            this.txtCrit4Str.Size = new System.Drawing.Size(183, 20);
+            this.txtCrit4Str.TabIndex = 36;
             // 
-            // comboBox5
+            // cboCrit4Bool
             // 
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(622, 246);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(45, 21);
-            this.comboBox5.TabIndex = 35;
+            this.cboCrit4Bool.FormattingEnabled = true;
+            this.cboCrit4Bool.Items.AddRange(new object[] {
+            "≈",
+            ">",
+            "<"});
+            this.cboCrit4Bool.Location = new System.Drawing.Point(622, 270);
+            this.cboCrit4Bool.Name = "cboCrit4Bool";
+            this.cboCrit4Bool.Size = new System.Drawing.Size(45, 21);
+            this.cboCrit4Bool.TabIndex = 35;
             // 
-            // comboBox6
+            // cboCriteria4
             // 
-            this.comboBox6.FormattingEnabled = true;
-            this.comboBox6.Location = new System.Drawing.Point(471, 246);
-            this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(121, 21);
-            this.comboBox6.TabIndex = 34;
+            this.cboCriteria4.FormattingEnabled = true;
+            this.cboCriteria4.Items.AddRange(new object[] {
+            "Average Income",
+            "Gender Ratio",
+            "Industry Participation Rate",
+            "Labor Participation Rate",
+            "Median Age",
+            "Poverty Level"});
+            this.cboCriteria4.Location = new System.Drawing.Point(471, 270);
+            this.cboCriteria4.Name = "cboCriteria4";
+            this.cboCriteria4.Size = new System.Drawing.Size(121, 21);
+            this.cboCriteria4.TabIndex = 34;
+            this.cboCriteria4.SelectedIndexChanged += new System.EventHandler(this.cboCriteria4_SelectedIndexChanged);
             // 
-            // textBox4
+            // txtCrit5Str
             // 
-            this.textBox4.Location = new System.Drawing.Point(697, 286);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(183, 20);
-            this.textBox4.TabIndex = 39;
+            this.txtCrit5Str.Location = new System.Drawing.Point(697, 310);
+            this.txtCrit5Str.Name = "txtCrit5Str";
+            this.txtCrit5Str.Size = new System.Drawing.Size(183, 20);
+            this.txtCrit5Str.TabIndex = 39;
             // 
-            // comboBox7
+            // cboCrit5Bool
             // 
-            this.comboBox7.FormattingEnabled = true;
-            this.comboBox7.Location = new System.Drawing.Point(622, 286);
-            this.comboBox7.Name = "comboBox7";
-            this.comboBox7.Size = new System.Drawing.Size(45, 21);
-            this.comboBox7.TabIndex = 38;
+            this.cboCrit5Bool.FormattingEnabled = true;
+            this.cboCrit5Bool.Items.AddRange(new object[] {
+            "≈",
+            ">",
+            "<"});
+            this.cboCrit5Bool.Location = new System.Drawing.Point(622, 310);
+            this.cboCrit5Bool.Name = "cboCrit5Bool";
+            this.cboCrit5Bool.Size = new System.Drawing.Size(45, 21);
+            this.cboCrit5Bool.TabIndex = 38;
             // 
-            // comboBox8
+            // cboCriteria5
             // 
-            this.comboBox8.FormattingEnabled = true;
-            this.comboBox8.Location = new System.Drawing.Point(471, 286);
-            this.comboBox8.Name = "comboBox8";
-            this.comboBox8.Size = new System.Drawing.Size(121, 21);
-            this.comboBox8.TabIndex = 37;
+            this.cboCriteria5.FormattingEnabled = true;
+            this.cboCriteria5.Items.AddRange(new object[] {
+            "Average Income",
+            "Gender Ratio",
+            "Industry Participation Rate",
+            "Labor Participation Rate",
+            "Median Age",
+            "Poverty Level"});
+            this.cboCriteria5.Location = new System.Drawing.Point(471, 310);
+            this.cboCriteria5.Name = "cboCriteria5";
+            this.cboCriteria5.Size = new System.Drawing.Size(121, 21);
+            this.cboCriteria5.TabIndex = 37;
+            this.cboCriteria5.SelectedIndexChanged += new System.EventHandler(this.cboCriteria5_SelectedIndexChanged);
             // 
             // cmdSearch
             // 
-            this.cmdSearch.Location = new System.Drawing.Point(602, 342);
+            this.cmdSearch.Location = new System.Drawing.Point(602, 366);
             this.cmdSearch.Name = "cmdSearch";
             this.cmdSearch.Size = new System.Drawing.Size(75, 23);
             this.cmdSearch.TabIndex = 40;
             this.cmdSearch.Text = "Search";
             this.cmdSearch.UseVisualStyleBackColor = true;
             // 
+            // cboCrit1SpecialBool
+            // 
+            this.cboCrit1SpecialBool.FormattingEnabled = true;
+            this.cboCrit1SpecialBool.Items.AddRange(new object[] {
+            "≈"});
+            this.cboCrit1SpecialBool.Location = new System.Drawing.Point(622, 150);
+            this.cboCrit1SpecialBool.Name = "cboCrit1SpecialBool";
+            this.cboCrit1SpecialBool.Size = new System.Drawing.Size(45, 21);
+            this.cboCrit1SpecialBool.TabIndex = 41;
+            this.cboCrit1SpecialBool.Visible = false;
+            // 
+            // cboCrit2SpecialBool
+            // 
+            this.cboCrit2SpecialBool.FormattingEnabled = true;
+            this.cboCrit2SpecialBool.Items.AddRange(new object[] {
+            "≈"});
+            this.cboCrit2SpecialBool.Location = new System.Drawing.Point(622, 190);
+            this.cboCrit2SpecialBool.Name = "cboCrit2SpecialBool";
+            this.cboCrit2SpecialBool.Size = new System.Drawing.Size(45, 21);
+            this.cboCrit2SpecialBool.TabIndex = 42;
+            this.cboCrit2SpecialBool.Visible = false;
+            // 
+            // cboIndustry1
+            // 
+            this.cboIndustry1.FormattingEnabled = true;
+            this.cboIndustry1.Location = new System.Drawing.Point(912, 150);
+            this.cboIndustry1.Name = "cboIndustry1";
+            this.cboIndustry1.Size = new System.Drawing.Size(121, 21);
+            this.cboIndustry1.TabIndex = 43;
+            this.cboIndustry1.Visible = false;
+            // 
+            // cboIndustry2
+            // 
+            this.cboIndustry2.FormattingEnabled = true;
+            this.cboIndustry2.Location = new System.Drawing.Point(912, 190);
+            this.cboIndustry2.Name = "cboIndustry2";
+            this.cboIndustry2.Size = new System.Drawing.Size(121, 21);
+            this.cboIndustry2.TabIndex = 44;
+            this.cboIndustry2.Visible = false;
+            // 
+            // cboIndustry3
+            // 
+            this.cboIndustry3.FormattingEnabled = true;
+            this.cboIndustry3.Location = new System.Drawing.Point(912, 230);
+            this.cboIndustry3.Name = "cboIndustry3";
+            this.cboIndustry3.Size = new System.Drawing.Size(121, 21);
+            this.cboIndustry3.TabIndex = 45;
+            this.cboIndustry3.Visible = false;
+            // 
+            // cboIndustry4
+            // 
+            this.cboIndustry4.FormattingEnabled = true;
+            this.cboIndustry4.Location = new System.Drawing.Point(912, 270);
+            this.cboIndustry4.Name = "cboIndustry4";
+            this.cboIndustry4.Size = new System.Drawing.Size(121, 21);
+            this.cboIndustry4.TabIndex = 46;
+            this.cboIndustry4.Visible = false;
+            // 
+            // cboIndustry5
+            // 
+            this.cboIndustry5.FormattingEnabled = true;
+            this.cboIndustry5.Location = new System.Drawing.Point(912, 310);
+            this.cboIndustry5.Name = "cboIndustry5";
+            this.cboIndustry5.Size = new System.Drawing.Size(121, 21);
+            this.cboIndustry5.TabIndex = 47;
+            this.cboIndustry5.Visible = false;
+            // 
             // FindPlaceCrit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1344, 729);
+            this.ClientSize = new System.Drawing.Size(1276, 693);
+            this.Controls.Add(this.cboIndustry5);
+            this.Controls.Add(this.cboIndustry4);
+            this.Controls.Add(this.cboIndustry3);
+            this.Controls.Add(this.cboIndustry2);
+            this.Controls.Add(this.cboIndustry1);
+            this.Controls.Add(this.cboCrit2SpecialBool);
+            this.Controls.Add(this.cboCrit1SpecialBool);
             this.Controls.Add(this.cmdSearch);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.comboBox7);
-            this.Controls.Add(this.comboBox8);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.comboBox5);
-            this.Controls.Add(this.comboBox6);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.comboBox3);
-            this.Controls.Add(this.comboBox4);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.txtCriteria1String);
-            this.Controls.Add(this.cboCriteria1Boolean);
+            this.Controls.Add(this.txtCrit5Str);
+            this.Controls.Add(this.cboCrit5Bool);
+            this.Controls.Add(this.cboCriteria5);
+            this.Controls.Add(this.txtCrit4Str);
+            this.Controls.Add(this.cboCrit4Bool);
+            this.Controls.Add(this.cboCriteria4);
+            this.Controls.Add(this.txtCrit3Str);
+            this.Controls.Add(this.cboCrit3Bool);
+            this.Controls.Add(this.cboCriteria3);
+            this.Controls.Add(this.txtCrit2Str);
+            this.Controls.Add(this.cboCrit2Bool);
+            this.Controls.Add(this.cboCriteria2);
+            this.Controls.Add(this.txtCrit1Str);
+            this.Controls.Add(this.cboCrit1Bool);
             this.Controls.Add(this.cboCriteria1);
             this.Controls.Add(this.lblCriteria5);
             this.Controls.Add(this.lblCriteria4);
@@ -314,7 +460,7 @@
             this.Controls.Add(this.lblReviewNotes);
             this.Controls.Add(this.lblWelcomeUser);
             this.MaximumSize = new System.Drawing.Size(1360, 768);
-            this.MinimumSize = new System.Drawing.Size(1360, 768);
+            this.MinimumSize = new System.Drawing.Size(1278, 678);
             this.Name = "FindPlaceCrit";
             this.Text = " ";
             this.ResumeLayout(false);
@@ -335,20 +481,27 @@
         private System.Windows.Forms.Label lblCriteria4;
         private System.Windows.Forms.Label lblCriteria5;
         private System.Windows.Forms.ComboBox cboCriteria1;
-        private System.Windows.Forms.ComboBox cboCriteria1Boolean;
-        private System.Windows.Forms.TextBox txtCriteria1String;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.ComboBox comboBox5;
-        private System.Windows.Forms.ComboBox comboBox6;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.ComboBox comboBox7;
-        private System.Windows.Forms.ComboBox comboBox8;
+        private System.Windows.Forms.ComboBox cboCrit1Bool;
+        private System.Windows.Forms.TextBox txtCrit1Str;
+        private System.Windows.Forms.TextBox txtCrit2Str;
+        private System.Windows.Forms.ComboBox cboCrit2Bool;
+        private System.Windows.Forms.ComboBox cboCriteria2;
+        private System.Windows.Forms.TextBox txtCrit3Str;
+        private System.Windows.Forms.ComboBox cboCrit3Bool;
+        private System.Windows.Forms.ComboBox cboCriteria3;
+        private System.Windows.Forms.TextBox txtCrit4Str;
+        private System.Windows.Forms.ComboBox cboCrit4Bool;
+        private System.Windows.Forms.ComboBox cboCriteria4;
+        private System.Windows.Forms.TextBox txtCrit5Str;
+        private System.Windows.Forms.ComboBox cboCrit5Bool;
+        private System.Windows.Forms.ComboBox cboCriteria5;
         private System.Windows.Forms.Button cmdSearch;
+        private System.Windows.Forms.ComboBox cboCrit1SpecialBool;
+        private System.Windows.Forms.ComboBox cboCrit2SpecialBool;
+        private System.Windows.Forms.ComboBox cboIndustry1;
+        private System.Windows.Forms.ComboBox cboIndustry2;
+        private System.Windows.Forms.ComboBox cboIndustry3;
+        private System.Windows.Forms.ComboBox cboIndustry4;
+        private System.Windows.Forms.ComboBox cboIndustry5;
     }
 }
