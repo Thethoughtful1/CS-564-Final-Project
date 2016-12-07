@@ -34,6 +34,7 @@ namespace CS564ProjectV1
 
         private void lblGoToPlacePg_Click(object sender, EventArgs e)
         {
+            Main.login = "glee";
             PlaceInfo newPlaceInfo = new PlaceInfo();
             newPlaceInfo.Show();
         }

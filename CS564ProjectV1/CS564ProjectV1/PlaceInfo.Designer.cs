@@ -32,11 +32,9 @@
             this.lblEditProfile = new System.Windows.Forms.LinkLabel();
             this.lblFindPlaceCrit = new System.Windows.Forms.LinkLabel();
             this.lblReviewNotes = new System.Windows.Forms.LinkLabel();
-            this.lblUserExclamation = new System.Windows.Forms.Label();
-            this.lblUserName = new System.Windows.Forms.Label();
             this.lblWelcomeUser = new System.Windows.Forms.Label();
             this.lblPlaceName = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.noteTextBox = new System.Windows.Forms.TextBox();
             this.lblYourNotes = new System.Windows.Forms.Label();
             this.cmdSaveNotes = new System.Windows.Forms.Button();
             this.lblDeleteNote = new System.Windows.Forms.LinkLabel();
@@ -54,19 +52,55 @@
             this.grpTopNotes = new System.Windows.Forms.GroupBox();
             this.lblCurPop = new System.Windows.Forms.Label();
             this.lblPopChangeInfo = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblCurLabor = new System.Windows.Forms.Label();
+            this.lblCurLaborInfo = new System.Windows.Forms.Label();
+            this.lblCurAvgIncome = new System.Windows.Forms.Label();
+            this.lblCurAvgIncomeInfo = new System.Windows.Forms.Label();
             this.lblCurPopInfo = new System.Windows.Forms.Label();
             this.picPopChangeSame = new System.Windows.Forms.PictureBox();
             this.picPopChangeDown = new System.Windows.Forms.PictureBox();
             this.picPopChangeUp = new System.Windows.Forms.PictureBox();
+            this.lblPovertyRate = new System.Windows.Forms.Label();
+            this.lblPovertyRateInfo = new System.Windows.Forms.Label();
+            this.picLaborSame = new System.Windows.Forms.PictureBox();
+            this.picLaborDown = new System.Windows.Forms.PictureBox();
+            this.picLaborUp = new System.Windows.Forms.PictureBox();
+            this.lblLaborChangeInfo = new System.Windows.Forms.Label();
+            this.picIncomeSame = new System.Windows.Forms.PictureBox();
+            this.picIncomeDown = new System.Windows.Forms.PictureBox();
+            this.picIncomeUp = new System.Windows.Forms.PictureBox();
+            this.lblIncomeChangeInfo = new System.Windows.Forms.Label();
+            this.picPovertySame = new System.Windows.Forms.PictureBox();
+            this.picPovertyDown = new System.Windows.Forms.PictureBox();
+            this.picPovertyUp = new System.Windows.Forms.PictureBox();
+            this.lblPovertyChangeInfo = new System.Windows.Forms.Label();
+            this.grpTopIndustries = new System.Windows.Forms.GroupBox();
+            this.txtIndustry3 = new System.Windows.Forms.TextBox();
+            this.txtIndustry2 = new System.Windows.Forms.TextBox();
+            this.txtIndustry1 = new System.Windows.Forms.TextBox();
+            this.lbl3 = new System.Windows.Forms.Label();
+            this.lbl2 = new System.Windows.Forms.Label();
+            this.lbl1 = new System.Windows.Forms.Label();
+            this.lblMedianAgeInfo = new System.Windows.Forms.Label();
+            this.lblGenderRatioInfo = new System.Windows.Forms.Label();
+            this.lblMedianAge = new System.Windows.Forms.Label();
+            this.lblGenderRatio = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.grpStateInfo.SuspendLayout();
             this.grpTopNotes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picPopChangeSame)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPopChangeDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPopChangeUp)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picLaborSame)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picLaborDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picLaborUp)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picIncomeSame)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picIncomeDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picIncomeUp)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picPovertySame)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picPovertyDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picPovertyUp)).BeginInit();
+            this.grpTopIndustries.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblFindPlaceCity
@@ -78,6 +112,7 @@
             this.lblFindPlaceCity.TabIndex = 56;
             this.lblFindPlaceCity.TabStop = true;
             this.lblFindPlaceCity.Text = "Find a Place by City";
+            this.lblFindPlaceCity.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblFindPlaceCity_LinkClicked);
             // 
             // lblEditProfile
             // 
@@ -88,6 +123,7 @@
             this.lblEditProfile.TabIndex = 55;
             this.lblEditProfile.TabStop = true;
             this.lblEditProfile.Text = "Edit Profile";
+            this.lblEditProfile.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblEditProfile_LinkClicked);
             // 
             // lblFindPlaceCrit
             // 
@@ -98,6 +134,7 @@
             this.lblFindPlaceCrit.TabIndex = 54;
             this.lblFindPlaceCrit.TabStop = true;
             this.lblFindPlaceCrit.Text = "Find a Place by Criteria";
+            this.lblFindPlaceCrit.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblFindPlaceCrit_LinkClicked);
             // 
             // lblReviewNotes
             // 
@@ -108,25 +145,7 @@
             this.lblReviewNotes.TabIndex = 53;
             this.lblReviewNotes.TabStop = true;
             this.lblReviewNotes.Text = "Review Notes";
-            // 
-            // lblUserExclamation
-            // 
-            this.lblUserExclamation.AutoSize = true;
-            this.lblUserExclamation.Location = new System.Drawing.Point(754, 28);
-            this.lblUserExclamation.Name = "lblUserExclamation";
-            this.lblUserExclamation.Size = new System.Drawing.Size(10, 13);
-            this.lblUserExclamation.TabIndex = 52;
-            this.lblUserExclamation.Text = "!";
-            // 
-            // lblUserName
-            // 
-            this.lblUserName.AutoSize = true;
-            this.lblUserName.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.lblUserName.Location = new System.Drawing.Point(650, 28);
-            this.lblUserName.Name = "lblUserName";
-            this.lblUserName.Size = new System.Drawing.Size(103, 13);
-            this.lblUserName.TabIndex = 51;
-            this.lblUserName.Text = "TODO: Current User";
+            this.lblReviewNotes.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblReviewNotes_LinkClicked);
             // 
             // lblWelcomeUser
             // 
@@ -141,20 +160,21 @@
             // 
             this.lblPlaceName.AutoSize = true;
             this.lblPlaceName.Font = new System.Drawing.Font("Microsoft Sans Serif", 28F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPlaceName.Location = new System.Drawing.Point(533, 84);
+            this.lblPlaceName.Location = new System.Drawing.Point(498, 84);
             this.lblPlaceName.Name = "lblPlaceName";
             this.lblPlaceName.Size = new System.Drawing.Size(283, 44);
             this.lblPlaceName.TabIndex = 57;
             this.lblPlaceName.Text = "<Place Name>";
+            this.lblPlaceName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox1
+            // noteTextBox
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(16, 371);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(365, 133);
-            this.textBox1.TabIndex = 68;
+            this.noteTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.noteTextBox.Location = new System.Drawing.Point(16, 373);
+            this.noteTextBox.Multiline = true;
+            this.noteTextBox.Name = "noteTextBox";
+            this.noteTextBox.Size = new System.Drawing.Size(365, 131);
+            this.noteTextBox.TabIndex = 68;
             // 
             // lblYourNotes
             // 
@@ -175,6 +195,7 @@
             this.cmdSaveNotes.TabIndex = 70;
             this.cmdSaveNotes.Text = "Save Note";
             this.cmdSaveNotes.UseVisualStyleBackColor = true;
+            this.cmdSaveNotes.Click += new System.EventHandler(this.cmdSaveNotes_Click);
             // 
             // lblDeleteNote
             // 
@@ -182,10 +203,11 @@
             this.lblDeleteNote.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDeleteNote.Location = new System.Drawing.Point(317, 355);
             this.lblDeleteNote.Name = "lblDeleteNote";
-            this.lblDeleteNote.Size = new System.Drawing.Size(72, 15);
+            this.lblDeleteNote.Size = new System.Drawing.Size(68, 15);
             this.lblDeleteNote.TabIndex = 71;
             this.lblDeleteNote.TabStop = true;
-            this.lblDeleteNote.Text = "Delete Note";
+            this.lblDeleteNote.Text = "delete note";
+            this.lblDeleteNote.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblDeleteNote_LinkClicked);
             // 
             // grpStateInfo
             // 
@@ -316,12 +338,13 @@
             // grpTopNotes
             // 
             this.grpTopNotes.BackColor = System.Drawing.SystemColors.Info;
-            this.grpTopNotes.Controls.Add(this.textBox1);
+            this.grpTopNotes.Controls.Add(this.panel1);
+            this.grpTopNotes.Controls.Add(this.noteTextBox);
             this.grpTopNotes.Controls.Add(this.cmdSaveNotes);
             this.grpTopNotes.Controls.Add(this.lblDeleteNote);
             this.grpTopNotes.Controls.Add(this.lblYourNotes);
             this.grpTopNotes.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpTopNotes.Location = new System.Drawing.Point(870, 84);
+            this.grpTopNotes.Location = new System.Drawing.Point(851, 83);
             this.grpTopNotes.Name = "grpTopNotes";
             this.grpTopNotes.Size = new System.Drawing.Size(394, 555);
             this.grpTopNotes.TabIndex = 73;
@@ -333,7 +356,7 @@
             this.lblCurPop.AutoSize = true;
             this.lblCurPop.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCurPop.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.lblCurPop.Location = new System.Drawing.Point(430, 165);
+            this.lblCurPop.Location = new System.Drawing.Point(464, 143);
             this.lblCurPop.Name = "lblCurPop";
             this.lblCurPop.Size = new System.Drawing.Size(216, 37);
             this.lblCurPop.TabIndex = 75;
@@ -343,59 +366,59 @@
             // 
             this.lblPopChangeInfo.AutoSize = true;
             this.lblPopChangeInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPopChangeInfo.Location = new System.Drawing.Point(708, 213);
+            this.lblPopChangeInfo.Location = new System.Drawing.Point(668, 180);
             this.lblPopChangeInfo.Name = "lblPopChangeInfo";
             this.lblPopChangeInfo.Size = new System.Drawing.Size(137, 20);
             this.lblPopChangeInfo.TabIndex = 74;
             this.lblPopChangeInfo.Text = "+ 10.00% per year";
             // 
-            // label1
+            // lblCurLabor
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label1.Location = new System.Drawing.Point(430, 276);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(389, 37);
-            this.label1.TabIndex = 77;
-            this.label1.Text = "<avgLaborParticipation>";
+            this.lblCurLabor.AutoSize = true;
+            this.lblCurLabor.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCurLabor.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.lblCurLabor.Location = new System.Drawing.Point(464, 223);
+            this.lblCurLabor.Name = "lblCurLabor";
+            this.lblCurLabor.Size = new System.Drawing.Size(199, 37);
+            this.lblCurLabor.TabIndex = 77;
+            this.lblCurLabor.Text = "<avgLabor>";
             // 
-            // label2
+            // lblCurLaborInfo
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(430, 313);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(162, 20);
-            this.label2.TabIndex = 76;
-            this.label2.Text = "% Population Change";
+            this.lblCurLaborInfo.AutoSize = true;
+            this.lblCurLaborInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCurLaborInfo.Location = new System.Drawing.Point(464, 260);
+            this.lblCurLaborInfo.Name = "lblCurLaborInfo";
+            this.lblCurLaborInfo.Size = new System.Drawing.Size(180, 20);
+            this.lblCurLaborInfo.TabIndex = 76;
+            this.lblCurLaborInfo.Text = "Labor Participation Rate";
             // 
-            // label3
+            // lblCurAvgIncome
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label3.Location = new System.Drawing.Point(430, 394);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(235, 37);
-            this.label3.TabIndex = 79;
-            this.label3.Text = "<PopChange>";
+            this.lblCurAvgIncome.AutoSize = true;
+            this.lblCurAvgIncome.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCurAvgIncome.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.lblCurAvgIncome.Location = new System.Drawing.Point(464, 303);
+            this.lblCurAvgIncome.Name = "lblCurAvgIncome";
+            this.lblCurAvgIncome.Size = new System.Drawing.Size(221, 37);
+            this.lblCurAvgIncome.TabIndex = 79;
+            this.lblCurAvgIncome.Text = "<avgIncome>";
             // 
-            // label4
+            // lblCurAvgIncomeInfo
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(430, 431);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(162, 20);
-            this.label4.TabIndex = 78;
-            this.label4.Text = "% Population Change";
+            this.lblCurAvgIncomeInfo.AutoSize = true;
+            this.lblCurAvgIncomeInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCurAvgIncomeInfo.Location = new System.Drawing.Point(464, 340);
+            this.lblCurAvgIncomeInfo.Name = "lblCurAvgIncomeInfo";
+            this.lblCurAvgIncomeInfo.Size = new System.Drawing.Size(125, 20);
+            this.lblCurAvgIncomeInfo.TabIndex = 78;
+            this.lblCurAvgIncomeInfo.Text = "Average Income";
             // 
             // lblCurPopInfo
             // 
             this.lblCurPopInfo.AutoSize = true;
             this.lblCurPopInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCurPopInfo.Location = new System.Drawing.Point(430, 213);
+            this.lblCurPopInfo.Location = new System.Drawing.Point(464, 180);
             this.lblCurPopInfo.Name = "lblCurPopInfo";
             this.lblCurPopInfo.Size = new System.Drawing.Size(127, 20);
             this.lblCurPopInfo.TabIndex = 82;
@@ -404,7 +427,7 @@
             // picPopChangeSame
             // 
             this.picPopChangeSame.Image = global::CS564ProjectV1.Properties.Resources.Right;
-            this.picPopChangeSame.Location = new System.Drawing.Point(724, 158);
+            this.picPopChangeSame.Location = new System.Drawing.Point(684, 130);
             this.picPopChangeSame.Name = "picPopChangeSame";
             this.picPopChangeSame.Size = new System.Drawing.Size(100, 50);
             this.picPopChangeSame.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -415,7 +438,7 @@
             // picPopChangeDown
             // 
             this.picPopChangeDown.Image = global::CS564ProjectV1.Properties.Resources.Down;
-            this.picPopChangeDown.Location = new System.Drawing.Point(724, 158);
+            this.picPopChangeDown.Location = new System.Drawing.Point(684, 130);
             this.picPopChangeDown.Name = "picPopChangeDown";
             this.picPopChangeDown.Size = new System.Drawing.Size(100, 50);
             this.picPopChangeDown.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -426,7 +449,7 @@
             // picPopChangeUp
             // 
             this.picPopChangeUp.Image = global::CS564ProjectV1.Properties.Resources.Up;
-            this.picPopChangeUp.Location = new System.Drawing.Point(724, 158);
+            this.picPopChangeUp.Location = new System.Drawing.Point(684, 130);
             this.picPopChangeUp.Name = "picPopChangeUp";
             this.picPopChangeUp.Size = new System.Drawing.Size(100, 50);
             this.picPopChangeUp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -434,19 +457,310 @@
             this.picPopChangeUp.TabStop = false;
             this.picPopChangeUp.Visible = false;
             // 
+            // lblPovertyRate
+            // 
+            this.lblPovertyRate.AutoSize = true;
+            this.lblPovertyRate.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPovertyRate.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.lblPovertyRate.Location = new System.Drawing.Point(464, 383);
+            this.lblPovertyRate.Name = "lblPovertyRate";
+            this.lblPovertyRate.Size = new System.Drawing.Size(226, 37);
+            this.lblPovertyRate.TabIndex = 85;
+            this.lblPovertyRate.Text = "<povertyrate>";
+            // 
+            // lblPovertyRateInfo
+            // 
+            this.lblPovertyRateInfo.AutoSize = true;
+            this.lblPovertyRateInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPovertyRateInfo.Location = new System.Drawing.Point(464, 420);
+            this.lblPovertyRateInfo.Name = "lblPovertyRateInfo";
+            this.lblPovertyRateInfo.Size = new System.Drawing.Size(100, 20);
+            this.lblPovertyRateInfo.TabIndex = 84;
+            this.lblPovertyRateInfo.Text = "Poverty Rate";
+            // 
+            // picLaborSame
+            // 
+            this.picLaborSame.Image = global::CS564ProjectV1.Properties.Resources.Right;
+            this.picLaborSame.Location = new System.Drawing.Point(684, 207);
+            this.picLaborSame.Name = "picLaborSame";
+            this.picLaborSame.Size = new System.Drawing.Size(100, 50);
+            this.picLaborSame.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picLaborSame.TabIndex = 89;
+            this.picLaborSame.TabStop = false;
+            this.picLaborSame.Visible = false;
+            // 
+            // picLaborDown
+            // 
+            this.picLaborDown.Image = global::CS564ProjectV1.Properties.Resources.Down;
+            this.picLaborDown.Location = new System.Drawing.Point(684, 207);
+            this.picLaborDown.Name = "picLaborDown";
+            this.picLaborDown.Size = new System.Drawing.Size(100, 50);
+            this.picLaborDown.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picLaborDown.TabIndex = 88;
+            this.picLaborDown.TabStop = false;
+            this.picLaborDown.Visible = false;
+            // 
+            // picLaborUp
+            // 
+            this.picLaborUp.Image = global::CS564ProjectV1.Properties.Resources.Up;
+            this.picLaborUp.Location = new System.Drawing.Point(684, 207);
+            this.picLaborUp.Name = "picLaborUp";
+            this.picLaborUp.Size = new System.Drawing.Size(100, 50);
+            this.picLaborUp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picLaborUp.TabIndex = 87;
+            this.picLaborUp.TabStop = false;
+            this.picLaborUp.Visible = false;
+            // 
+            // lblLaborChangeInfo
+            // 
+            this.lblLaborChangeInfo.AutoSize = true;
+            this.lblLaborChangeInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLaborChangeInfo.Location = new System.Drawing.Point(668, 260);
+            this.lblLaborChangeInfo.Name = "lblLaborChangeInfo";
+            this.lblLaborChangeInfo.Size = new System.Drawing.Size(137, 20);
+            this.lblLaborChangeInfo.TabIndex = 86;
+            this.lblLaborChangeInfo.Text = "+ 10.00% per year";
+            // 
+            // picIncomeSame
+            // 
+            this.picIncomeSame.Image = global::CS564ProjectV1.Properties.Resources.Right;
+            this.picIncomeSame.Location = new System.Drawing.Point(684, 287);
+            this.picIncomeSame.Name = "picIncomeSame";
+            this.picIncomeSame.Size = new System.Drawing.Size(100, 50);
+            this.picIncomeSame.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picIncomeSame.TabIndex = 93;
+            this.picIncomeSame.TabStop = false;
+            this.picIncomeSame.Visible = false;
+            // 
+            // picIncomeDown
+            // 
+            this.picIncomeDown.Image = global::CS564ProjectV1.Properties.Resources.Down;
+            this.picIncomeDown.Location = new System.Drawing.Point(684, 287);
+            this.picIncomeDown.Name = "picIncomeDown";
+            this.picIncomeDown.Size = new System.Drawing.Size(100, 50);
+            this.picIncomeDown.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picIncomeDown.TabIndex = 92;
+            this.picIncomeDown.TabStop = false;
+            this.picIncomeDown.Visible = false;
+            // 
+            // picIncomeUp
+            // 
+            this.picIncomeUp.Image = global::CS564ProjectV1.Properties.Resources.Up;
+            this.picIncomeUp.Location = new System.Drawing.Point(684, 287);
+            this.picIncomeUp.Name = "picIncomeUp";
+            this.picIncomeUp.Size = new System.Drawing.Size(100, 50);
+            this.picIncomeUp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picIncomeUp.TabIndex = 91;
+            this.picIncomeUp.TabStop = false;
+            this.picIncomeUp.Visible = false;
+            // 
+            // lblIncomeChangeInfo
+            // 
+            this.lblIncomeChangeInfo.AutoSize = true;
+            this.lblIncomeChangeInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIncomeChangeInfo.Location = new System.Drawing.Point(668, 340);
+            this.lblIncomeChangeInfo.Name = "lblIncomeChangeInfo";
+            this.lblIncomeChangeInfo.Size = new System.Drawing.Size(137, 20);
+            this.lblIncomeChangeInfo.TabIndex = 90;
+            this.lblIncomeChangeInfo.Text = "+ 10.00% per year";
+            // 
+            // picPovertySame
+            // 
+            this.picPovertySame.Image = global::CS564ProjectV1.Properties.Resources.Right;
+            this.picPovertySame.Location = new System.Drawing.Point(684, 371);
+            this.picPovertySame.Name = "picPovertySame";
+            this.picPovertySame.Size = new System.Drawing.Size(100, 50);
+            this.picPovertySame.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picPovertySame.TabIndex = 97;
+            this.picPovertySame.TabStop = false;
+            this.picPovertySame.Visible = false;
+            // 
+            // picPovertyDown
+            // 
+            this.picPovertyDown.Image = global::CS564ProjectV1.Properties.Resources.Down;
+            this.picPovertyDown.Location = new System.Drawing.Point(684, 371);
+            this.picPovertyDown.Name = "picPovertyDown";
+            this.picPovertyDown.Size = new System.Drawing.Size(100, 50);
+            this.picPovertyDown.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picPovertyDown.TabIndex = 96;
+            this.picPovertyDown.TabStop = false;
+            this.picPovertyDown.Visible = false;
+            // 
+            // picPovertyUp
+            // 
+            this.picPovertyUp.Image = global::CS564ProjectV1.Properties.Resources.Up;
+            this.picPovertyUp.Location = new System.Drawing.Point(684, 371);
+            this.picPovertyUp.Name = "picPovertyUp";
+            this.picPovertyUp.Size = new System.Drawing.Size(100, 50);
+            this.picPovertyUp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picPovertyUp.TabIndex = 95;
+            this.picPovertyUp.TabStop = false;
+            this.picPovertyUp.Visible = false;
+            // 
+            // lblPovertyChangeInfo
+            // 
+            this.lblPovertyChangeInfo.AutoSize = true;
+            this.lblPovertyChangeInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPovertyChangeInfo.Location = new System.Drawing.Point(668, 420);
+            this.lblPovertyChangeInfo.Name = "lblPovertyChangeInfo";
+            this.lblPovertyChangeInfo.Size = new System.Drawing.Size(137, 20);
+            this.lblPovertyChangeInfo.TabIndex = 94;
+            this.lblPovertyChangeInfo.Text = "+ 10.00% per year";
+            // 
+            // grpTopIndustries
+            // 
+            this.grpTopIndustries.Controls.Add(this.txtIndustry3);
+            this.grpTopIndustries.Controls.Add(this.txtIndustry2);
+            this.grpTopIndustries.Controls.Add(this.txtIndustry1);
+            this.grpTopIndustries.Controls.Add(this.lbl3);
+            this.grpTopIndustries.Controls.Add(this.lbl2);
+            this.grpTopIndustries.Controls.Add(this.lbl1);
+            this.grpTopIndustries.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpTopIndustries.Location = new System.Drawing.Point(409, 448);
+            this.grpTopIndustries.Name = "grpTopIndustries";
+            this.grpTopIndustries.Size = new System.Drawing.Size(264, 190);
+            this.grpTopIndustries.TabIndex = 98;
+            this.grpTopIndustries.TabStop = false;
+            this.grpTopIndustries.Text = "Top 3 Industries";
+            // 
+            // txtIndustry3
+            // 
+            this.txtIndustry3.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtIndustry3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIndustry3.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.txtIndustry3.Location = new System.Drawing.Point(33, 117);
+            this.txtIndustry3.Multiline = true;
+            this.txtIndustry3.Name = "txtIndustry3";
+            this.txtIndustry3.ReadOnly = true;
+            this.txtIndustry3.Size = new System.Drawing.Size(212, 36);
+            this.txtIndustry3.TabIndex = 5;
+            // 
+            // txtIndustry2
+            // 
+            this.txtIndustry2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtIndustry2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIndustry2.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.txtIndustry2.Location = new System.Drawing.Point(33, 75);
+            this.txtIndustry2.Multiline = true;
+            this.txtIndustry2.Name = "txtIndustry2";
+            this.txtIndustry2.ReadOnly = true;
+            this.txtIndustry2.Size = new System.Drawing.Size(212, 36);
+            this.txtIndustry2.TabIndex = 4;
+            // 
+            // txtIndustry1
+            // 
+            this.txtIndustry1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtIndustry1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIndustry1.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.txtIndustry1.Location = new System.Drawing.Point(33, 33);
+            this.txtIndustry1.Multiline = true;
+            this.txtIndustry1.Name = "txtIndustry1";
+            this.txtIndustry1.ReadOnly = true;
+            this.txtIndustry1.Size = new System.Drawing.Size(212, 36);
+            this.txtIndustry1.TabIndex = 3;
+            // 
+            // lbl3
+            // 
+            this.lbl3.AutoSize = true;
+            this.lbl3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl3.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.lbl3.Location = new System.Drawing.Point(9, 117);
+            this.lbl3.Name = "lbl3";
+            this.lbl3.Size = new System.Drawing.Size(18, 13);
+            this.lbl3.TabIndex = 2;
+            this.lbl3.Text = "3.";
+            // 
+            // lbl2
+            // 
+            this.lbl2.AutoSize = true;
+            this.lbl2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl2.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.lbl2.Location = new System.Drawing.Point(9, 75);
+            this.lbl2.Name = "lbl2";
+            this.lbl2.Size = new System.Drawing.Size(18, 13);
+            this.lbl2.TabIndex = 1;
+            this.lbl2.Text = "2.";
+            // 
+            // lbl1
+            // 
+            this.lbl1.AutoSize = true;
+            this.lbl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl1.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.lbl1.Location = new System.Drawing.Point(9, 33);
+            this.lbl1.Name = "lbl1";
+            this.lbl1.Size = new System.Drawing.Size(18, 13);
+            this.lbl1.TabIndex = 0;
+            this.lbl1.Text = "1.";
+            // 
+            // lblMedianAgeInfo
+            // 
+            this.lblMedianAgeInfo.AutoSize = true;
+            this.lblMedianAgeInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMedianAgeInfo.Location = new System.Drawing.Point(704, 525);
+            this.lblMedianAgeInfo.Name = "lblMedianAgeInfo";
+            this.lblMedianAgeInfo.Size = new System.Drawing.Size(94, 20);
+            this.lblMedianAgeInfo.TabIndex = 99;
+            this.lblMedianAgeInfo.Text = "Median Age";
+            // 
+            // lblGenderRatioInfo
+            // 
+            this.lblGenderRatioInfo.AutoSize = true;
+            this.lblGenderRatioInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGenderRatioInfo.Location = new System.Drawing.Point(683, 609);
+            this.lblGenderRatioInfo.Name = "lblGenderRatioInfo";
+            this.lblGenderRatioInfo.Size = new System.Drawing.Size(136, 20);
+            this.lblGenderRatioInfo.TabIndex = 100;
+            this.lblGenderRatioInfo.Text = "M:F Gender Ratio";
+            // 
+            // lblMedianAge
+            // 
+            this.lblMedianAge.AutoSize = true;
+            this.lblMedianAge.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMedianAge.Location = new System.Drawing.Point(714, 488);
+            this.lblMedianAge.Name = "lblMedianAge";
+            this.lblMedianAge.Size = new System.Drawing.Size(74, 37);
+            this.lblMedianAge.TabIndex = 101;
+            this.lblMedianAge.Text = "Age";
+            this.lblMedianAge.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblGenderRatio
+            // 
+            this.lblGenderRatio.AutoSize = true;
+            this.lblGenderRatio.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGenderRatio.Location = new System.Drawing.Point(707, 572);
+            this.lblGenderRatio.Name = "lblGenderRatio";
+            this.lblGenderRatio.Size = new System.Drawing.Size(91, 37);
+            this.lblGenderRatio.TabIndex = 102;
+            this.lblGenderRatio.Text = "Ratio";
+            this.lblGenderRatio.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel1
+            // 
+            this.panel1.Location = new System.Drawing.Point(9, 33);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(371, 309);
+            this.panel1.TabIndex = 72;
+            // 
             // PlaceInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1276, 693);
-            this.Controls.Add(this.picPopChangeSame);
+            this.Controls.Add(this.lblGenderRatio);
+            this.Controls.Add(this.lblMedianAge);
+            this.Controls.Add(this.lblGenderRatioInfo);
+            this.Controls.Add(this.lblMedianAgeInfo);
+            this.Controls.Add(this.grpTopIndustries);
+            this.Controls.Add(this.lblPovertyChangeInfo);
+            this.Controls.Add(this.lblIncomeChangeInfo);
+            this.Controls.Add(this.lblLaborChangeInfo);
+            this.Controls.Add(this.lblPovertyRate);
+            this.Controls.Add(this.lblPovertyRateInfo);
             this.Controls.Add(this.lblCurPopInfo);
-            this.Controls.Add(this.picPopChangeDown);
-            this.Controls.Add(this.picPopChangeUp);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblCurAvgIncome);
+            this.Controls.Add(this.lblCurAvgIncomeInfo);
+            this.Controls.Add(this.lblCurLabor);
+            this.Controls.Add(this.lblCurLaborInfo);
             this.Controls.Add(this.lblCurPop);
             this.Controls.Add(this.lblPopChangeInfo);
             this.Controls.Add(this.grpStateInfo);
@@ -455,10 +769,20 @@
             this.Controls.Add(this.lblEditProfile);
             this.Controls.Add(this.lblFindPlaceCrit);
             this.Controls.Add(this.lblReviewNotes);
-            this.Controls.Add(this.lblUserExclamation);
-            this.Controls.Add(this.lblUserName);
             this.Controls.Add(this.lblWelcomeUser);
             this.Controls.Add(this.grpTopNotes);
+            this.Controls.Add(this.picPovertySame);
+            this.Controls.Add(this.picPovertyDown);
+            this.Controls.Add(this.picPovertyUp);
+            this.Controls.Add(this.picLaborSame);
+            this.Controls.Add(this.picLaborDown);
+            this.Controls.Add(this.picLaborUp);
+            this.Controls.Add(this.picIncomeSame);
+            this.Controls.Add(this.picIncomeDown);
+            this.Controls.Add(this.picIncomeUp);
+            this.Controls.Add(this.picPopChangeSame);
+            this.Controls.Add(this.picPopChangeDown);
+            this.Controls.Add(this.picPopChangeUp);
             this.MinimumSize = new System.Drawing.Size(1216, 678);
             this.Name = "PlaceInfo";
             this.Text = "PlaceInfo";
@@ -469,6 +793,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.picPopChangeSame)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPopChangeDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPopChangeUp)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picLaborSame)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picLaborDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picLaborUp)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picIncomeSame)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picIncomeDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picIncomeUp)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picPovertySame)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picPovertyDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picPovertyUp)).EndInit();
+            this.grpTopIndustries.ResumeLayout(false);
+            this.grpTopIndustries.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -480,11 +815,9 @@
         private System.Windows.Forms.LinkLabel lblEditProfile;
         private System.Windows.Forms.LinkLabel lblFindPlaceCrit;
         private System.Windows.Forms.LinkLabel lblReviewNotes;
-        private System.Windows.Forms.Label lblUserExclamation;
-        private System.Windows.Forms.Label lblUserName;
         private System.Windows.Forms.Label lblWelcomeUser;
         private System.Windows.Forms.Label lblPlaceName;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox noteTextBox;
         private System.Windows.Forms.Label lblYourNotes;
         private System.Windows.Forms.Button cmdSaveNotes;
         private System.Windows.Forms.LinkLabel lblDeleteNote;
@@ -502,13 +835,39 @@
         private System.Windows.Forms.GroupBox grpTopNotes;
         private System.Windows.Forms.Label lblCurPop;
         private System.Windows.Forms.Label lblPopChangeInfo;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblCurLabor;
+        private System.Windows.Forms.Label lblCurLaborInfo;
+        private System.Windows.Forms.Label lblCurAvgIncome;
+        private System.Windows.Forms.Label lblCurAvgIncomeInfo;
         private System.Windows.Forms.PictureBox picPopChangeUp;
         private System.Windows.Forms.PictureBox picPopChangeDown;
         private System.Windows.Forms.Label lblCurPopInfo;
         private System.Windows.Forms.PictureBox picPopChangeSame;
+        private System.Windows.Forms.Label lblPovertyRate;
+        private System.Windows.Forms.Label lblPovertyRateInfo;
+        private System.Windows.Forms.PictureBox picLaborSame;
+        private System.Windows.Forms.PictureBox picLaborDown;
+        private System.Windows.Forms.PictureBox picLaborUp;
+        private System.Windows.Forms.Label lblLaborChangeInfo;
+        private System.Windows.Forms.PictureBox picIncomeSame;
+        private System.Windows.Forms.PictureBox picIncomeDown;
+        private System.Windows.Forms.PictureBox picIncomeUp;
+        private System.Windows.Forms.Label lblIncomeChangeInfo;
+        private System.Windows.Forms.PictureBox picPovertySame;
+        private System.Windows.Forms.PictureBox picPovertyDown;
+        private System.Windows.Forms.PictureBox picPovertyUp;
+        private System.Windows.Forms.Label lblPovertyChangeInfo;
+        private System.Windows.Forms.GroupBox grpTopIndustries;
+        private System.Windows.Forms.Label lbl3;
+        private System.Windows.Forms.Label lbl2;
+        private System.Windows.Forms.Label lbl1;
+        private System.Windows.Forms.TextBox txtIndustry1;
+        private System.Windows.Forms.TextBox txtIndustry2;
+        private System.Windows.Forms.TextBox txtIndustry3;
+        private System.Windows.Forms.Label lblMedianAgeInfo;
+        private System.Windows.Forms.Label lblGenderRatioInfo;
+        private System.Windows.Forms.Label lblMedianAge;
+        private System.Windows.Forms.Label lblGenderRatio;
+        private System.Windows.Forms.Panel panel1;
     }
 }
