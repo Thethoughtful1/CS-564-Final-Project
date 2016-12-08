@@ -15,6 +15,7 @@ namespace CS564ProjectV1
     {
         public static string login;
         public static string name;
+        public static string sql;
         public static int placeId = 5548000;        //default to Madison
         static string dbConnectionString = @"Server=Leap;Database=Locations;Integrated Security=true";
         public static SqlConnection connection = new SqlConnection(dbConnectionString);
@@ -34,7 +35,7 @@ namespace CS564ProjectV1
 
         private void lblGoToPlacePg_Click(object sender, EventArgs e)
         {
-            Main.login = "glee";
+            Main.login = "guest";
             PlaceInfo newPlaceInfo = new PlaceInfo();
             newPlaceInfo.Show();
         }

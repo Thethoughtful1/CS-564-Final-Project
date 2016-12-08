@@ -70,9 +70,9 @@
             this.lblGoToPlacePg.AutoSize = true;
             this.lblGoToPlacePg.Location = new System.Drawing.Point(32, 646);
             this.lblGoToPlacePg.Name = "lblGoToPlacePg";
-            this.lblGoToPlacePg.Size = new System.Drawing.Size(91, 13);
+            this.lblGoToPlacePg.Size = new System.Drawing.Size(77, 13);
             this.lblGoToPlacePg.TabIndex = 3;
-            this.lblGoToPlacePg.Text = "Go to Place Page";
+            this.lblGoToPlacePg.Text = "Enter as Guest";
             this.lblGoToPlacePg.Click += new System.EventHandler(this.lblGoToPlacePg_Click);
             // 
             // Main
