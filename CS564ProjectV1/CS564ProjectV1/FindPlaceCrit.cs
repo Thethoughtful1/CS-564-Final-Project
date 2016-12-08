@@ -14,9 +14,12 @@ namespace CS564ProjectV1
 {
     public partial class FindPlaceCrit : Form
     {
+        private string approximately = "≈";
         private string sql;
         HashSet<string> joins = new HashSet<string>();
         HashSet<string> wheres = new HashSet<string>();
+        HashSet<string> havings = new HashSet<string>();
+        
 
         static private Dictionary<string, Criteria> choices = new Dictionary<string, Criteria>()
     {
@@ -40,8 +43,8 @@ namespace CS564ProjectV1
         public FindPlaceCrit()
         {
             InitializeComponent();
-            cboCrit1SpecialBool.SelectedItem = "≈";
-            cboCrit2SpecialBool.SelectedItem = "≈";
+            cboCrit1SpecialBool.SelectedItem = approximately;
+            cboCrit2SpecialBool.SelectedItem = approximately;
 
             lblWelcomeUser.Text = "Welcome " + Main.name + " !";
 
@@ -92,6 +95,9 @@ namespace CS564ProjectV1
 
         private void cboCriteria1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            cboCrit1Bool.Text = approximately;
+            txtCrit1Str.Text = "";
+            
             if (cboCriteria1.Text.Equals("Name") || cboCriteria1.Text.Equals("State"))
             {
                 cboCrit1Bool.Visible = false;
@@ -114,6 +120,16 @@ namespace CS564ProjectV1
 
         private void cboCriteria2_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (cboCriteria2.Text.Equals(""))
+            {
+                cboCrit2Bool.Text = "";
+                txtCrit2Str.Text = "";
+            }
+            else
+            {
+                cboCrit2Bool.Text = approximately;
+            }
+
             if (cboCriteria2.Text.Equals("Name") || cboCriteria2.Text.Equals("State"))
             {
                 cboCrit2Bool.Visible = false;
@@ -137,6 +153,9 @@ namespace CS564ProjectV1
 
         private void cboCriteria3_SelectedIndexChanged(object sender, EventArgs e)
         {
+            cboCrit3Bool.Text = approximately;
+            txtCrit3Str.Text = "";
+
             if (cboCriteria3.Text.Equals("Industry Participation Rate"))
             {
                 cboIndustry3.Visible = true;
@@ -149,6 +168,9 @@ namespace CS564ProjectV1
 
         private void cboCriteria4_SelectedIndexChanged(object sender, EventArgs e)
         {
+            cboCrit4Bool.Text = approximately;
+            txtCrit4Str.Text = "";
+
             if (cboCriteria4.Text.Equals("Industry Participation Rate"))
             {
                 cboIndustry4.Visible = true;
@@ -161,6 +183,9 @@ namespace CS564ProjectV1
 
         private void cboCriteria5_SelectedIndexChanged(object sender, EventArgs e)
         {
+            cboCrit5Bool.Text = approximately;
+            txtCrit5Str.Text = "";
+
             if (cboCriteria5.Text.Equals("Industry Participation Rate"))
             {
                 cboIndustry5.Visible = true;
@@ -205,12 +230,27 @@ SELECT Place.placeId, MAX(Place.name) Place, MAX(PlaceIsIn.stateName) State
             sql += FlushWith("  FROM Place", "GROUP BY Place.PlaceId");
             sql += "\n";
 
+            sql += FlushWith("  FROM Place", "HAVING 1 = 1");
+            sql += "\n";
+
+            foreach (string having in havings)
+            {
+                sql += FlushWith("  FROM Place", having, 2);
+                sql += "\n";
+            }
+
             Debug.WriteLine(sql);
+            Main.sql = sql;
 
             if(!criteriaValid)
             {
                 MessageBox.Show("All partial criteria ignored");
             }
+
+            // Clear criteria
+            joins = new HashSet<string>();
+            wheres = new HashSet<string>();
+            havings = new HashSet<string>();
         }
 
         private bool addCriteria(string criteria, string relationship, string value, string industry)
@@ -221,7 +261,7 @@ SELECT Place.placeId, MAX(Place.name) Place, MAX(PlaceIsIn.stateName) State
             {
                 criteriaValid = true;
             }
-            if (value.Length == 0 || criteria.Length == 0)
+            else if (value.Length == 0 || criteria.Length == 0)
             {
                 criteriaValid = false;
             }
@@ -260,23 +300,24 @@ SELECT Place.placeId, MAX(Place.name) Place, MAX(PlaceIsIn.stateName) State
             Criteria choice = choices[criteria];
             
             joins.Add(Join(choice.table));
-            wheres.Add(Where(choice.table + "." + choice.column, relationship, value));
+            havings.Add(Having(choice.table + "." + choice.column, relationship, value));
         }
 
         private void AddIndustry(string type, string relationship, string value)
         {
 
-            string alias = "Industry" + type.Replace(" ", String.Empty).Substring(0, 50);
+            string alias = "Industry" + type.Replace(" ", String.Empty).Replace(",", String.Empty);
+            alias = alias.Substring(0, Math.Min(50, alias.Length));
             joins.Add(JoinIndustry(alias));
             joins.Add(JoinIndustry("IndustryTotal"));
             wheres.Add("AND IndustryTotal.Type = 'Total'");
             wheres.Add("AND " + alias + ".Type = '" + type + "'");
-            wheres.Add(Where(alias + ".NumberOfWorkers/IndustryTotal.Type", relationship, value));
+            havings.Add(Having(alias + ".numberOfWorkers/IndustryTotal.numberOfWorkers", relationship, value));
         }
 
-        private string Where(string value1, string relationship, string value2)
+        private string Having(string value1, string relationship, string value2)
         {
-            if (relationship == "≈")
+            if (relationship == approximately)
             {
                 return "AND " + Avg(value1) + " > " + Avg(value2) + " * 0.9" + "\n"
                      + "AND " + Avg(value1) + " < " + Avg(value2) + " * 1.1";
@@ -312,10 +353,10 @@ SELECT Place.placeId, MAX(Place.name) Place, MAX(PlaceIsIn.stateName) State
 
         string Join(string table)
         {
-            string table1 = (table == "State" ? "PlaceIsIn" : "Place");
-            string column1 = (table == "State" ? "name" : "placeId");
+            string table1 = (table.Equals("State") ? "PlaceIsIn" : "Place");
+            string column1 = (table.Equals("State") ? "stateName" : "placeId");
             string table2 = table;
-            string column2 = (table == "State" ? "stateName" : "placeId");
+            string column2 = (table.Equals("State") ? "name" : "placeId");
             return Join(table1, column1, table2, column2);
         }
 
@@ -323,7 +364,7 @@ SELECT Place.placeId, MAX(Place.name) Place, MAX(PlaceIsIn.stateName) State
         {
             return "INNER JOIN Industry " + alias + "\n"
                  + "  ON Place.placeId = " + alias + ".placeId\n"
-                 + "    AND PlaceIsIn.year = Industry.year";
+                 + "    AND PlaceIsIn.year = " + alias + ".year";
         }
 
         class Criteria

@@ -170,6 +170,7 @@
             this.cboCriteria1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCriteria1.FormattingEnabled = true;
             this.cboCriteria1.Items.AddRange(new object[] {
+            "",
             "Name",
             "State",
             "Population",
@@ -178,13 +179,13 @@
             "Average Income",
             "Poverty Level",
             "Labor Participation Rate",
-            "Industry Participation Rate",
             "State Population",
             "State Total Income",
             "State Education Spending",
             "State Natural Resource Spending",
             "State Public Welfare Spending",
-            "State Health Spending Spending"});
+            "State Health Spending Spending",
+            "Industry Participation Rate"});
             this.cboCriteria1.Location = new System.Drawing.Point(419, 163);
             this.cboCriteria1.Name = "cboCriteria1";
             this.cboCriteria1.Size = new System.Drawing.Size(181, 21);
@@ -236,6 +237,7 @@
             this.cboCriteria2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCriteria2.FormattingEnabled = true;
             this.cboCriteria2.Items.AddRange(new object[] {
+            "",
             "Name",
             "State",
             "Population",
@@ -244,13 +246,13 @@
             "Average Income",
             "Poverty Level",
             "Labor Participation Rate",
-            "Industry Participation Rate",
             "State Population",
             "State Total Income",
             "State Education Spending",
             "State Natural Resource Spending",
             "State Public Welfare Spending",
-            "State Health Spending Spending"});
+            "State Health Spending Spending",
+            "Industry Participation Rate"});
             this.cboCriteria2.Location = new System.Drawing.Point(419, 203);
             this.cboCriteria2.Name = "cboCriteria2";
             this.cboCriteria2.Size = new System.Drawing.Size(181, 21);
@@ -282,19 +284,20 @@
             this.cboCriteria3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCriteria3.FormattingEnabled = true;
             this.cboCriteria3.Items.AddRange(new object[] {
+            "",
             "Population",
             "Gender Ratio",
             "Median Age",
             "Average Income",
             "Poverty Level",
             "Labor Participation Rate",
-            "Industry Participation Rate",
             "State Population",
             "State Total Income",
             "State Education Spending",
             "State Natural Resource Spending",
             "State Public Welfare Spending",
-            "State Health Spending Spending"});
+            "State Health Spending Spending",
+            "Industry Participation Rate"});
             this.cboCriteria3.Location = new System.Drawing.Point(419, 243);
             this.cboCriteria3.Name = "cboCriteria3";
             this.cboCriteria3.Size = new System.Drawing.Size(181, 21);
@@ -326,19 +329,20 @@
             this.cboCriteria4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCriteria4.FormattingEnabled = true;
             this.cboCriteria4.Items.AddRange(new object[] {
+            "",
             "Population",
             "Gender Ratio",
             "Median Age",
             "Average Income",
             "Poverty Level",
             "Labor Participation Rate",
-            "Industry Participation Rate",
             "State Population",
             "State Total Income",
             "State Education Spending",
             "State Natural Resource Spending",
             "State Public Welfare Spending",
-            "State Health Spending Spending"});
+            "State Health Spending Spending",
+            "Industry Participation Rate"});
             this.cboCriteria4.Location = new System.Drawing.Point(419, 283);
             this.cboCriteria4.Name = "cboCriteria4";
             this.cboCriteria4.Size = new System.Drawing.Size(181, 21);
@@ -370,19 +374,20 @@
             this.cboCriteria5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCriteria5.FormattingEnabled = true;
             this.cboCriteria5.Items.AddRange(new object[] {
+            "",
             "Population",
             "Gender Ratio",
             "Median Age",
             "Average Income",
             "Poverty Level",
             "Labor Participation Rate",
-            "Industry Participation Rate",
             "State Population",
             "State Total Income",
             "State Education Spending",
             "State Natural Resource Spending",
             "State Public Welfare Spending",
-            "State Health Spending Spending"});
+            "State Health Spending Spending",
+            "Industry Participation Rate"});
             this.cboCriteria5.Location = new System.Drawing.Point(419, 323);
             this.cboCriteria5.Name = "cboCriteria5";
             this.cboCriteria5.Size = new System.Drawing.Size(181, 21);
