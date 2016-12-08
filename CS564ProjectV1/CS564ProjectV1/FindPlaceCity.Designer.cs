@@ -109,6 +109,7 @@
             this.cmdSearch.TabIndex = 68;
             this.cmdSearch.Text = "Search";
             this.cmdSearch.UseVisualStyleBackColor = true;
+            this.cmdSearch.Click += new System.EventHandler(this.cmdSearch_Click);
             // 
             // lblCriteria5
             // 
@@ -172,221 +173,288 @@
             // 
             // cboCompareCity
             // 
+            this.cboCompareCity.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCompareCity.FormattingEnabled = true;
-            this.cboCompareCity.Location = new System.Drawing.Point(842, 200);
+            this.cboCompareCity.Location = new System.Drawing.Point(602, 92);
             this.cboCompareCity.Name = "cboCompareCity";
-            this.cboCompareCity.Size = new System.Drawing.Size(121, 21);
+            this.cboCompareCity.Size = new System.Drawing.Size(333, 21);
             this.cboCompareCity.TabIndex = 69;
             // 
             // cboCrit2SpecialBool
             // 
+            this.cboCrit2SpecialBool.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCrit2SpecialBool.FormattingEnabled = true;
             this.cboCrit2SpecialBool.Items.AddRange(new object[] {
             "≈"});
-            this.cboCrit2SpecialBool.Location = new System.Drawing.Point(622, 167);
+            this.cboCrit2SpecialBool.Location = new System.Drawing.Point(633, 167);
             this.cboCrit2SpecialBool.Name = "cboCrit2SpecialBool";
-            this.cboCrit2SpecialBool.Size = new System.Drawing.Size(45, 21);
+            this.cboCrit2SpecialBool.Size = new System.Drawing.Size(34, 21);
             this.cboCrit2SpecialBool.TabIndex = 81;
             this.cboCrit2SpecialBool.Visible = false;
             // 
             // cboCrit1SpecialBool
             // 
+            this.cboCrit1SpecialBool.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCrit1SpecialBool.FormattingEnabled = true;
             this.cboCrit1SpecialBool.Items.AddRange(new object[] {
             "≈"});
-            this.cboCrit1SpecialBool.Location = new System.Drawing.Point(622, 127);
+            this.cboCrit1SpecialBool.Location = new System.Drawing.Point(633, 127);
             this.cboCrit1SpecialBool.Name = "cboCrit1SpecialBool";
-            this.cboCrit1SpecialBool.Size = new System.Drawing.Size(45, 21);
+            this.cboCrit1SpecialBool.Size = new System.Drawing.Size(34, 21);
             this.cboCrit1SpecialBool.TabIndex = 80;
             this.cboCrit1SpecialBool.Visible = false;
             // 
             // cboCrit5Bool
             // 
+            this.cboCrit5Bool.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCrit5Bool.FormattingEnabled = true;
             this.cboCrit5Bool.Items.AddRange(new object[] {
             "≈",
             ">",
             "<"});
-            this.cboCrit5Bool.Location = new System.Drawing.Point(622, 287);
+            this.cboCrit5Bool.Location = new System.Drawing.Point(633, 287);
             this.cboCrit5Bool.Name = "cboCrit5Bool";
-            this.cboCrit5Bool.Size = new System.Drawing.Size(45, 21);
+            this.cboCrit5Bool.Size = new System.Drawing.Size(34, 21);
             this.cboCrit5Bool.TabIndex = 79;
             // 
             // cboCriteria5
             // 
+            this.cboCriteria5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCriteria5.FormattingEnabled = true;
             this.cboCriteria5.Items.AddRange(new object[] {
-            "Average Income",
+            "",
+            "Population",
             "Gender Ratio",
-            "Industry Participation Rate",
-            "Labor Participation Rate",
             "Median Age",
-            "Poverty Level"});
-            this.cboCriteria5.Location = new System.Drawing.Point(471, 287);
+            "Average Income",
+            "Poverty Level",
+            "Labor Participation Rate",
+            "State Population",
+            "State Total Income",
+            "State Education Spending",
+            "State Natural Resource Spending",
+            "State Public Welfare Spending",
+            "State Health Spending Spending",
+            "Industry Participation Rate"});
+            this.cboCriteria5.Location = new System.Drawing.Point(440, 287);
             this.cboCriteria5.Name = "cboCriteria5";
-            this.cboCriteria5.Size = new System.Drawing.Size(121, 21);
+            this.cboCriteria5.Size = new System.Drawing.Size(176, 21);
             this.cboCriteria5.TabIndex = 78;
             this.cboCriteria5.SelectedIndexChanged += new System.EventHandler(this.cboCriteria5_SelectedIndexChanged);
             // 
             // cboCrit4Bool
             // 
+            this.cboCrit4Bool.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCrit4Bool.FormattingEnabled = true;
             this.cboCrit4Bool.Items.AddRange(new object[] {
             "≈",
             ">",
             "<"});
-            this.cboCrit4Bool.Location = new System.Drawing.Point(622, 247);
+            this.cboCrit4Bool.Location = new System.Drawing.Point(633, 247);
             this.cboCrit4Bool.Name = "cboCrit4Bool";
-            this.cboCrit4Bool.Size = new System.Drawing.Size(45, 21);
+            this.cboCrit4Bool.Size = new System.Drawing.Size(34, 21);
             this.cboCrit4Bool.TabIndex = 77;
             // 
             // cboCriteria4
             // 
+            this.cboCriteria4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCriteria4.FormattingEnabled = true;
             this.cboCriteria4.Items.AddRange(new object[] {
-            "Average Income",
+            "",
+            "Population",
             "Gender Ratio",
-            "Industry Participation Rate",
-            "Labor Participation Rate",
             "Median Age",
-            "Poverty Level"});
-            this.cboCriteria4.Location = new System.Drawing.Point(471, 247);
+            "Average Income",
+            "Poverty Level",
+            "Labor Participation Rate",
+            "State Population",
+            "State Total Income",
+            "State Education Spending",
+            "State Natural Resource Spending",
+            "State Public Welfare Spending",
+            "State Health Spending Spending",
+            "Industry Participation Rate"});
+            this.cboCriteria4.Location = new System.Drawing.Point(440, 247);
             this.cboCriteria4.Name = "cboCriteria4";
-            this.cboCriteria4.Size = new System.Drawing.Size(121, 21);
+            this.cboCriteria4.Size = new System.Drawing.Size(176, 21);
             this.cboCriteria4.TabIndex = 76;
             this.cboCriteria4.SelectedIndexChanged += new System.EventHandler(this.cboCriteria4_SelectedIndexChanged);
             // 
             // cboCrit3Bool
             // 
+            this.cboCrit3Bool.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCrit3Bool.FormattingEnabled = true;
             this.cboCrit3Bool.Items.AddRange(new object[] {
             "≈",
             ">",
             "<"});
-            this.cboCrit3Bool.Location = new System.Drawing.Point(622, 207);
+            this.cboCrit3Bool.Location = new System.Drawing.Point(633, 207);
             this.cboCrit3Bool.Name = "cboCrit3Bool";
-            this.cboCrit3Bool.Size = new System.Drawing.Size(45, 21);
+            this.cboCrit3Bool.Size = new System.Drawing.Size(34, 21);
             this.cboCrit3Bool.TabIndex = 75;
             // 
             // cboCriteria3
             // 
+            this.cboCriteria3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCriteria3.FormattingEnabled = true;
             this.cboCriteria3.Items.AddRange(new object[] {
-            "Average Income",
+            "",
+            "Population",
             "Gender Ratio",
-            "Industry Participation Rate",
-            "Labor Participation Rate",
             "Median Age",
-            "Poverty Level"});
-            this.cboCriteria3.Location = new System.Drawing.Point(471, 207);
+            "Average Income",
+            "Poverty Level",
+            "Labor Participation Rate",
+            "State Population",
+            "State Total Income",
+            "State Education Spending",
+            "State Natural Resource Spending",
+            "State Public Welfare Spending",
+            "State Health Spending Spending",
+            "Industry Participation Rate"});
+            this.cboCriteria3.Location = new System.Drawing.Point(440, 207);
             this.cboCriteria3.Name = "cboCriteria3";
-            this.cboCriteria3.Size = new System.Drawing.Size(121, 21);
+            this.cboCriteria3.Size = new System.Drawing.Size(176, 21);
             this.cboCriteria3.TabIndex = 74;
             this.cboCriteria3.SelectedIndexChanged += new System.EventHandler(this.cboCriteria3_SelectedIndexChanged);
             // 
             // cboCrit2Bool
             // 
+            this.cboCrit2Bool.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCrit2Bool.FormattingEnabled = true;
             this.cboCrit2Bool.Items.AddRange(new object[] {
             "≈",
             ">",
             "<"});
-            this.cboCrit2Bool.Location = new System.Drawing.Point(622, 167);
+            this.cboCrit2Bool.Location = new System.Drawing.Point(633, 167);
             this.cboCrit2Bool.Name = "cboCrit2Bool";
-            this.cboCrit2Bool.Size = new System.Drawing.Size(45, 21);
+            this.cboCrit2Bool.Size = new System.Drawing.Size(34, 21);
             this.cboCrit2Bool.TabIndex = 73;
             // 
             // cboCriteria2
             // 
+            this.cboCriteria2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCriteria2.FormattingEnabled = true;
             this.cboCriteria2.Items.AddRange(new object[] {
+            "",
             "Name",
             "State",
-            "Average Income",
+            "Population",
             "Gender Ratio",
-            "Industry Participation Rate",
-            "Labor Participation Rate",
             "Median Age",
-            "Poverty Level"});
-            this.cboCriteria2.Location = new System.Drawing.Point(471, 167);
+            "Average Income",
+            "Poverty Level",
+            "Labor Participation Rate",
+            "State Population",
+            "State Total Income",
+            "State Education Spending",
+            "State Natural Resource Spending",
+            "State Public Welfare Spending",
+            "State Health Spending Spending",
+            "Industry Participation Rate"});
+            this.cboCriteria2.Location = new System.Drawing.Point(440, 167);
             this.cboCriteria2.Name = "cboCriteria2";
-            this.cboCriteria2.Size = new System.Drawing.Size(121, 21);
+            this.cboCriteria2.Size = new System.Drawing.Size(176, 21);
             this.cboCriteria2.TabIndex = 72;
             this.cboCriteria2.SelectedIndexChanged += new System.EventHandler(this.cboCriteria2_SelectedIndexChanged);
             // 
             // cboCrit1Bool
             // 
+            this.cboCrit1Bool.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCrit1Bool.FormattingEnabled = true;
             this.cboCrit1Bool.Items.AddRange(new object[] {
             "≈",
             ">",
             "<"});
-            this.cboCrit1Bool.Location = new System.Drawing.Point(622, 127);
+            this.cboCrit1Bool.Location = new System.Drawing.Point(633, 127);
             this.cboCrit1Bool.Name = "cboCrit1Bool";
-            this.cboCrit1Bool.Size = new System.Drawing.Size(45, 21);
+            this.cboCrit1Bool.Size = new System.Drawing.Size(34, 21);
             this.cboCrit1Bool.TabIndex = 71;
             // 
             // cboCriteria1
             // 
+            this.cboCriteria1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCriteria1.FormattingEnabled = true;
             this.cboCriteria1.Items.AddRange(new object[] {
+            "",
             "Name",
             "State",
-            "Average Income",
+            "Population",
             "Gender Ratio",
-            "Industry Participation Rate",
-            "Labor Participation Rate",
             "Median Age",
+            "Average Income",
             "Poverty Level",
-            ""});
-            this.cboCriteria1.Location = new System.Drawing.Point(471, 127);
+            "Labor Participation Rate",
+            "State Population",
+            "State Total Income",
+            "State Education Spending",
+            "State Natural Resource Spending",
+            "State Public Welfare Spending",
+            "State Health Spending Spending",
+            "Industry Participation Rate"});
+            this.cboCriteria1.Location = new System.Drawing.Point(440, 127);
             this.cboCriteria1.Name = "cboCriteria1";
-            this.cboCriteria1.Size = new System.Drawing.Size(121, 21);
+            this.cboCriteria1.Size = new System.Drawing.Size(176, 21);
             this.cboCriteria1.TabIndex = 70;
             this.cboCriteria1.SelectedIndexChanged += new System.EventHandler(this.cboCriteria1_SelectedIndexChanged_1);
             // 
             // cboIndustry5
             // 
+            this.cboIndustry5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboIndustry5.DropDownWidth = 411;
+            this.cboIndustry5.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboIndustry5.FormattingEnabled = true;
-            this.cboIndustry5.Location = new System.Drawing.Point(695, 287);
+            this.cboIndustry5.Location = new System.Drawing.Point(686, 287);
             this.cboIndustry5.Name = "cboIndustry5";
-            this.cboIndustry5.Size = new System.Drawing.Size(121, 21);
+            this.cboIndustry5.Size = new System.Drawing.Size(360, 21);
             this.cboIndustry5.TabIndex = 86;
             this.cboIndustry5.Visible = false;
             // 
             // cboIndustry4
             // 
+            this.cboIndustry4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboIndustry4.DropDownWidth = 411;
+            this.cboIndustry4.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboIndustry4.FormattingEnabled = true;
-            this.cboIndustry4.Location = new System.Drawing.Point(695, 247);
+            this.cboIndustry4.Location = new System.Drawing.Point(686, 247);
             this.cboIndustry4.Name = "cboIndustry4";
-            this.cboIndustry4.Size = new System.Drawing.Size(121, 21);
+            this.cboIndustry4.Size = new System.Drawing.Size(360, 21);
             this.cboIndustry4.TabIndex = 85;
             this.cboIndustry4.Visible = false;
             // 
             // cboIndustry3
             // 
+            this.cboIndustry3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboIndustry3.DropDownWidth = 411;
+            this.cboIndustry3.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboIndustry3.FormattingEnabled = true;
-            this.cboIndustry3.Location = new System.Drawing.Point(695, 207);
+            this.cboIndustry3.Location = new System.Drawing.Point(686, 207);
             this.cboIndustry3.Name = "cboIndustry3";
-            this.cboIndustry3.Size = new System.Drawing.Size(121, 21);
+            this.cboIndustry3.Size = new System.Drawing.Size(360, 21);
             this.cboIndustry3.TabIndex = 84;
             this.cboIndustry3.Visible = false;
             // 
             // cboIndustry2
             // 
+            this.cboIndustry2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboIndustry2.DropDownWidth = 411;
+            this.cboIndustry2.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboIndustry2.FormattingEnabled = true;
-            this.cboIndustry2.Location = new System.Drawing.Point(695, 167);
+            this.cboIndustry2.Location = new System.Drawing.Point(686, 167);
             this.cboIndustry2.Name = "cboIndustry2";
-            this.cboIndustry2.Size = new System.Drawing.Size(121, 21);
+            this.cboIndustry2.Size = new System.Drawing.Size(360, 21);
             this.cboIndustry2.TabIndex = 83;
             this.cboIndustry2.Visible = false;
             // 
             // cboIndustry1
             // 
+            this.cboIndustry1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboIndustry1.DropDownWidth = 411;
+            this.cboIndustry1.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboIndustry1.FormattingEnabled = true;
-            this.cboIndustry1.Location = new System.Drawing.Point(695, 127);
+            this.cboIndustry1.Location = new System.Drawing.Point(686, 127);
             this.cboIndustry1.Name = "cboIndustry1";
-            this.cboIndustry1.Size = new System.Drawing.Size(121, 21);
+            this.cboIndustry1.Size = new System.Drawing.Size(360, 21);
             this.cboIndustry1.TabIndex = 82;
             this.cboIndustry1.Visible = false;
             // 
@@ -446,7 +514,6 @@
         private System.Windows.Forms.Label lblCriteria2;
         private System.Windows.Forms.Label lblCriteria1;
         private System.Windows.Forms.Label lblFindPlaceTitle;
-        private System.Windows.Forms.ComboBox cboCompareCity;
         private System.Windows.Forms.ComboBox cboCrit2SpecialBool;
         private System.Windows.Forms.ComboBox cboCrit1SpecialBool;
         private System.Windows.Forms.ComboBox cboCrit5Bool;
@@ -464,5 +531,6 @@
         private System.Windows.Forms.ComboBox cboIndustry3;
         private System.Windows.Forms.ComboBox cboIndustry2;
         private System.Windows.Forms.ComboBox cboIndustry1;
+        public System.Windows.Forms.ComboBox cboCompareCity;
     }
 }
