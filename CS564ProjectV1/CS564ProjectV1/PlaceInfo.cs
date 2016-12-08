@@ -182,7 +182,7 @@ namespace CS564ProjectV1
             }
             else if (povertyChange > .01)
             {
-                picPopChangeUp.Visible = true;
+                picPovertyUp.Visible = true;
                 povertyChangeString = "+ " + povertyChangeString + " per year";
             }
             else
@@ -323,6 +323,7 @@ namespace CS564ProjectV1
 
                 TextBox t = new TextBox();
                 t.Multiline = true;
+                t.ReadOnly = true;
                 t.ScrollBars = ScrollBars.Vertical;
                 t.WordWrap = true;
                 t.Width = 330;
