@@ -33,6 +33,8 @@
             this.lblFindPlaceCrit = new System.Windows.Forms.LinkLabel();
             this.lblReviewNotes = new System.Windows.Forms.LinkLabel();
             this.lblWelcomeUser = new System.Windows.Forms.Label();
+            this.resultPanel = new System.Windows.Forms.Panel();
+            this.lblYourResults = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblFindPlaceCity
@@ -88,11 +90,32 @@
             this.lblWelcomeUser.TabIndex = 57;
             this.lblWelcomeUser.Text = "Welcome ";
             // 
+            // resultPanel
+            // 
+            this.resultPanel.AutoScroll = true;
+            this.resultPanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.resultPanel.Location = new System.Drawing.Point(379, 146);
+            this.resultPanel.Name = "resultPanel";
+            this.resultPanel.Size = new System.Drawing.Size(600, 450);
+            this.resultPanel.TabIndex = 62;
+            // 
+            // lblYourResults
+            // 
+            this.lblYourResults.AutoSize = true;
+            this.lblYourResults.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblYourResults.Location = new System.Drawing.Point(376, 112);
+            this.lblYourResults.Name = "lblYourResults";
+            this.lblYourResults.Size = new System.Drawing.Size(113, 20);
+            this.lblYourResults.TabIndex = 14;
+            this.lblYourResults.Text = "Your Results";
+            // 
             // Results
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1276, 693);
+            this.Controls.Add(this.lblYourResults);
+            this.Controls.Add(this.resultPanel);
             this.Controls.Add(this.lblFindPlaceCity);
             this.Controls.Add(this.lblEditProfile);
             this.Controls.Add(this.lblFindPlaceCrit);
@@ -112,5 +135,7 @@
         private System.Windows.Forms.LinkLabel lblFindPlaceCrit;
         private System.Windows.Forms.LinkLabel lblReviewNotes;
         private System.Windows.Forms.Label lblWelcomeUser;
+        private System.Windows.Forms.Panel resultPanel;
+        private System.Windows.Forms.Label lblYourResults;
     }
 }

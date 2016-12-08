@@ -445,7 +445,9 @@ namespace CS564ProjectV1
 
         private void btnReturnToResults_Click(object sender, EventArgs e)
         {
-            //TODO open up a new results page
+            this.Close();
+            Results results = new Results();
+            results.Show();
         }
     }
 }
