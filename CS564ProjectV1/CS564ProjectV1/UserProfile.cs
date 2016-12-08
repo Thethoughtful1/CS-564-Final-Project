@@ -57,7 +57,7 @@ namespace CS564ProjectV1
             cmd.Parameters.AddWithValue("@firstName", firstName);
             cmd.Parameters.AddWithValue("@lastName", lastName);
             cmd.ExecuteScalar();
-            Main.name = (firstName == "" ? "Dude" : firstName);
+            Main.name = firstName;
             lblWelcomeUser.Text = "Welcome " + Main.name + "!";
             this.Refresh();
         }

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Diagnostics;
 
 namespace CS564ProjectV1
 {
@@ -33,48 +34,54 @@ namespace CS564ProjectV1
             int pointX = 0;
             int pointY = 10;
 
-            SqlCommand cmd = new SqlCommand("userNotes", Main.connection);
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@login", Main.login);
-            SqlDataReader reader = cmd.ExecuteReader();
-            while (reader.Read())
+            SqlCommand userNotesCmd = new SqlCommand("userNotes", Main.connection);
+            userNotesCmd.CommandType = CommandType.StoredProcedure;
+            userNotesCmd.Parameters.AddWithValue("@login", Main.login);
+            SqlDataReader userNotesReader = userNotesCmd.ExecuteReader();
+            bool doneReading;
+            do
             {
-                int noteId = Convert.ToInt32(reader[0]);
-                String content = reader[1].ToString();
-                String placeName = reader[2].ToString();
-                int placeId = Convert.ToInt32(reader[3]);
+                doneReading = true;
+                while (userNotesReader.Read())
+                {
+                    doneReading = false;
+                    int noteId = Convert.ToInt32(userNotesReader[0]);
+                    String content = userNotesReader[1].ToString();
+                    String placeName = userNotesReader[2].ToString();
+                    int placeId = Convert.ToInt32(userNotesReader[3]);
 
-                LinkLabel l = new LinkLabel();
-                l.Text = placeName;
-                l.Location = new Point(pointX, pointY);
-                l.Tag = placeId;
-                l.LinkClicked += myPlaceLinkClick;
-                notePanel.Controls.Add(l);
+                    LinkLabel l = new LinkLabel();
+                    l.Text = placeName;
+                    l.Location = new Point(pointX, pointY);
+                    l.Tag = placeId;
+                    l.LinkClicked += myPlaceLinkClick;
+                    notePanel.Controls.Add(l);
 
-                LinkLabel d = new LinkLabel();
-                d.Text = "delete note";
-                d.Location = new Point(pointX + 360, pointY);
-                d.Tag = noteId;
-                d.LinkClicked += myDeleteNoteClick;
-                notePanel.Controls.Add(d);
+                    LinkLabel d = new LinkLabel();
+                    d.Text = "delete note";
+                    d.Location = new Point(pointX + 360, pointY);
+                    d.Tag = noteId;
+                    d.LinkClicked += myDeleteNoteClick;
+                    notePanel.Controls.Add(d);
 
-                pointY += l.Height;
+                    pointY += l.Height;
 
-                TextBox t = new TextBox();
-                t.Multiline = true;
-                t.ScrollBars = ScrollBars.Vertical;
-                t.WordWrap = true;
-                t.Width = 450;
-                t.Height = 100;
-                t.Font = new Font(t.Font.FontFamily, 12);
-                t.Text = content;
-                t.Location = new Point(pointX, pointY);
-                notePanel.Controls.Add(t);
-                notePanel.Show();
-                pointY += t.Height + 20;
+                    TextBox t = new TextBox();  
+                    t.Multiline = true;
+                    t.ScrollBars = ScrollBars.Vertical;
+                    t.WordWrap = true;
+                    t.Width = 450;
+                    t.Height = 100;
+                    t.Font = new Font(t.Font.FontFamily, 12);
+                    t.Text = content;
+                    t.Location = new Point(pointX, pointY);
+                    notePanel.Controls.Add(t);
+                    notePanel.Show();
+                    pointY += t.Height + 20;
 
-            }
-            reader.Close();
+                }
+            } while (!doneReading && userNotesReader.NextResult());
+            userNotesReader.Close();
 
         }
 
