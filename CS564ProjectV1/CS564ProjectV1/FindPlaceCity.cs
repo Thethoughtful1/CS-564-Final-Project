@@ -25,7 +25,7 @@ namespace CS564ProjectV1
     {
         { "Name", new Criteria("Place", "name") },                  // Not currently used
         { "State", new Criteria("PlaceIsIn", "name") },             // Not currently used
-        { "Industry Participation Rate", new Criteria("Industry", "numberOfWorkers") }, // Not currently used
+        { "Industry Participation Number", new Criteria("Industry", "numberOfWorkers") }, // Not currently used
         { "Population", new Criteria("Demographics", "population") },
         { "Gender Ratio", new Criteria("Demographics", "genderRatio") },
         { "Median Age", new Criteria("Demographics", "medianAge") },
@@ -135,7 +135,7 @@ namespace CS564ProjectV1
                 cboCrit1Bool.Visible = true;
                 cboCrit1SpecialBool.Visible = false;
             }
-            if (cboCriteria1.Text.Equals("Industry Participation Rate"))
+            if (cboCriteria1.Text.Equals("Industry Participation Rate") || cboCriteria1.Text.Equals("Industry Participation Number"))
             {
                 cboIndustry1.Visible = true;
             }
@@ -167,7 +167,7 @@ namespace CS564ProjectV1
                 cboCrit2SpecialBool.Visible = false;
             }
 
-            if (cboCriteria2.Text.Equals("Industry Participation Rate"))
+            if (cboCriteria2.Text.Equals("Industry Participation Rate") || cboCriteria2.Text.Equals("Industry Participation Number"))
             {
                 cboIndustry2.Visible = true;
             }
@@ -188,7 +188,7 @@ namespace CS564ProjectV1
                 cboCrit3Bool.Text = approximately;
             }
 
-            if (cboCriteria3.Text.Equals("Industry Participation Rate"))
+            if (cboCriteria3.Text.Equals("Industry Participation Rate") || cboCriteria3.Text.Equals("Industry Participation Number"))
             {
                 cboIndustry3.Visible = true;
             }
@@ -209,7 +209,7 @@ namespace CS564ProjectV1
                 cboCrit4Bool.Text = approximately;
             }
 
-            if (cboCriteria4.Text.Equals("Industry Participation Rate"))
+            if (cboCriteria4.Text.Equals("Industry Participation Rate") || cboCriteria4.Text.Equals("Industry Participation Number"))
             {
                 cboIndustry4.Visible = true;
             }
@@ -230,7 +230,7 @@ namespace CS564ProjectV1
                 cboCrit5Bool.Text = approximately;
             }
 
-            if (cboCriteria5.Text.Equals("Industry Participation Rate"))
+            if (cboCriteria5.Text.Equals("Industry Participation Rate") || cboCriteria5.Text.Equals("Industry Participation Number"))
             {
                 cboIndustry5.Visible = true;
             }
@@ -244,7 +244,6 @@ namespace CS564ProjectV1
         {
             bool criteriaValid = true;
             placeId0 = (string)cboCompareCity.SelectedValue;
-            Debug.WriteLine(cboCompareCity.SelectedValue);
 
             criteriaValid = addCriteria(cboCriteria1.Text, cboCrit1Bool.Text, cboIndustry1.Text);
             criteriaValid = addCriteria(cboCriteria2.Text, cboCrit2Bool.Text, cboIndustry2.Text);
@@ -289,7 +288,7 @@ SELECT Place.placeId, MAX(Place.name) Place, MAX(PlaceIsIn.stateName) State
                 sql += "\n";
             }
 
-            //Debug.WriteLine(sql);
+            Debug.WriteLine(sql);
             Main.sql = sql;
 
             if (!criteriaValid)
@@ -333,6 +332,17 @@ SELECT Place.placeId, MAX(Place.name) Place, MAX(PlaceIsIn.stateName) State
                     AddIndustry(industry, relationship);
                 }
             }
+            else if (criteria.Equals("Industry Participation Number"))
+            {
+                if (industry.Length == 0)
+                {
+                    criteriaValid = false;
+                }
+                else
+                {
+                    AddIndustryNumber(industry, relationship);
+                }
+            }
             else
             {
                 AddGenericCriteria(criteria, relationship);
@@ -365,6 +375,18 @@ SELECT Place.placeId, MAX(Place.name) Place, MAX(PlaceIsIn.stateName) State
             wheres.Add("AND IndustryTotal0.Type = 'Total'");
             wheres.Add("AND " + alias0 + ".Type = '" + type + "'");
             havings.Add(Having(alias + ".numberOfWorkers/IndustryTotal.numberOfWorkers", relationship, alias0 + ".numberOfWorkers/IndustryTotal0.numberOfWorkers"));
+        }
+
+        private void AddIndustryNumber(string type, string relationship)
+        {
+
+            string alias = "Industry" + type.Replace(" ", String.Empty).Replace(",", String.Empty);
+            alias = alias.Substring(0, Math.Min(50, alias.Length));
+            string alias0 = alias + "0";
+            joins.Add(JoinIndustry(alias));
+            wheres.Add("AND " + alias + ".Type = '" + type + "'");
+            wheres.Add("AND " + alias0 + ".Type = '" + type + "'");
+            havings.Add(Having(alias + ".numberOfWorkers", relationship, alias0 + ".numberOfWorkers"));
         }
 
         private string Having(string value1, string relationship, string value2)
@@ -428,7 +450,7 @@ SELECT Place.placeId, MAX(Place.name) Place, MAX(PlaceIsIn.stateName) State
                  + "  ON Place.placeId = " + alias + ".placeId\n"
                  + "    AND PlaceIsIn.year = " + alias + ".year\n"
                  + "INNER JOIN Industry " + alias0 + "\n"
-                 + "  ON " + placeId0 + " = " + alias + ".placeId\n"
+                 + "  ON " + placeId0 + " = " + alias0 + ".placeId\n"
                  + "    AND PlaceIsIn0.year = " + alias0 + ".year";
         }
         
