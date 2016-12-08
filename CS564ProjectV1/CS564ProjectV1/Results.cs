@@ -15,16 +15,14 @@ namespace CS564ProjectV1
     {
         public Results()
         {
-          
-            //lblWelcomeUser.Text = "Welcome " + Main.name + " !";
-
+            
             InitializeComponent();
+            lblWelcomeUser.Text = "Welcome " + Main.name + " !";
             resultPanel.Controls.Clear();
             int pointX = 0;
             int pointY = 10;
 
-            SqlCommand cmd = new SqlCommand("testSearch", Main.connection);
-            cmd.CommandType = CommandType.StoredProcedure;
+            SqlCommand cmd = new SqlCommand(Main.sql, Main.connection);
             SqlDataReader resultReader = cmd.ExecuteReader();
             while (resultReader.Read())
             {
