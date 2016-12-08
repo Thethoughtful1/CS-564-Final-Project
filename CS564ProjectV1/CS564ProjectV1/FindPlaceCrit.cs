@@ -251,6 +251,10 @@ SELECT Place.placeId, MAX(Place.name) Place, MAX(PlaceIsIn.stateName) State
             joins = new HashSet<string>();
             wheres = new HashSet<string>();
             havings = new HashSet<string>();
+
+            this.Close();
+            Results results = new Results();
+            results.Show();
         }
 
         private bool addCriteria(string criteria, string relationship, string value, string industry)

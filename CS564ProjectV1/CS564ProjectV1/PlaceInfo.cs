@@ -18,13 +18,13 @@ namespace CS564ProjectV1
             InitializeComponent();
 
             int placeId = Main.placeId;
-            lblWelcomeUser.Text = Main.name;
+            lblWelcomeUser.Text = "Welcome " + Main.name + " !";
 
             drawForm(placeId);
 
             //Return to search results button is available if we have a recent search query
             string sql = Main.sql;
-            
+
             if (!String.IsNullOrEmpty(sql))
             {
                 btnReturnToResults.Visible = true;
@@ -294,7 +294,7 @@ namespace CS564ProjectV1
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@placeId", placeId);
             double ratio = (double)cmd.ExecuteScalar();
-            lblGenderRatio.Text = ratio.ToString();
+            lblGenderRatio.Text = ratio.ToString()+":1";
             cmd.Dispose();
         }
         private void getPlaceNotes(int placeId)
