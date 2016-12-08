@@ -21,6 +21,20 @@ namespace CS564ProjectV1
             lblWelcomeUser.Text = Main.name;
 
             drawForm(placeId);
+
+            //Return to search results button is available if we have a recent search query
+            string sql = Main.sql;
+            
+            if (!String.IsNullOrEmpty(sql))
+            {
+                btnReturnToResults.Visible = true;
+                btnReturnToResults.Enabled = true;
+            }
+            else
+            {
+                btnReturnToResults.Visible = false;
+                btnReturnToResults.Enabled = false;
+            }
             
         }
 
@@ -283,7 +297,6 @@ namespace CS564ProjectV1
             lblGenderRatio.Text = ratio.ToString();
             cmd.Dispose();
         }
-
         private void getPlaceNotes(int placeId)
         {
             notePanel.Controls.Clear();
@@ -428,6 +441,11 @@ namespace CS564ProjectV1
             this.Close();
             FindPlaceCity findPlaceCity = new FindPlaceCity();
             findPlaceCity.Show();
+        }
+
+        private void btnReturnToResults_Click(object sender, EventArgs e)
+        {
+            //TODO open up a new results page
         }
     }
 }

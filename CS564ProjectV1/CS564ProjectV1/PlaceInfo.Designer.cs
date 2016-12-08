@@ -86,6 +86,7 @@
             this.lblGenderRatioInfo = new System.Windows.Forms.Label();
             this.lblMedianAge = new System.Windows.Forms.Label();
             this.lblGenderRatio = new System.Windows.Forms.Label();
+            this.btnReturnToResults = new System.Windows.Forms.Button();
             this.grpStateInfo.SuspendLayout();
             this.grpTopNotes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picPopChangeSame)).BeginInit();
@@ -743,11 +744,25 @@
             this.lblGenderRatio.Text = "Ratio";
             this.lblGenderRatio.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // btnReturnToResults
+            // 
+            this.btnReturnToResults.BackColor = System.Drawing.SystemColors.Info;
+            this.btnReturnToResults.Enabled = false;
+            this.btnReturnToResults.Location = new System.Drawing.Point(56, 28);
+            this.btnReturnToResults.Name = "btnReturnToResults";
+            this.btnReturnToResults.Size = new System.Drawing.Size(291, 40);
+            this.btnReturnToResults.TabIndex = 103;
+            this.btnReturnToResults.Text = "Return to Last Search Results";
+            this.btnReturnToResults.UseVisualStyleBackColor = false;
+            this.btnReturnToResults.Visible = false;
+            this.btnReturnToResults.Click += new System.EventHandler(this.btnReturnToResults_Click);
+            // 
             // PlaceInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1276, 693);
+            this.Controls.Add(this.btnReturnToResults);
             this.Controls.Add(this.lblGenderRatio);
             this.Controls.Add(this.lblMedianAge);
             this.Controls.Add(this.lblGenderRatioInfo);
@@ -871,5 +886,6 @@
         private System.Windows.Forms.Label lblMedianAge;
         private System.Windows.Forms.Label lblGenderRatio;
         private System.Windows.Forms.Panel notePanel;
+        private System.Windows.Forms.Button btnReturnToResults;
     }
 }
