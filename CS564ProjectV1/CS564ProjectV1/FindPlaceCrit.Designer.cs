@@ -185,7 +185,8 @@
             "State Natural Resource Spending",
             "State Public Welfare Spending",
             "State Health Spending Spending",
-            "Industry Participation Rate"});
+            "Industry Participation Rate",
+            "Industry Participation Number"});
             this.cboCriteria1.Location = new System.Drawing.Point(419, 163);
             this.cboCriteria1.Name = "cboCriteria1";
             this.cboCriteria1.Size = new System.Drawing.Size(181, 21);
@@ -252,7 +253,8 @@
             "State Natural Resource Spending",
             "State Public Welfare Spending",
             "State Health Spending Spending",
-            "Industry Participation Rate"});
+            "Industry Participation Rate",
+            "Industry Participation Number"});
             this.cboCriteria2.Location = new System.Drawing.Point(419, 203);
             this.cboCriteria2.Name = "cboCriteria2";
             this.cboCriteria2.Size = new System.Drawing.Size(181, 21);
@@ -297,7 +299,8 @@
             "State Natural Resource Spending",
             "State Public Welfare Spending",
             "State Health Spending Spending",
-            "Industry Participation Rate"});
+            "Industry Participation Rate",
+            "Industry Participation Number"});
             this.cboCriteria3.Location = new System.Drawing.Point(419, 243);
             this.cboCriteria3.Name = "cboCriteria3";
             this.cboCriteria3.Size = new System.Drawing.Size(181, 21);
@@ -342,7 +345,8 @@
             "State Natural Resource Spending",
             "State Public Welfare Spending",
             "State Health Spending Spending",
-            "Industry Participation Rate"});
+            "Industry Participation Rate",
+            "Industry Participation Number"});
             this.cboCriteria4.Location = new System.Drawing.Point(419, 283);
             this.cboCriteria4.Name = "cboCriteria4";
             this.cboCriteria4.Size = new System.Drawing.Size(181, 21);
@@ -387,7 +391,8 @@
             "State Natural Resource Spending",
             "State Public Welfare Spending",
             "State Health Spending Spending",
-            "Industry Participation Rate"});
+            "Industry Participation Rate",
+            "Industry Participation Number"});
             this.cboCriteria5.Location = new System.Drawing.Point(419, 323);
             this.cboCriteria5.Name = "cboCriteria5";
             this.cboCriteria5.Size = new System.Drawing.Size(181, 21);
