@@ -8,28 +8,41 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Diagnostics;
 
 namespace CS564ProjectV1
 {
     public partial class FindPlaceCrit : Form
     {
-        private string sql = @"
-SELECT Place.placeId, MAX(Place.name) Place, MAX(PlaceIsIn.stateName) State
-  FROM Place
-    INNER JOIN PlaceIsIn
-      ON Place.placeId = PlaceIsIn.placeId
-";
+        private string sql;
         HashSet<string> joins = new HashSet<string>();
         HashSet<string> wheres = new HashSet<string>();
 
-        static private Dictionary<string, string> choices = new Dictionary<string, string>()
+        static private Dictionary<string, Criteria> choices = new Dictionary<string, Criteria>()
     {
-
+        { "Name", new Criteria("Place", "name") },                  // Not currently used
+        { "State", new Criteria("PlaceIsIn", "name") },             // Not currently used
+        { "Industry Participation Rate", new Criteria("Industry", "numberOfWorkers") }, // Not currently used
+        { "Population", new Criteria("Demographics", "population") },
+        { "Gender Ratio", new Criteria("Demographics", "genderRatio") },
+        { "Median Age", new Criteria("Demographics", "medianAge") },
+        { "Average Income", new Criteria("Economy", "averageIncome") },
+        { "Poverty Level", new Criteria("Economy", "povertyLevel") },
+        { "Labor Participation Rate", new Criteria("Economy", "laborParticipation") },
+        { "State Population", new Criteria("State", "population") },
+        { "State Total Income", new Criteria("State", "incomeTotal") },
+        { "State Education Spending", new Criteria("State", "spendingEducation") },
+        { "State Natural Resource Spending", new Criteria("State", "spendingNaturalResources") },
+        { "State Public Welfare Spending", new Criteria("State", "spendingPublicWelfare") },
+        { "State Health Spending Spending", new Criteria("State", "spendingHealth") },
     };
 
         public FindPlaceCrit()
         {
             InitializeComponent();
+            cboCrit1SpecialBool.SelectedItem = "≈";
+            cboCrit2SpecialBool.SelectedItem = "≈";
+
             lblWelcomeUser.Text = "Welcome " + Main.name + " !";
 
             DataSet ds = new DataSet();
@@ -162,36 +175,37 @@ SELECT Place.placeId, MAX(Place.name) Place, MAX(PlaceIsIn.stateName) State
         {
             bool criteriaValid = true;
 
-            if (txtCrit1Str.Text.Length == 0)
+            criteriaValid = addCriteria(cboCriteria1.Text, cboCrit1Bool.Text, txtCrit1Str.Text, cboIndustry1.Text);
+            criteriaValid = addCriteria(cboCriteria2.Text, cboCrit2Bool.Text, txtCrit2Str.Text, cboIndustry2.Text);
+            criteriaValid = addCriteria(cboCriteria3.Text, cboCrit3Bool.Text, txtCrit3Str.Text, cboIndustry3.Text);
+            criteriaValid = addCriteria(cboCriteria4.Text, cboCrit4Bool.Text, txtCrit4Str.Text, cboIndustry4.Text);
+            criteriaValid = addCriteria(cboCriteria5.Text, cboCrit5Bool.Text, txtCrit5Str.Text, cboIndustry5.Text);
+
+            sql = @"
+SELECT Place.placeId, MAX(Place.name) Place, MAX(PlaceIsIn.stateName) State
+  FROM Place
+    INNER JOIN PlaceIsIn
+      ON Place.placeId = PlaceIsIn.placeId
+";
+            foreach (string join in joins)
             {
-                criteriaValid = false;
+                sql += FlushWith("    INNER JOIN PlaceIsIn", join);
+                sql += "\n";
             }
-            else if (cboCriteria1.Text.Equals("Name"))
+
+            sql += FlushWith("  FROM Place", "WHERE 1 = 1");
+            sql += "\n";
+
+            foreach (string where in wheres)
             {
-                AddName(txtCrit1Str.Text);
+                sql += FlushWith("  FROM Place", where, 2);
+                sql += "\n";
             }
-            else if (cboCriteria1.Text.Equals("State"))
-            {
-                AddState(txtCrit1Str.Text);
-            }
-            else if (cboCrit1Bool.Text.Length == 0)
-            {
-            }
-            else if (cboCriteria1.Text.Equals("Industry Participation Rate"))
-            {
-                if (cboIndustry1.Text.Length == 0)
-                { 
-                    criteriaValid = false;
-                } 
-                else
-                {
-                    AddIndustry(cboIndustry1.Text, cboCrit1Bool.Text, txtCrit1Str.Text);
-                }
-            }
-            else
-            {
-                AddGenericCriteria(txtCrit1Str.Text, cboCrit1Bool.Text);
-            }
+
+            sql += FlushWith("  FROM Place", "GROUP BY Place.PlaceId");
+            sql += "\n";
+
+            Debug.WriteLine(sql);
 
             if(!criteriaValid)
             {
@@ -199,35 +213,84 @@ SELECT Place.placeId, MAX(Place.name) Place, MAX(PlaceIsIn.stateName) State
             }
         }
 
-        private void AddGenericCriteria(string Criteria, string p2)
+        private bool addCriteria(string criteria, string relationship, string value, string industry)
         {
-            throw new NotImplementedException();
+            bool criteriaValid = true;
+
+            if (value.Length == 0 && criteria.Length == 0)
+            {
+                criteriaValid = true;
+            }
+            if (value.Length == 0 || criteria.Length == 0)
+            {
+                criteriaValid = false;
+            }
+            else if (criteria.Equals("Name"))
+            {
+                AddName(value);
+            }
+            else if (criteria.Equals("State"))
+            {
+                AddState(value);
+            }
+            else if (relationship.Length == 0)
+            {
+            }
+            else if (criteria.Equals("Industry Participation Rate"))
+            {
+                if (industry.Length == 0)
+                {
+                    criteriaValid = false;
+                }
+                else
+                {
+                    AddIndustry(industry, relationship, value);
+                }
+            }
+            else
+            {
+                AddGenericCriteria(criteria, relationship, value);
+            }
+
+            return criteriaValid;
+        }
+
+        private void AddGenericCriteria(string criteria, string relationship, string value)
+        {
+            Criteria choice = choices[criteria];
+            
+            joins.Add(Join(choice.table));
+            wheres.Add(Where(choice.table + "." + choice.column, relationship, value));
         }
 
         private void AddIndustry(string type, string relationship, string value)
         {
-            joins.Add(JoinIndustry("IndustryTotal"));
-            wheres.Add("AND IndustryTotal.Type = 'Total'");
 
             string alias = "Industry" + type.Replace(" ", String.Empty).Substring(0, 50);
             joins.Add(JoinIndustry(alias));
+            joins.Add(JoinIndustry("IndustryTotal"));
+            wheres.Add("AND IndustryTotal.Type = 'Total'");
             wheres.Add("AND " + alias + ".Type = '" + type + "'");
-            wheres.Add(Where(alias + ".NumberOfWorkers/IndustryTotal.Type", cboCrit1Bool.Text, txtCrit1Str.Text));
+            wheres.Add(Where(alias + ".NumberOfWorkers/IndustryTotal.Type", relationship, value));
         }
 
         private string Where(string value1, string relationship, string value2)
         {
-            throw new NotImplementedException();
             if (relationship == "≈")
             {
-                return "AND " + value1 + " > " + value2 + " * 0.9" + "\n"
-                     + "AND " + value1 + " < " + value2 + " * 1.1";
+                return "AND " + Avg(value1) + " > " + Avg(value2) + " * 0.9" + "\n"
+                     + "AND " + Avg(value1) + " < " + Avg(value2) + " * 1.1";
             }
             else
             {
-                return "AND " + value1 + " " + relationship + " " + value2;
+                return "AND " + Avg(value1) + " " + relationship + " " + Avg(value2);
             }
 
+        }
+
+        private string Avg(string value)
+        {
+            return "AVG( CAST( " + value + " AS float ) )";
         }
 
         private void AddState(string state)
@@ -263,16 +326,28 @@ SELECT Place.placeId, MAX(Place.name) Place, MAX(PlaceIsIn.stateName) State
                  + "    AND PlaceIsIn.year = Industry.year";
         }
 
-        private class Criteria
+        class Criteria
         {
-            string table;
-            string column;
+            public string table;
+            public string column;
 
-            Criteria(string table, string column)
+            public Criteria(string table, string column)
             {
                 this.table = table;
                 this.column = column;
             }
+        }
+
+        static string FlushWith(string s1, string s2, int i = 0)
+        {
+            i += s1.TakeWhile(c => char.IsWhiteSpace(c)).Count();
+            return FullIndent(i, s2);
+        }
+
+        static string FullIndent(int i, string s)
+        {
+            string indent = new string(' ', i);
+            return indent + s.Replace("\n", "\n" + indent);
         }
     }
 }
