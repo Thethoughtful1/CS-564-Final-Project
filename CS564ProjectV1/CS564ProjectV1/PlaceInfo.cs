@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Diagnostics;
 
 namespace CS564ProjectV1
 {
@@ -15,11 +16,14 @@ namespace CS564ProjectV1
     {
         public double povertyRate = 0.0;
         public double laborRate = 0.0;
-
-        public PlaceInfo()
+        public string year;
+        public PlaceInfo(string year = "Max")
         {
             InitializeComponent();
+            this.year = year;
+            cboYear.SelectedItem = year;
 
+            Debug.WriteLine("XXX \n\n\n\nI'm having a good time\n\n\n\nXXX");
             int placeId = Main.placeId;
             
             lblWelcomeUser.Text = "Welcome " + Main.name + " !";
@@ -76,6 +80,10 @@ namespace CS564ProjectV1
             SqlCommand cmdStateInfo = new SqlCommand("GetStateInfo", Main.connection);
             cmdStateInfo.CommandType = CommandType.StoredProcedure;
             cmdStateInfo.Parameters.AddWithValue("@placeId", placeId);
+            if (!year.Equals("Max"))
+            {
+                cmdStateInfo.Parameters.AddWithValue("@year", year);
+            }
 
             //read the query result
             SqlDataReader reader = cmdStateInfo.ExecuteReader();
@@ -114,6 +122,11 @@ namespace CS564ProjectV1
             SqlCommand cmdGetPopulation = new SqlCommand("GetPlacePopulation", Main.connection);
             cmdGetPopulation.CommandType = CommandType.StoredProcedure;
             cmdGetPopulation.Parameters.AddWithValue("@placeId", placeId);
+            if (!year.Equals("Max"))
+            {
+                cmdGetPopulation.Parameters.AddWithValue("@year", year);
+                
+            }
             string placePopulation = String.Format("{0:#,##0}", (long)cmdGetPopulation.ExecuteScalar());
             lblCurPop.Text = placePopulation;
             cmdGetPopulation.Dispose();
@@ -149,6 +162,10 @@ namespace CS564ProjectV1
             SqlCommand cmdGetEconomicData= new SqlCommand("GetEconomicData", Main.connection);
             cmdGetEconomicData.CommandType = CommandType.StoredProcedure;
             cmdGetEconomicData.Parameters.AddWithValue("@placeId", placeId);
+            if (!year.Equals("Max"))
+            {
+                cmdGetEconomicData.Parameters.AddWithValue("@year", year);
+            }
 
             //read the query result
             SqlDataReader reader = cmdGetEconomicData.ExecuteReader();
@@ -292,6 +309,10 @@ namespace CS564ProjectV1
             SqlCommand cmd= new SqlCommand("GetMedianAge", Main.connection);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@placeId", placeId);
+            if (!year.Equals("Max"))
+            {
+                cmd.Parameters.AddWithValue("@year", year);
+            }
             double medianAge = (double)cmd.ExecuteScalar();
             lblMedianAge.Text = medianAge.ToString();
             cmd.Dispose();
@@ -302,6 +323,10 @@ namespace CS564ProjectV1
             SqlCommand cmd = new SqlCommand("GetGenderRatio", Main.connection);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@placeId", placeId);
+            if (!year.Equals("Max"))
+            {
+                cmd.Parameters.AddWithValue("@year", year);
+            }
             double ratio = (double)cmd.ExecuteScalar();
             lblGenderRatio.Text = ratio.ToString()+":1";
             cmd.Dispose();
@@ -458,6 +483,13 @@ namespace CS564ProjectV1
             this.Close();
             Results results = new Results();
             results.Show();
+        }
+
+        private void Refresh_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            PlaceInfo placeInfo = new PlaceInfo((string)cboYear.SelectedItem);
+            placeInfo.Show();
         }
     }
 }
