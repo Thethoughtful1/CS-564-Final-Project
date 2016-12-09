@@ -45,6 +45,7 @@ namespace CS564ProjectV1
             InitializeComponent();
             cboCrit1SpecialBool.SelectedItem = approximately;
             cboCrit2SpecialBool.SelectedItem = approximately;
+            cboYear.SelectedItem = "Average";
 
             lblWelcomeUser.Text = "Welcome " + Main.name + " !";
 
@@ -236,6 +237,10 @@ namespace CS564ProjectV1
             criteriaValid = addCriteria(cboCriteria4.Text, cboCrit4Bool.Text, txtCrit4Str.Text, cboIndustry4.Text);
             criteriaValid = addCriteria(cboCriteria5.Text, cboCrit5Bool.Text, txtCrit5Str.Text, cboIndustry5.Text);
 
+            if (!cboYear.Text.Equals("Average"))
+            {
+                wheres.Add("AND PlaceIsIn.Year = " + cboYear.Text);
+            }
             sql = @"
 SELECT Place.placeId, MAX(Place.name) Place, MAX(PlaceIsIn.stateName) State
   FROM Place
@@ -268,6 +273,9 @@ SELECT Place.placeId, MAX(Place.name) Place, MAX(PlaceIsIn.stateName) State
                 sql += FlushWith("  FROM Place", having, 2);
                 sql += "\n";
             }
+
+            sql += FlushWith("  FROM Place", "ORDER BY MAX(Place.Name)");
+            sql += "\n";
 
             Debug.WriteLine(sql);
             Main.sql = sql;

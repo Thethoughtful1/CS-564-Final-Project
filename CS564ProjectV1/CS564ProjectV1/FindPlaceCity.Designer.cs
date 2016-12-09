@@ -57,6 +57,8 @@
             this.cboIndustry3 = new System.Windows.Forms.ComboBox();
             this.cboIndustry2 = new System.Windows.Forms.ComboBox();
             this.cboIndustry1 = new System.Windows.Forms.ComboBox();
+            this.YearSelectorLabel = new System.Windows.Forms.Label();
+            this.cboYear = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // lblEditProfile
@@ -463,11 +465,37 @@
             this.cboIndustry1.TabIndex = 82;
             this.cboIndustry1.Visible = false;
             // 
+            // YearSelectorLabel
+            // 
+            this.YearSelectorLabel.AutoSize = true;
+            this.YearSelectorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.YearSelectorLabel.Location = new System.Drawing.Point(945, 95);
+            this.YearSelectorLabel.Name = "YearSelectorLabel";
+            this.YearSelectorLabel.Size = new System.Drawing.Size(32, 13);
+            this.YearSelectorLabel.TabIndex = 88;
+            this.YearSelectorLabel.Text = "Year:";
+            // 
+            // cboYear
+            // 
+            this.cboYear.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboYear.FormattingEnabled = true;
+            this.cboYear.Items.AddRange(new object[] {
+            "Average",
+            "2012",
+            "2013",
+            "2014"});
+            this.cboYear.Location = new System.Drawing.Point(983, 92);
+            this.cboYear.Name = "cboYear";
+            this.cboYear.Size = new System.Drawing.Size(77, 21);
+            this.cboYear.TabIndex = 87;
+            // 
             // FindPlaceCity
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1276, 693);
+            this.Controls.Add(this.YearSelectorLabel);
+            this.Controls.Add(this.cboYear);
             this.Controls.Add(this.cboIndustry5);
             this.Controls.Add(this.cboIndustry4);
             this.Controls.Add(this.cboIndustry3);
@@ -537,5 +565,7 @@
         private System.Windows.Forms.ComboBox cboIndustry2;
         private System.Windows.Forms.ComboBox cboIndustry1;
         public System.Windows.Forms.ComboBox cboCompareCity;
+        private System.Windows.Forms.Label YearSelectorLabel;
+        private System.Windows.Forms.ComboBox cboYear;
     }
 }
