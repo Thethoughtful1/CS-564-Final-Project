@@ -94,14 +94,14 @@
             this.notePanel.AutoScroll = true;
             this.notePanel.Location = new System.Drawing.Point(404, 129);
             this.notePanel.Name = "notePanel";
-            this.notePanel.Size = new System.Drawing.Size(570, 588);
+            this.notePanel.Size = new System.Drawing.Size(570, 500);
             this.notePanel.TabIndex = 14;
             // 
             // ReviewNotes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1344, 729);
+            this.ClientSize = new System.Drawing.Size(1276, 693);
             this.Controls.Add(this.notePanel);
             this.Controls.Add(this.lblYourNotes);
             this.Controls.Add(this.lblEditProfile);

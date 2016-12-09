@@ -13,18 +13,22 @@ namespace CS564ProjectV1
 {
     public partial class PlaceInfo : Form
     {
+        public double povertyRate = 0.0;
+        public double laborRate = 0.0;
+
         public PlaceInfo()
         {
             InitializeComponent();
 
             int placeId = Main.placeId;
-            lblWelcomeUser.Text = Main.name;
+            
+            lblWelcomeUser.Text = "Welcome " + Main.name + " !";
 
             drawForm(placeId);
 
             //Return to search results button is available if we have a recent search query
             string sql = Main.sql;
-            
+
             if (!String.IsNullOrEmpty(sql))
             {
                 btnReturnToResults.Visible = true;
@@ -157,7 +161,9 @@ namespace CS564ProjectV1
             while (reader.Read())
             {
                 double povertyLevel = (double)reader.GetDouble(indexOfPoverty);
+                povertyRate = povertyLevel;
                 double laborParticipation = (double)reader.GetDouble(indexOfLabor);
+                laborRate = laborParticipation;
                 double avgIncome = (double  )reader.GetValue(indexOfIncome);
 
                 lblPovertyRate.Text = povertyLevel.ToString("P2");
@@ -174,6 +180,8 @@ namespace CS564ProjectV1
             cmdGetPovertyChange.CommandType = CommandType.StoredProcedure;
             cmdGetPovertyChange.Parameters.AddWithValue("@placeId", placeId);
             double povertyChange = (double)cmdGetPovertyChange.ExecuteScalar();
+            povertyChange = povertyRate * povertyChange;
+
             string povertyChangeString = povertyChange.ToString("P2");
             if (povertyChange < 0)
             {
@@ -182,7 +190,7 @@ namespace CS564ProjectV1
             }
             else if (povertyChange > .01)
             {
-                picPopChangeUp.Visible = true;
+                picPovertyUp.Visible = true;
                 povertyChangeString = "+ " + povertyChangeString + " per year";
             }
             else
@@ -199,6 +207,7 @@ namespace CS564ProjectV1
             cmdLaborChange.CommandType = CommandType.StoredProcedure;
             cmdLaborChange.Parameters.AddWithValue("@placeId", placeId);
             double laborChange = (double)cmdLaborChange.ExecuteScalar();
+            laborChange = laborRate * laborChange;
             string laborChangeString = laborChange.ToString("P2");
             if (laborChange < 0)
             {
@@ -294,7 +303,7 @@ namespace CS564ProjectV1
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@placeId", placeId);
             double ratio = (double)cmd.ExecuteScalar();
-            lblGenderRatio.Text = ratio.ToString();
+            lblGenderRatio.Text = ratio.ToString()+":1";
             cmd.Dispose();
         }
         private void getPlaceNotes(int placeId)
@@ -323,6 +332,7 @@ namespace CS564ProjectV1
 
                 TextBox t = new TextBox();
                 t.Multiline = true;
+                t.ReadOnly = true;
                 t.ScrollBars = ScrollBars.Vertical;
                 t.WordWrap = true;
                 t.Width = 330;
@@ -445,7 +455,9 @@ namespace CS564ProjectV1
 
         private void btnReturnToResults_Click(object sender, EventArgs e)
         {
-            //TODO open up a new results page
+            this.Close();
+            Results results = new Results();
+            results.Show();
         }
     }
 }

@@ -25,7 +25,7 @@ namespace CS564ProjectV1
     {
         { "Name", new Criteria("Place", "name") },                  // Not currently used
         { "State", new Criteria("PlaceIsIn", "name") },             // Not currently used
-        { "Industry Participation Rate", new Criteria("Industry", "numberOfWorkers") }, // Not currently used
+        { "Industry Participation Number", new Criteria("Industry", "numberOfWorkers") }, // Not currently used
         { "Population", new Criteria("Demographics", "population") },
         { "Gender Ratio", new Criteria("Demographics", "genderRatio") },
         { "Median Age", new Criteria("Demographics", "medianAge") },
@@ -48,25 +48,27 @@ namespace CS564ProjectV1
 
             lblWelcomeUser.Text = "Welcome " + Main.name + " !";
 
-            DataSet ds = new DataSet();
-            string getIndustryTypes = "SELECT DISTINCT type FROM dbo.Industry WHERE type <>'Total'";
-            SqlDataAdapter sda = new SqlDataAdapter(getIndustryTypes, Main.connection);
+            DataSet industryDataSet = new DataSet();
+            SqlDataAdapter industrySqlDataAdapter = new SqlDataAdapter();
+            SqlCommand industryCmd = new SqlCommand("GetIndustries", Main.connection);
+            industryCmd.CommandType = CommandType.StoredProcedure;
+            industrySqlDataAdapter.SelectCommand = industryCmd;
 
-            sda.Fill(ds);
-            cboIndustry1.DataSource = ds.Tables[0];
-            cboIndustry1.DisplayMember = ds.Tables[0].Columns[0].ToString();
+            industrySqlDataAdapter.Fill(industryDataSet);
+            cboIndustry1.DataSource = industryDataSet.Tables[0];
+            cboIndustry1.DisplayMember = industryDataSet.Tables[0].Columns[0].ToString();
 
-            cboIndustry2.DataSource = ds.Tables[0];
-            cboIndustry2.DisplayMember = ds.Tables[0].Columns[0].ToString();
+            cboIndustry2.DataSource = industryDataSet.Tables[0];
+            cboIndustry2.DisplayMember = industryDataSet.Tables[0].Columns[0].ToString();
 
-            cboIndustry3.DataSource = ds.Tables[0];
-            cboIndustry3.DisplayMember = ds.Tables[0].Columns[0].ToString();
+            cboIndustry3.DataSource = industryDataSet.Tables[0];
+            cboIndustry3.DisplayMember = industryDataSet.Tables[0].Columns[0].ToString();
 
-            cboIndustry4.DataSource = ds.Tables[0];
-            cboIndustry4.DisplayMember = ds.Tables[0].Columns[0].ToString();
+            cboIndustry4.DataSource = industryDataSet.Tables[0];
+            cboIndustry4.DisplayMember = industryDataSet.Tables[0].Columns[0].ToString();
 
-            cboIndustry5.DataSource = ds.Tables[0];
-            cboIndustry5.DisplayMember = ds.Tables[0].Columns[0].ToString();
+            cboIndustry5.DataSource = industryDataSet.Tables[0];
+            cboIndustry5.DisplayMember = industryDataSet.Tables[0].Columns[0].ToString();
         }
 
         
@@ -95,8 +97,15 @@ namespace CS564ProjectV1
 
         private void cboCriteria1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            cboCrit1Bool.Text = approximately;
-            txtCrit1Str.Text = "";
+            if (cboCriteria1.Text.Equals(""))
+            {
+                cboCrit1Bool.Text = "";
+                txtCrit1Str.Text = "";
+            }
+            else
+            {
+                cboCrit1Bool.Text = approximately;
+            }
             
             if (cboCriteria1.Text.Equals("Name") || cboCriteria1.Text.Equals("State"))
             {
@@ -108,7 +117,7 @@ namespace CS564ProjectV1
                 cboCrit1Bool.Visible = true;
                 cboCrit1SpecialBool.Visible = false;
             }
-            if (cboCriteria1.Text.Equals("Industry Participation Rate"))
+            if (cboCriteria1.Text.Equals("Industry Participation Rate") || cboCriteria1.Text.Equals("Industry Participation Number"))
             {
                 cboIndustry1.Visible = true;
             }
@@ -141,7 +150,7 @@ namespace CS564ProjectV1
                 cboCrit2SpecialBool.Visible = false;
             }
 
-            if (cboCriteria2.Text.Equals("Industry Participation Rate"))
+            if (cboCriteria2.Text.Equals("Industry Participation Rate") || cboCriteria2.Text.Equals("Industry Participation Number"))
             {
                 cboIndustry2.Visible = true;
             }
@@ -153,10 +162,17 @@ namespace CS564ProjectV1
 
         private void cboCriteria3_SelectedIndexChanged(object sender, EventArgs e)
         {
-            cboCrit3Bool.Text = approximately;
-            txtCrit3Str.Text = "";
+            if (cboCriteria3.Text.Equals(""))
+            {
+                cboCrit3Bool.Text = "";
+                txtCrit3Str.Text = "";
+            }
+            else
+            {
+                cboCrit3Bool.Text = approximately;
+            }
 
-            if (cboCriteria3.Text.Equals("Industry Participation Rate"))
+            if (cboCriteria3.Text.Equals("Industry Participation Rate") || cboCriteria3.Text.Equals("Industry Participation Number"))
             {
                 cboIndustry3.Visible = true;
             }
@@ -168,10 +184,17 @@ namespace CS564ProjectV1
 
         private void cboCriteria4_SelectedIndexChanged(object sender, EventArgs e)
         {
-            cboCrit4Bool.Text = approximately;
-            txtCrit4Str.Text = "";
+            if (cboCriteria4.Text.Equals(""))
+            {
+                cboCrit4Bool.Text = "";
+                txtCrit4Str.Text = "";
+            }
+            else
+            {
+                cboCrit4Bool.Text = approximately;
+            }
 
-            if (cboCriteria4.Text.Equals("Industry Participation Rate"))
+            if (cboCriteria4.Text.Equals("Industry Participation Rate") || cboCriteria4.Text.Equals("Industry Participation Number"))
             {
                 cboIndustry4.Visible = true;
             }
@@ -183,10 +206,17 @@ namespace CS564ProjectV1
 
         private void cboCriteria5_SelectedIndexChanged(object sender, EventArgs e)
         {
-            cboCrit5Bool.Text = approximately;
-            txtCrit5Str.Text = "";
+            if (cboCriteria5.Text.Equals(""))
+            {
+                cboCrit5Bool.Text = "";
+                txtCrit5Str.Text = "";
+            }
+            else
+            {
+                cboCrit5Bool.Text = approximately;
+            }
 
-            if (cboCriteria5.Text.Equals("Industry Participation Rate"))
+            if (cboCriteria5.Text.Equals("Industry Participation Rate") || cboCriteria5.Text.Equals("Industry Participation Number"))
             {
                 cboIndustry5.Visible = true;
             }
@@ -251,6 +281,10 @@ SELECT Place.placeId, MAX(Place.name) Place, MAX(PlaceIsIn.stateName) State
             joins = new HashSet<string>();
             wheres = new HashSet<string>();
             havings = new HashSet<string>();
+
+            this.Close();
+            Results results = new Results();
+            results.Show();
         }
 
         private bool addCriteria(string criteria, string relationship, string value, string industry)
@@ -287,6 +321,17 @@ SELECT Place.placeId, MAX(Place.name) Place, MAX(PlaceIsIn.stateName) State
                     AddIndustry(industry, relationship, value);
                 }
             }
+            else if (criteria.Equals("Industry Participation Number"))
+            {
+                if (industry.Length == 0)
+                {
+                    criteriaValid = false;
+                }
+                else
+                {
+                    AddIndustryNumber(industry, relationship, value);
+                }
+            }
             else
             {
                 AddGenericCriteria(criteria, relationship, value);
@@ -315,9 +360,20 @@ SELECT Place.placeId, MAX(Place.name) Place, MAX(PlaceIsIn.stateName) State
             havings.Add(Having(alias + ".numberOfWorkers/IndustryTotal.numberOfWorkers", relationship, value));
         }
 
+
+        private void AddIndustryNumber(string type, string relationship, string value)
+        {
+
+            string alias = "Industry" + type.Replace(" ", String.Empty).Replace(",", String.Empty);
+            alias = alias.Substring(0, Math.Min(50, alias.Length));
+            joins.Add(JoinIndustry(alias));
+            wheres.Add("AND " + alias + ".Type = '" + type + "'");
+            havings.Add(Having(alias + ".numberOfWorkers", relationship, value));
+        }
+
         private string Having(string value1, string relationship, string value2)
         {
-            if (relationship == approximately)
+            if (relationship.Equals(approximately))
             {
                 return "AND " + Avg(value1) + " > " + Avg(value2) + " * 0.9" + "\n"
                      + "AND " + Avg(value1) + " < " + Avg(value2) + " * 1.1";
@@ -344,20 +400,20 @@ SELECT Place.placeId, MAX(Place.name) Place, MAX(PlaceIsIn.stateName) State
             wheres.Add("AND Place.name LIKE '%" + name + "%'");
         }
 
-        string Join(string table1, string column1, string table2, string column2)
-        {
-            return "INNER JOIN " + table2 + "\n"
-                 + "  ON " + table1 + "." + column1 + " = " + table2 + "." + column2 + "\n"
-                 + "    AND PlaceIsIn.year = " + table2 + ".year";
-        }
-
         string Join(string table)
         {
-            string table1 = (table.Equals("State") ? "PlaceIsIn" : "Place");
-            string column1 = (table.Equals("State") ? "stateName" : "placeId");
-            string table2 = table;
-            string column2 = (table.Equals("State") ? "name" : "placeId");
-            return Join(table1, column1, table2, column2);
+            if (!table.Equals("State"))
+            {
+                return "INNER JOIN " + table + " " + table + "\n"
+                     + "  ON Place.placeId = " + table + ".placeId\n"
+                     + "    AND PlaceIsIn.year = " + table + ".year";
+            }
+            else
+            {
+                return "INNER JOIN " + table + " " + table + "\n"
+                     + "  ON Place.placeId = " + table + ".placeId\n"
+                     + "    AND PlaceIsIn.year = " + table + ".year";
+            }
         }
 
         string JoinIndustry(string alias)
