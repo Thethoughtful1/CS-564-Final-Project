@@ -56,19 +56,19 @@ namespace CS564ProjectV1
             industrySqlDataAdapter.SelectCommand = industryCmd;
 
             industrySqlDataAdapter.Fill(industryDataSet);
-            cboIndustry1.DataSource = industryDataSet.Tables[0];
+            cboIndustry1.DataSource = industryDataSet.Tables[0].Copy();
             cboIndustry1.DisplayMember = industryDataSet.Tables[0].Columns[0].ToString();
 
-            cboIndustry2.DataSource = industryDataSet.Tables[0];
+            cboIndustry2.DataSource = industryDataSet.Tables[0].Copy();
             cboIndustry2.DisplayMember = industryDataSet.Tables[0].Columns[0].ToString();
 
-            cboIndustry3.DataSource = industryDataSet.Tables[0];
+            cboIndustry3.DataSource = industryDataSet.Tables[0].Copy();
             cboIndustry3.DisplayMember = industryDataSet.Tables[0].Columns[0].ToString();
 
-            cboIndustry4.DataSource = industryDataSet.Tables[0];
+            cboIndustry4.DataSource = industryDataSet.Tables[0].Copy();
             cboIndustry4.DisplayMember = industryDataSet.Tables[0].Columns[0].ToString();
 
-            cboIndustry5.DataSource = industryDataSet.Tables[0];
+            cboIndustry5.DataSource = industryDataSet.Tables[0].Copy();
             cboIndustry5.DisplayMember = industryDataSet.Tables[0].Columns[0].ToString();
         }
 

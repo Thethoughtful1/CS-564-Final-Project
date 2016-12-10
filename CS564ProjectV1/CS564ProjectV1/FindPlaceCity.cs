@@ -17,6 +17,7 @@ namespace CS564ProjectV1
         private string approximately = "≈";
         private string sql;
         private string placeId0;
+        private bool hasCities = false;
         HashSet<string> joins = new HashSet<string>();
         HashSet<string> wheres = new HashSet<string>();
         HashSet<string> havings = new HashSet<string>();
@@ -56,19 +57,19 @@ namespace CS564ProjectV1
             industrySqlDataAdapter.SelectCommand = industryCmd;
 
             industrySqlDataAdapter.Fill(industryDataSet);
-            cboIndustry1.DataSource = industryDataSet.Tables[0];
+            cboIndustry1.DataSource = industryDataSet.Tables[0].Copy();
             cboIndustry1.DisplayMember = industryDataSet.Tables[0].Columns[0].ToString();
 
-            cboIndustry2.DataSource = industryDataSet.Tables[0];
+            cboIndustry2.DataSource = industryDataSet.Tables[0].Copy();
             cboIndustry2.DisplayMember = industryDataSet.Tables[0].Columns[0].ToString();
 
-            cboIndustry3.DataSource = industryDataSet.Tables[0];
+            cboIndustry3.DataSource = industryDataSet.Tables[0].Copy();
             cboIndustry3.DisplayMember = industryDataSet.Tables[0].Columns[0].ToString();
 
-            cboIndustry4.DataSource = industryDataSet.Tables[0];
+            cboIndustry4.DataSource = industryDataSet.Tables[0].Copy();
             cboIndustry4.DisplayMember = industryDataSet.Tables[0].Columns[0].ToString();
 
-            cboIndustry5.DataSource = industryDataSet.Tables[0];
+            cboIndustry5.DataSource = industryDataSet.Tables[0].Copy();
             cboIndustry5.DisplayMember = industryDataSet.Tables[0].Columns[0].ToString();
 
 
@@ -83,13 +84,18 @@ namespace CS564ProjectV1
 
             Dictionary<string, string> compareCityDictionary = new Dictionary<string, string>();
 
+            hasCities = false;
             foreach (DataRow row in compareCityDataSet.Tables[0].Rows)
             {
                 compareCityDictionary.Add(row["placeId"].ToString(), row["name"].ToString() + ", " + row["stateName"].ToString());
+                hasCities = true;
             }
-            cboCompareCity.DataSource = new BindingSource(compareCityDictionary, null);
-            cboCompareCity.DisplayMember = "value"; 
-            cboCompareCity.ValueMember = "key";
+            if (hasCities)
+            {
+                cboCompareCity.DataSource = new BindingSource(compareCityDictionary, null);
+                cboCompareCity.DisplayMember = "value"; 
+                cboCompareCity.ValueMember = "key";
+            }
         }
 
 
@@ -243,66 +249,81 @@ namespace CS564ProjectV1
 
         private void cmdSearch_Click(object sender, EventArgs e)
         {
-            bool criteriaValid = true;
-            placeId0 = (string)cboCompareCity.SelectedValue;
-
-            criteriaValid = addCriteria(cboCriteria1.Text, cboCrit1Bool.Text, cboIndustry1.Text);
-            criteriaValid = addCriteria(cboCriteria2.Text, cboCrit2Bool.Text, cboIndustry2.Text);
-            criteriaValid = addCriteria(cboCriteria3.Text, cboCrit3Bool.Text, cboIndustry3.Text);
-            criteriaValid = addCriteria(cboCriteria4.Text, cboCrit4Bool.Text, cboIndustry4.Text);
-            criteriaValid = addCriteria(cboCriteria5.Text, cboCrit5Bool.Text, cboIndustry5.Text);
-
-            if (!cboYear.Text.Equals("Average"))
+            if (!hasCities)
             {
-                wheres.Add("AND PlaceIsIn.Year = " + cboYear.Text);
-            }
-            sql = @"
+                sql = @"
 SELECT Place.placeId, MAX(Place.name) Place, MAX(PlaceIsIn.stateName) State
-  FROM Place Place
-    INNER JOIN PlaceIsIn PlaceIsIn
+  FROM Place
+    INNER JOIN PlaceIsIn
       ON Place.placeId = PlaceIsIn.placeId
-    INNER JOIN Place Place0
-      ON " + placeId0 + @" = Place0.placeId
-    INNER JOIN PlaceIsIn PlaceIsIn0
-      ON " + placeId0 + @" = PlaceIsIn0.placeId
-";
-            foreach (string join in joins)
+  WHERE 1 = 1
+  GROUP BY Place.PlaceId
+  HAVING 1 = 1
+  ORDER BY MAX(Place.Name)";
+            } else
             {
-                sql += FlushWith("    INNER...", join);
+                bool criteriaValid = true;
+                placeId0 = (string)cboCompareCity.SelectedValue;
+
+                criteriaValid = addCriteria(cboCriteria1.Text, cboCrit1Bool.Text, cboIndustry1.Text);
+                criteriaValid = addCriteria(cboCriteria2.Text, cboCrit2Bool.Text, cboIndustry2.Text);
+                criteriaValid = addCriteria(cboCriteria3.Text, cboCrit3Bool.Text, cboIndustry3.Text);
+                criteriaValid = addCriteria(cboCriteria4.Text, cboCrit4Bool.Text, cboIndustry4.Text);
+                criteriaValid = addCriteria(cboCriteria5.Text, cboCrit5Bool.Text, cboIndustry5.Text);
+
+                if (!cboYear.Text.Equals("Average"))
+                {
+                    wheres.Add("AND PlaceIsIn.Year = " + cboYear.Text);
+                }
+                sql = @"
+    SELECT Place.placeId, MAX(Place.name) Place, MAX(PlaceIsIn.stateName) State
+      FROM Place Place
+        INNER JOIN PlaceIsIn PlaceIsIn
+          ON Place.placeId = PlaceIsIn.placeId
+        INNER JOIN Place Place0
+          ON " + placeId0 + @" = Place0.placeId
+        INNER JOIN PlaceIsIn PlaceIsIn0
+          ON " + placeId0 + @" = PlaceIsIn0.placeId
+    ";
+                foreach (string join in joins)
+                {
+                    sql += FlushWith("    INNER...", join);
+                    sql += "\n";
+                }
+
+                sql += FlushWith("  FROM...", "WHERE 1 = 1");
                 sql += "\n";
+
+                foreach (string where in wheres)
+                {
+                    sql += FlushWith("  FROM...", where, 2);
+                    sql += "\n";
+                }
+
+                sql += FlushWith("  FROM...", "GROUP BY Place.PlaceId");
+                sql += "\n";
+
+                sql += FlushWith("  FROM...", "HAVING 1 = 1");
+                sql += "\n";
+
+                foreach (string having in havings)
+                {
+                    sql += FlushWith("  FROM...", having, 2);
+                    sql += "\n";
+                }
+
+                sql += FlushWith("  FROM Place", "ORDER BY MAX(Place.Name)");
+                sql += "\n";
+
+                if (!criteriaValid)
+                {
+                    MessageBox.Show("All partial criteria ignored");
+                }
             }
 
-            sql += FlushWith("  FROM...", "WHERE 1 = 1");
-            sql += "\n";
-
-            foreach (string where in wheres)
-            {
-                sql += FlushWith("  FROM...", where, 2);
-                sql += "\n";
-            }
-
-            sql += FlushWith("  FROM...", "GROUP BY Place.PlaceId");
-            sql += "\n";
-
-            sql += FlushWith("  FROM...", "HAVING 1 = 1");
-            sql += "\n";
-
-            foreach (string having in havings)
-            {
-                sql += FlushWith("  FROM...", having, 2);
-                sql += "\n";
-            }
-            
-            sql += FlushWith("  FROM Place", "ORDER BY MAX(Place.Name)");
-            sql += "\n";
 
             Debug.WriteLine(sql);
             Main.sql = sql;
-
-            if (!criteriaValid)
-            {
-                MessageBox.Show("All partial criteria ignored");
-            }
 
             // Clear criteria
             joins = new HashSet<string>();
@@ -485,6 +506,19 @@ SELECT Place.placeId, MAX(Place.name) Place, MAX(PlaceIsIn.stateName) State
         {
             string indent = new string(' ', i);
             return indent + s.Replace("\n", "\n" + indent);
+        }
+
+        private void DeleteSavedPlaces_Click(object sender, EventArgs e)
+        {
+            SqlCommand deleteCmd = new SqlCommand("DeleteSavedPlaces", Main.connection);
+            deleteCmd.CommandType = CommandType.StoredProcedure;
+            deleteCmd.Parameters.AddWithValue("@login", Main.login);
+            deleteCmd.ExecuteNonQuery();
+
+            this.Close();
+            FindPlaceCity findPlaceCity = new FindPlaceCity();
+            findPlaceCity.Show();
+
         }
 
 
