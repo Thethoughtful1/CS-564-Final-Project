@@ -23,7 +23,6 @@ namespace CS564ProjectV1
             this.year = year;
             cboYear.SelectedItem = year;
 
-            Debug.WriteLine("XXX \n\n\n\nI'm having a good time\n\n\n\nXXX");
             int placeId = Main.placeId;
             
             lblWelcomeUser.Text = "Welcome " + Main.name + " !";

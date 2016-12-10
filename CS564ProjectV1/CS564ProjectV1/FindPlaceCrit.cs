@@ -410,11 +410,11 @@ SELECT Place.placeId, MAX(Place.name) Place, MAX(PlaceIsIn.stateName) State
 
         string Join(string table)
         {
-            if (!table.Equals("State"))
+            if (table.Equals("State"))
             {
-                return "INNER JOIN " + table + " " + table + "\n"
-                     + "  ON Place.placeId = " + table + ".placeId\n"
-                     + "    AND PlaceIsIn.year = " + table + ".year";
+                return "INNER JOIN State State \n"
+                     + "  ON PlaceIsIn.stateName = State.name\n"
+                     + "    AND PlaceIsIn.year = State.year\n";
             }
             else
             {

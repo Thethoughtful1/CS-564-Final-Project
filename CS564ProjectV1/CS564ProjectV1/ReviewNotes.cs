@@ -70,6 +70,7 @@ namespace CS564ProjectV1
                     t.Multiline = true;
                     t.ScrollBars = ScrollBars.Vertical;
                     t.WordWrap = true;
+                    t.ReadOnly = true;
                     t.Width = 450;
                     t.Height = 100;
                     t.Font = new Font(t.Font.FontFamily, 12);
