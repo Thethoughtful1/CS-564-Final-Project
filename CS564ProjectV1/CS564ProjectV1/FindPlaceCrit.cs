@@ -45,6 +45,7 @@ namespace CS564ProjectV1
             InitializeComponent();
             cboCrit1SpecialBool.SelectedItem = approximately;
             cboCrit2SpecialBool.SelectedItem = approximately;
+            cboYear.SelectedItem = "Average";
 
             lblWelcomeUser.Text = "Welcome " + Main.name + " !";
 
@@ -55,19 +56,19 @@ namespace CS564ProjectV1
             industrySqlDataAdapter.SelectCommand = industryCmd;
 
             industrySqlDataAdapter.Fill(industryDataSet);
-            cboIndustry1.DataSource = industryDataSet.Tables[0];
+            cboIndustry1.DataSource = industryDataSet.Tables[0].Copy();
             cboIndustry1.DisplayMember = industryDataSet.Tables[0].Columns[0].ToString();
 
-            cboIndustry2.DataSource = industryDataSet.Tables[0];
+            cboIndustry2.DataSource = industryDataSet.Tables[0].Copy();
             cboIndustry2.DisplayMember = industryDataSet.Tables[0].Columns[0].ToString();
 
-            cboIndustry3.DataSource = industryDataSet.Tables[0];
+            cboIndustry3.DataSource = industryDataSet.Tables[0].Copy();
             cboIndustry3.DisplayMember = industryDataSet.Tables[0].Columns[0].ToString();
 
-            cboIndustry4.DataSource = industryDataSet.Tables[0];
+            cboIndustry4.DataSource = industryDataSet.Tables[0].Copy();
             cboIndustry4.DisplayMember = industryDataSet.Tables[0].Columns[0].ToString();
 
-            cboIndustry5.DataSource = industryDataSet.Tables[0];
+            cboIndustry5.DataSource = industryDataSet.Tables[0].Copy();
             cboIndustry5.DisplayMember = industryDataSet.Tables[0].Columns[0].ToString();
         }
 
@@ -236,6 +237,10 @@ namespace CS564ProjectV1
             criteriaValid = addCriteria(cboCriteria4.Text, cboCrit4Bool.Text, txtCrit4Str.Text, cboIndustry4.Text);
             criteriaValid = addCriteria(cboCriteria5.Text, cboCrit5Bool.Text, txtCrit5Str.Text, cboIndustry5.Text);
 
+            if (!cboYear.Text.Equals("Average"))
+            {
+                wheres.Add("AND PlaceIsIn.Year = " + cboYear.Text);
+            }
             sql = @"
 SELECT Place.placeId, MAX(Place.name) Place, MAX(PlaceIsIn.stateName) State
   FROM Place
@@ -268,6 +273,9 @@ SELECT Place.placeId, MAX(Place.name) Place, MAX(PlaceIsIn.stateName) State
                 sql += FlushWith("  FROM Place", having, 2);
                 sql += "\n";
             }
+
+            sql += FlushWith("  FROM Place", "ORDER BY MAX(Place.Name)");
+            sql += "\n";
 
             Debug.WriteLine(sql);
             Main.sql = sql;
@@ -402,11 +410,11 @@ SELECT Place.placeId, MAX(Place.name) Place, MAX(PlaceIsIn.stateName) State
 
         string Join(string table)
         {
-            if (!table.Equals("State"))
+            if (table.Equals("State"))
             {
-                return "INNER JOIN " + table + " " + table + "\n"
-                     + "  ON Place.placeId = " + table + ".placeId\n"
-                     + "    AND PlaceIsIn.year = " + table + ".year";
+                return "INNER JOIN State State \n"
+                     + "  ON PlaceIsIn.stateName = State.name\n"
+                     + "    AND PlaceIsIn.year = State.year\n";
             }
             else
             {

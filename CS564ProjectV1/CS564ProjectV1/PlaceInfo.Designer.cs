@@ -87,6 +87,9 @@
             this.lblMedianAge = new System.Windows.Forms.Label();
             this.lblGenderRatio = new System.Windows.Forms.Label();
             this.btnReturnToResults = new System.Windows.Forms.Button();
+            this.YearSelectorLabel = new System.Windows.Forms.Label();
+            this.cboYear = new System.Windows.Forms.ComboBox();
+            this.Refresh = new System.Windows.Forms.Button();
             this.grpStateInfo.SuspendLayout();
             this.grpTopNotes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picPopChangeSame)).BeginInit();
@@ -249,9 +252,9 @@
             this.lblAvgPopInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAvgPopInfo.Location = new System.Drawing.Point(16, 475);
             this.lblAvgPopInfo.Name = "lblAvgPopInfo";
-            this.lblAvgPopInfo.Size = new System.Drawing.Size(115, 20);
+            this.lblAvgPopInfo.Size = new System.Drawing.Size(84, 20);
             this.lblAvgPopInfo.TabIndex = 73;
-            this.lblAvgPopInfo.Text = "Avg Population";
+            this.lblAvgPopInfo.Text = "Population";
             // 
             // lblAvgWelfare
             // 
@@ -270,9 +273,9 @@
             this.lblAvgWelfareInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAvgWelfareInfo.Location = new System.Drawing.Point(16, 378);
             this.lblAvgWelfareInfo.Name = "lblAvgWelfareInfo";
-            this.lblAvgWelfareInfo.Size = new System.Drawing.Size(167, 20);
+            this.lblAvgWelfareInfo.Size = new System.Drawing.Size(136, 20);
             this.lblAvgWelfareInfo.TabIndex = 73;
-            this.lblAvgWelfareInfo.Text = "Avg Welfare Spending";
+            this.lblAvgWelfareInfo.Text = "Welfare Spending";
             // 
             // lblAvgNatRec
             // 
@@ -291,9 +294,9 @@
             this.lblAvgNatRecInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAvgNatRecInfo.Location = new System.Drawing.Point(16, 281);
             this.lblAvgNatRecInfo.Name = "lblAvgNatRecInfo";
-            this.lblAvgNatRecInfo.Size = new System.Drawing.Size(244, 20);
+            this.lblAvgNatRecInfo.Size = new System.Drawing.Size(213, 20);
             this.lblAvgNatRecInfo.TabIndex = 4;
-            this.lblAvgNatRecInfo.Text = "Avg Natural Resources Spending";
+            this.lblAvgNatRecInfo.Text = "Natural Resources Spending";
             // 
             // lblAvgEdu
             // 
@@ -312,9 +315,9 @@
             this.lblAvgEduInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAvgEduInfo.Location = new System.Drawing.Point(16, 184);
             this.lblAvgEduInfo.Name = "lblAvgEduInfo";
-            this.lblAvgEduInfo.Size = new System.Drawing.Size(184, 20);
+            this.lblAvgEduInfo.Size = new System.Drawing.Size(153, 20);
             this.lblAvgEduInfo.TabIndex = 2;
-            this.lblAvgEduInfo.Text = "Avg Education Spending";
+            this.lblAvgEduInfo.Text = "Education Spending";
             // 
             // lblAvgIncome
             // 
@@ -333,9 +336,9 @@
             this.lblAvgIncomeInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAvgIncomeInfo.Location = new System.Drawing.Point(16, 87);
             this.lblAvgIncomeInfo.Name = "lblAvgIncomeInfo";
-            this.lblAvgIncomeInfo.Size = new System.Drawing.Size(190, 20);
+            this.lblAvgIncomeInfo.Size = new System.Drawing.Size(112, 20);
             this.lblAvgIncomeInfo.TabIndex = 0;
-            this.lblAvgIncomeInfo.Text = "Avg Income Tax Revenue";
+            this.lblAvgIncomeInfo.Text = "Total Revenue";
             // 
             // grpTopNotes
             // 
@@ -757,11 +760,49 @@
             this.btnReturnToResults.Visible = false;
             this.btnReturnToResults.Click += new System.EventHandler(this.btnReturnToResults_Click);
             // 
+            // YearSelectorLabel
+            // 
+            this.YearSelectorLabel.AutoSize = true;
+            this.YearSelectorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.YearSelectorLabel.Location = new System.Drawing.Point(1058, 28);
+            this.YearSelectorLabel.Name = "YearSelectorLabel";
+            this.YearSelectorLabel.Size = new System.Drawing.Size(32, 13);
+            this.YearSelectorLabel.TabIndex = 105;
+            this.YearSelectorLabel.Text = "Year:";
+            // 
+            // cboYear
+            // 
+            this.cboYear.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboYear.FormattingEnabled = true;
+            this.cboYear.Items.AddRange(new object[] {
+            "Max",
+            "2012",
+            "2013",
+            "2014"});
+            this.cboYear.Location = new System.Drawing.Point(1096, 25);
+            this.cboYear.Name = "cboYear";
+            this.cboYear.Size = new System.Drawing.Size(77, 21);
+            this.cboYear.TabIndex = 104;
+            // 
+            // Refresh
+            // 
+            this.Refresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Refresh.Location = new System.Drawing.Point(1179, 23);
+            this.Refresh.Name = "Refresh";
+            this.Refresh.Size = new System.Drawing.Size(75, 23);
+            this.Refresh.TabIndex = 73;
+            this.Refresh.Text = "Refresh";
+            this.Refresh.UseVisualStyleBackColor = true;
+            this.Refresh.Click += new System.EventHandler(this.Refresh_Click);
+            // 
             // PlaceInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1276, 693);
+            this.Controls.Add(this.Refresh);
+            this.Controls.Add(this.YearSelectorLabel);
+            this.Controls.Add(this.cboYear);
             this.Controls.Add(this.btnReturnToResults);
             this.Controls.Add(this.lblGenderRatio);
             this.Controls.Add(this.lblMedianAge);
@@ -887,5 +928,8 @@
         private System.Windows.Forms.Label lblGenderRatio;
         private System.Windows.Forms.Panel notePanel;
         private System.Windows.Forms.Button btnReturnToResults;
+        private System.Windows.Forms.Label YearSelectorLabel;
+        private System.Windows.Forms.ComboBox cboYear;
+        private System.Windows.Forms.Button Refresh;
     }
 }

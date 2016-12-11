@@ -57,6 +57,9 @@
             this.cboIndustry3 = new System.Windows.Forms.ComboBox();
             this.cboIndustry2 = new System.Windows.Forms.ComboBox();
             this.cboIndustry1 = new System.Windows.Forms.ComboBox();
+            this.YearSelectorLabel = new System.Windows.Forms.Label();
+            this.cboYear = new System.Windows.Forms.ComboBox();
+            this.DeleteSavedPlaces = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblEditProfile
@@ -165,11 +168,11 @@
             // 
             this.lblFindPlaceTitle.AutoSize = true;
             this.lblFindPlaceTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFindPlaceTitle.Location = new System.Drawing.Point(393, 95);
+            this.lblFindPlaceTitle.Location = new System.Drawing.Point(312, 95);
             this.lblFindPlaceTitle.Name = "lblFindPlaceTitle";
-            this.lblFindPlaceTitle.Size = new System.Drawing.Size(208, 13);
+            this.lblFindPlaceTitle.Size = new System.Drawing.Size(284, 13);
             this.lblFindPlaceTitle.TabIndex = 47;
-            this.lblFindPlaceTitle.Text = "Find a place based on another city:";
+            this.lblFindPlaceTitle.Text = "Find a place based on one of your saved places:";
             // 
             // cboCompareCity
             // 
@@ -463,11 +466,48 @@
             this.cboIndustry1.TabIndex = 82;
             this.cboIndustry1.Visible = false;
             // 
+            // YearSelectorLabel
+            // 
+            this.YearSelectorLabel.AutoSize = true;
+            this.YearSelectorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.YearSelectorLabel.Location = new System.Drawing.Point(945, 95);
+            this.YearSelectorLabel.Name = "YearSelectorLabel";
+            this.YearSelectorLabel.Size = new System.Drawing.Size(32, 13);
+            this.YearSelectorLabel.TabIndex = 88;
+            this.YearSelectorLabel.Text = "Year:";
+            // 
+            // cboYear
+            // 
+            this.cboYear.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboYear.FormattingEnabled = true;
+            this.cboYear.Items.AddRange(new object[] {
+            "Average",
+            "2012",
+            "2013",
+            "2014"});
+            this.cboYear.Location = new System.Drawing.Point(983, 92);
+            this.cboYear.Name = "cboYear";
+            this.cboYear.Size = new System.Drawing.Size(77, 21);
+            this.cboYear.TabIndex = 87;
+            // 
+            // DeleteSavedPlaces
+            // 
+            this.DeleteSavedPlaces.Location = new System.Drawing.Point(602, 388);
+            this.DeleteSavedPlaces.Name = "DeleteSavedPlaces";
+            this.DeleteSavedPlaces.Size = new System.Drawing.Size(75, 51);
+            this.DeleteSavedPlaces.TabIndex = 89;
+            this.DeleteSavedPlaces.Text = "Delete Saved Places";
+            this.DeleteSavedPlaces.UseVisualStyleBackColor = true;
+            this.DeleteSavedPlaces.Click += new System.EventHandler(this.DeleteSavedPlaces_Click);
+            // 
             // FindPlaceCity
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1276, 693);
+            this.Controls.Add(this.DeleteSavedPlaces);
+            this.Controls.Add(this.YearSelectorLabel);
+            this.Controls.Add(this.cboYear);
             this.Controls.Add(this.cboIndustry5);
             this.Controls.Add(this.cboIndustry4);
             this.Controls.Add(this.cboIndustry3);
@@ -537,5 +577,8 @@
         private System.Windows.Forms.ComboBox cboIndustry2;
         private System.Windows.Forms.ComboBox cboIndustry1;
         public System.Windows.Forms.ComboBox cboCompareCity;
+        private System.Windows.Forms.Label YearSelectorLabel;
+        private System.Windows.Forms.ComboBox cboYear;
+        private System.Windows.Forms.Button DeleteSavedPlaces;
     }
 }
