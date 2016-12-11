@@ -14,20 +14,29 @@ namespace CS564ProjectV1
 {
     public partial class PlaceInfo : Form
     {
-        public double povertyRate = 0.0;
-        public double laborRate = 0.0;
+        //shared variables that are referenced in multiple methods
         public string year;
+        private double povertyRate;
+        private double laborRate;
+        private int placeId = 0;
+
+        
+        // loading the PlaceInfo page
         public PlaceInfo(string year = "Max")
         {
             InitializeComponent();
+            lblWelcomeUser.Text = "Welcome " + Main.name + " !";
+            
+            //declare some local variables
             this.year = year;
             cboYear.SelectedItem = year;
 
-            int placeId = Main.placeId;
-            
-            lblWelcomeUser.Text = "Welcome " + Main.name + " !";
+            //toggle to between Main.placeID and 16944000 (contains no data) for testing purposes 
+            placeId = Main.placeId;
+            //placeId = 16944000;
 
-            drawForm(placeId);
+            //load the rest of the place data
+            drawForm();
 
             //Return to search results button is available if we have a recent search query
             string sql = Main.sql;
@@ -42,43 +51,47 @@ namespace CS564ProjectV1
                 btnReturnToResults.Visible = false;
                 btnReturnToResults.Enabled = false;
             }
-            
         }
-
-        private void drawForm(int placeId)
+        private void drawForm()
         {
-            getPlaceName(placeId);
-            getStateData(placeId);
-            getCurrentPopulation(placeId);
-            getPopulationChange(placeId);
-            getEconomicData(placeId);
-            getPovertyChange(placeId);
-            getAvgIncomeChange(placeId);
-            getLaborChange(placeId);
-            getTopIndustries(placeId);
-            getMedianAge(placeId);
-            getGenderRatio(placeId);
-            getPlaceNotes(placeId);
-            getUserNote(placeId);
+            getPlaceName();
+            getStateData();
+            getCurrentPopulation();
+            getPopulationChange();
+            getEconomicData();
+            getAvgIncomeChange();
+            getTopIndustries();
+            getMedianAge();
+            getGenderRatio();
+            getPlaceNotes();
+            getUserNote();
         }
-
-        private void getPlaceName(int placeId)
+        private void getPlaceName()
         {
             //get the place name -- inherited from the search results
+            string placeName = "";
+
             SqlCommand cmdGetPlaceName = new SqlCommand("GetPlaceName", Main.connection);
             cmdGetPlaceName.CommandType = CommandType.StoredProcedure;
             cmdGetPlaceName.Parameters.AddWithValue("@placeId", placeId);
-            string placeName = (string)cmdGetPlaceName.ExecuteScalar();
+            try
+            {
+                placeName = (string)cmdGetPlaceName.ExecuteScalar();
+            }
+            catch
+            {
+                placeName = "N/A";
+            }
             lblPlaceName.Text = placeName;
             cmdGetPlaceName.Dispose();
         }
-        
-        private void getStateData(int placeId)
+        private void getStateData()
         {
             //get the place's state data
             SqlCommand cmdStateInfo = new SqlCommand("GetStateInfo", Main.connection);
             cmdStateInfo.CommandType = CommandType.StoredProcedure;
             cmdStateInfo.Parameters.AddWithValue("@placeId", placeId);
+
             if (!year.Equals("Max"))
             {
                 cmdStateInfo.Parameters.AddWithValue("@year", year);
@@ -87,36 +100,48 @@ namespace CS564ProjectV1
             //read the query result
             SqlDataReader reader = cmdStateInfo.ExecuteReader();
 
-            //get index of query result
-            var indexOfName = reader.GetOrdinal("name");
-            var indexOfAvgIncome = reader.GetOrdinal("avgIncome");
-            var indexOfAvgEdu = reader.GetOrdinal("avgEdu");
-            var indexOfAvgNatRec = reader.GetOrdinal("avgNatRec");
-            var indexOfAvgWelfare = reader.GetOrdinal("avgWelfare");
-            var indexOfAvgPop = reader.GetOrdinal("avgPop");
-
-            while (reader.Read())
+            if (reader.HasRows)
             {
-                string stateName = (string)reader.GetValue(indexOfName);
-                double avgIncome = (double)reader.GetValue(indexOfAvgIncome);
-                double avgEdu = (double)reader.GetValue(indexOfAvgEdu);
-                double avgNatRec = (double)reader.GetValue(indexOfAvgNatRec);
-                double avgWelfare = (double)reader.GetValue(indexOfAvgWelfare);
-                long avgPop = (long)reader.GetValue(indexOfAvgPop);
+                //get index of query result
+                var indexOfName = reader.GetOrdinal("name");
+                var indexOfAvgIncome = reader.GetOrdinal("avgIncome");
+                var indexOfAvgEdu = reader.GetOrdinal("avgEdu");
+                var indexOfAvgNatRec = reader.GetOrdinal("avgNatRec");
+                var indexOfAvgWelfare = reader.GetOrdinal("avgWelfare");
+                var indexOfAvgPop = reader.GetOrdinal("avgPop");
 
-                grpStateInfo.Text = stateName + " Info: ";
-                lblAvgIncome.Text = avgIncome.ToString("C0");
-                lblAvgEdu.Text = avgEdu.ToString("C0");
-                lblAvgNatRec.Text = avgNatRec.ToString("C0");
-                lblAvgWelfare.Text = avgWelfare.ToString("C0");
-                lblAvgPop.Text = String.Format("{0:#,##0}", avgPop);
+                while (reader.Read())
+                {
+                    string stateName = (string)reader.GetValue(indexOfName);
+                    double avgIncome = (double)reader.GetValue(indexOfAvgIncome);
+                    double avgEdu = (double)reader.GetValue(indexOfAvgEdu);
+                    double avgNatRec = (double)reader.GetValue(indexOfAvgNatRec);
+                    double avgWelfare = (double)reader.GetValue(indexOfAvgWelfare);
+                    long avgPop = (long)reader.GetValue(indexOfAvgPop);
+
+                    grpStateInfo.Text = stateName + " Info: ";
+                    lblAvgIncome.Text = avgIncome.ToString("C0");
+                    lblAvgEdu.Text = avgEdu.ToString("C0");
+                    lblAvgNatRec.Text = avgNatRec.ToString("C0");
+                    lblAvgWelfare.Text = avgWelfare.ToString("C0");
+                    lblAvgPop.Text = String.Format("{0:#,##0}", avgPop);
+                }
+            }
+            else
+            {
+                grpStateInfo.Text = "N/A";
+                lblAvgIncome.Text = "N/A";
+                lblAvgEdu.Text = "N/A";
+                lblAvgNatRec.Text = "N/A";
+                lblAvgWelfare.Text = "N/A";
+                lblAvgPop.Text = "N/A";
             }
 
             reader.Close();
         }
-
-        private void getCurrentPopulation(int placeId)
+        private void getCurrentPopulation()
         {
+            string placePopulation = "";
             // Get the place current popluation
             SqlCommand cmdGetPopulation = new SqlCommand("GetPlacePopulation", Main.connection);
             cmdGetPopulation.CommandType = CommandType.StoredProcedure;
@@ -126,36 +151,55 @@ namespace CS564ProjectV1
                 cmdGetPopulation.Parameters.AddWithValue("@year", year);
                 
             }
-            string placePopulation = String.Format("{0:#,##0}", (long)cmdGetPopulation.ExecuteScalar());
+            try
+            {
+                placePopulation = String.Format("{0:#,##0}", (long)cmdGetPopulation.ExecuteScalar());
+            }
+            catch
+            {
+                placePopulation = "N/A";
+            }
+
             lblCurPop.Text = placePopulation;
             cmdGetPopulation.Dispose();
         }
-        private void getPopulationChange(int placeId)
+        private void getPopulationChange()
         {
+            double popChange = 0.0;
+            string popChangeString = "";
+
             // Get the place population change and show arrow    
             SqlCommand cmdGetPopChange = new SqlCommand("GetPopChange", Main.connection);
             cmdGetPopChange.CommandType = CommandType.StoredProcedure;
             cmdGetPopChange.Parameters.AddWithValue("@placeId", placeId);
-            double popChange = (double)cmdGetPopChange.ExecuteScalar();
-            string popChangeString = popChange.ToString("P2");
-            if (popChange < 0)
+            try
             {
-                picPopChangeDown.Visible = true;
-                popChangeString = popChangeString + " per year";
+                popChange = (double)cmdGetPopChange.ExecuteScalar();
+                popChangeString = popChange.ToString("P2");
+                if (popChange < 0)
+                {
+                    picPopChangeDown.Visible = true;
+                    popChangeString = popChangeString + " per year";
+                }
+                else if (popChange > .01)
+                {
+                    picPopChangeUp.Visible = true;
+                    popChangeString = "+ " + popChangeString + " per year";
+                }
+                else
+                {
+                    picPopChangeSame.Visible = true;
+                    popChangeString = "+ " + popChangeString + " per year";
+                }
             }
-            else if (popChange > .01)
+            catch
             {
-                picPopChangeUp.Visible = true;
-                popChangeString = "+ " + popChangeString + " per year";
+                popChangeString = "N/A";
             }
-            else
-            {
-                picPopChangeSame.Visible = true;
-                popChangeString = "+ " + popChangeString + " per year";
-            }
+            
             lblPopChangeInfo.Text = popChangeString;
         } 
-        private void getEconomicData(int placeId)
+        private void getEconomicData()
         {
             //get the place's economic data
             SqlCommand cmdGetEconomicData= new SqlCommand("GetEconomicData", Main.connection);
@@ -169,36 +213,65 @@ namespace CS564ProjectV1
             //read the query result
             SqlDataReader reader = cmdGetEconomicData.ExecuteReader();
 
-            //get index of query result
-            var indexOfPoverty = reader.GetOrdinal("povertyLevel");
-            var indexOfLabor = reader.GetOrdinal("laborParticipation");
-            var indexOfIncome = reader.GetOrdinal("averageIncome");
-
-            while (reader.Read())
+            if (reader.HasRows)
             {
-                double povertyLevel = (double)reader.GetDouble(indexOfPoverty);
-                povertyRate = povertyLevel;
-                double laborParticipation = (double)reader.GetDouble(indexOfLabor);
-                laborRate = laborParticipation;
-                double avgIncome = (double  )reader.GetValue(indexOfIncome);
+                //get index of query result
+                var indexOfPoverty = reader.GetOrdinal("povertyLevel");
+                var indexOfLabor = reader.GetOrdinal("laborParticipation");
+                var indexOfIncome = reader.GetOrdinal("averageIncome");
 
-                lblPovertyRate.Text = povertyLevel.ToString("P2");
-                lblCurLabor.Text = laborParticipation.ToString("P2");
-                lblCurAvgIncome.Text = avgIncome.ToString("C0");
+                while (reader.Read())
+                {
+                    povertyRate = reader.GetDouble(indexOfPoverty);
+                    laborRate = reader.GetDouble(indexOfLabor);
+                    double avgIncome = (double)reader.GetValue(indexOfIncome);
+                    lblPovertyRate.Text = povertyRate.ToString("P2");
+                    lblCurLabor.Text = laborRate.ToString("P2");
+                    lblCurAvgIncome.Text = avgIncome.ToString("C0");
+                }
+
+                reader.Close();
+                // get the rates of change
+                try
+                {
+                    getPovertyChange(povertyRate);
+                }
+                catch
+                {
+                    lblPovertyChangeInfo.Text = "N/A";
+                }
+                try
+                {
+                    getLaborChange(laborRate);
+                }
+                catch
+                {
+                    lblLaborChangeInfo.Text = "N/A";
+                }
+
             }
-
-            reader.Close();
+            else
+            {
+                reader.Close();
+                lblPovertyRate.Text = "N/A";
+                lblCurLabor.Text = "N/A";
+                lblCurAvgIncome.Text = "N/A";
+                lblPovertyChangeInfo.Text = "N/A";
+                lblLaborChangeInfo.Text = "N/A";
+            }
+            
         }
-        private void getPovertyChange(int placeId)
+        private void getPovertyChange(double povertyRate)
         {
+            string povertyChangeString = "";
             // Get the place population change and show arrow    
             SqlCommand cmdGetPovertyChange = new SqlCommand("GetPovertyChange", Main.connection);
             cmdGetPovertyChange.CommandType = CommandType.StoredProcedure;
             cmdGetPovertyChange.Parameters.AddWithValue("@placeId", placeId);
+            
             double povertyChange = (double)cmdGetPovertyChange.ExecuteScalar();
             povertyChange = povertyRate * povertyChange;
-
-            string povertyChangeString = povertyChange.ToString("P2");
+            povertyChangeString = povertyChange.ToString("P2");
             if (povertyChange < 0)
             {
                 picPovertyDown.Visible = true;
@@ -214,17 +287,21 @@ namespace CS564ProjectV1
                 picPovertySame.Visible = true;
                 povertyChangeString = "+ " + povertyChangeString + " per year";
             }
+           
             lblPovertyChangeInfo.Text = povertyChangeString;
         }
-        private void getLaborChange(int placeId)
+        private void getLaborChange(double laborRate)
         {
+            string laborChangeString = "";
+
             // Get the place labor change and show arrow    
             SqlCommand cmdLaborChange = new SqlCommand("GetLaborParticipationChange", Main.connection);
             cmdLaborChange.CommandType = CommandType.StoredProcedure;
             cmdLaborChange.Parameters.AddWithValue("@placeId", placeId);
+            
             double laborChange = (double)cmdLaborChange.ExecuteScalar();
             laborChange = laborRate * laborChange;
-            string laborChangeString = laborChange.ToString("P2");
+            laborChangeString = laborChange.ToString("P2");
             if (laborChange < 0)
             {
                 picLaborDown.Visible = true;
@@ -240,34 +317,45 @@ namespace CS564ProjectV1
                 picLaborSame.Visible = true;
                 laborChangeString = "+ " + laborChangeString + " per year";
             }
+
             lblLaborChangeInfo.Text = laborChangeString;
+
         }
-        private void getAvgIncomeChange(int placeId)
+        private void getAvgIncomeChange()
         {
+            string incomeChangeString = "";
             // Get the place average income change and show arrow    
             SqlCommand cmdGetIncomeChange = new SqlCommand("GetAvgIncomeChange", Main.connection);
             cmdGetIncomeChange.CommandType = CommandType.StoredProcedure;
             cmdGetIncomeChange.Parameters.AddWithValue("@placeId", placeId);
-            double incomeChange = (double)cmdGetIncomeChange.ExecuteScalar();
-            string incomeChangeString = incomeChange.ToString("P2");
-            if (incomeChange < 0)
+            try
             {
-                picIncomeDown.Visible = true;
-                incomeChangeString = incomeChangeString + " per year";
+                double incomeChange = (double)cmdGetIncomeChange.ExecuteScalar();
+                incomeChangeString = incomeChange.ToString("P2");
+                if (incomeChange < 0)
+                {
+                    picIncomeDown.Visible = true;
+                    incomeChangeString = incomeChangeString + " per year";
+                }
+                else if (incomeChange > .01)
+                {
+                    picIncomeUp.Visible = true;
+                    incomeChangeString = "+ " + incomeChangeString + " per year";
+                }
+                else
+                {
+                    picIncomeSame.Visible = true;
+                    incomeChangeString = "+ " + incomeChangeString + " per year";
+                }
             }
-            else if (incomeChange > .01)
+            catch
             {
-                picIncomeUp.Visible = true;
-                incomeChangeString = "+ " + incomeChangeString + " per year";
+                incomeChangeString = "N/A";
             }
-            else
-            {
-                picIncomeSame.Visible = true;
-                incomeChangeString = "+ " + incomeChangeString + " per year";
-            }
+
             lblIncomeChangeInfo.Text = incomeChangeString;
         }
-        private void getTopIndustries(int placeId)
+        private void getTopIndustries()
         {
             //get the place's top 3 industries
             SqlCommand cmdGetIndustry = new SqlCommand("GetTopIndustries", Main.connection);
@@ -277,32 +365,41 @@ namespace CS564ProjectV1
             //read the query result
             SqlDataReader reader = cmdGetIndustry.ExecuteReader();
 
-            //get index of query result
-            var indexOfType= reader.GetOrdinal("type");
-
-            int cnt = 0;
-
-            while (reader.Read())
+            if (reader.HasRows)
             {
-                cnt++;
-                string type = (string)reader.GetString(indexOfType);
-                switch (cnt)
+                //get index of query result
+                var indexOfType = reader.GetOrdinal("type");
+
+                int cnt = 0;
+
+                while (reader.Read())
                 {
-                    case 1:
-                        txtIndustry1.Text = type;
-                        break;
-                    case 2:
-                        txtIndustry2.Text = type;
-                        break;
-                    case 3:
-                        txtIndustry3.Text = type;
-                        break;
+                    cnt++;
+                    string type = (string)reader.GetString(indexOfType);
+                    switch (cnt)
+                    {
+                        case 1:
+                            txtIndustry1.Text = type;
+                            break;
+                        case 2:
+                            txtIndustry2.Text = type;
+                            break;
+                        case 3:
+                            txtIndustry3.Text = type;
+                            break;
+                    }
                 }
+            }
+            else
+            {
+                txtIndustry1.Text = "N/A";
+                txtIndustry2.Text = "N/A";
+                txtIndustry3.Text = "N/A";
             }
 
             reader.Close();
         }
-        private void getMedianAge(int placeId)
+        private void getMedianAge()
         {
             // Get the place median age of popluation
             SqlCommand cmd= new SqlCommand("GetMedianAge", Main.connection);
@@ -312,11 +409,18 @@ namespace CS564ProjectV1
             {
                 cmd.Parameters.AddWithValue("@year", year);
             }
-            double medianAge = (double)cmd.ExecuteScalar();
-            lblMedianAge.Text = medianAge.ToString();
+            try
+            {
+                double medianAge = (double)cmd.ExecuteScalar();
+                lblMedianAge.Text = medianAge.ToString();
+            }
+            catch
+            {
+                lblMedianAge.Text = "N/A";
+            }
             cmd.Dispose();
         }
-        private void getGenderRatio(int placeId)
+        private void getGenderRatio()
         {
             // Get the place gender ratio of popluation
             SqlCommand cmd = new SqlCommand("GetGenderRatio", Main.connection);
@@ -326,11 +430,19 @@ namespace CS564ProjectV1
             {
                 cmd.Parameters.AddWithValue("@year", year);
             }
-            double ratio = (double)cmd.ExecuteScalar();
-            lblGenderRatio.Text = ratio.ToString()+":1";
+            try
+            {
+                double ratio = (double)cmd.ExecuteScalar();
+                lblGenderRatio.Text = ratio.ToString() + ":1";
+            }
+            catch
+            {
+                lblGenderRatio.Text = "N/A";
+            }
+            
             cmd.Dispose();
         }
-        private void getPlaceNotes(int placeId)
+        private void getPlaceNotes()
         {
             notePanel.Controls.Clear();
             int pointX = 0;
@@ -372,7 +484,7 @@ namespace CS564ProjectV1
             reader.Close();
             cmd.Dispose();
         }
-        private void getUserNote(int placeId)
+        private void getUserNote()
         {
             SqlCommand userNote = new SqlCommand("userPlaceNote", Main.connection);
             userNote.CommandType = CommandType.StoredProcedure;
@@ -415,7 +527,7 @@ namespace CS564ProjectV1
             deleteCmd.ExecuteNonQuery();
             lblDeleteNote.Visible = false;
             noteTextBox.Clear();
-            drawForm(Main.placeId);
+            drawForm();
             this.Refresh();
         }
 
@@ -441,7 +553,7 @@ namespace CS564ProjectV1
                 saveCmd.Parameters.AddWithValue("@content", noteTextBox.Text);
                 saveCmd.ExecuteNonQuery();
             }
-            drawForm(Main.placeId);
+            drawForm();
             this.Refresh();
         }
 
