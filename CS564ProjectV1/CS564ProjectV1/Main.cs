@@ -17,6 +17,8 @@ namespace CS564ProjectV1
         public static string name;
         public static string sql;
         public static int placeId = 5548000;        //default to Madison
+        //toggle between local DB connection and Epic hosted DB connection
+        //static string dbConnectionString = @"Server=Leap;Database=Locations;Integrated Security=true";
         static string dbConnectionString = @"Server=localhost;" + @"Database=Location;";
         public static SqlConnection connection = new SqlConnection(dbConnectionString);
         public Main()
